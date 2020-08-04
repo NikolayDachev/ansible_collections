@@ -47,30 +47,30 @@ options:
     description:
       - Main path for all other arguments.
         If other arguments are not set, api will return all items in selected path.
-        Example "ip address". Eqvivalent of RouterOS cli "/ip address print".
+        Example C(ip address). Eqvivalent of RouterOS CLI C(/ip address print).
     required: true
     type: str
   add:
     description:
       - Will add selected arguments in selected path to RouterOS config.
-        Example "address=1.1.1.1/32 interface=ether1".
-        Equivalent in RouterOS cli "/ip address add address=1.1.1.1/32 interface=ether1".
+        Example C(address=1.1.1.1/32 interface=ether1).
+        Equivalent in RouterOS CLI C(/ip address add address=1.1.1.1/32 interface=ether1).
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'.
-         Example "*03" will remove config/value with "id=*03" in selected path.
-          Equivalent in RouterOS cli "/ip address remove numbers=1".
-          Note "number" in RouterOS cli is different from ".id".
+         Example C(*03) will remove config/value with C(id=*03) in selected path.
+          Equivalent in RouterOS CLI C(/ip address remove numbers=1).
+          Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   update:
     description:
-      - Update config/value in RouterOS by ".id" in selected path.
-         Example ".id=*03 address=1.1.1.3/32" and path "ip address"
-         will replace existing ip address with ".id=*03".
-         Equivalent in RouterOS cli
-         "/ip address set address=1.1.1.3/32 numbers=1".
-         Note number in RouterOS cli is different from ".id".
+      - Update config/value in RouterOS by '.id' in selected path.
+         Example C(.id=*03 address=1.1.1.3/32) and path C(ip address)
+         will replace existing ip address with C(.id=*03).
+         Equivalent in RouterOS CLI
+         C(/ip address set address=1.1.1.3/32 numbers=1).
+         Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   query:
     description:
@@ -78,25 +78,25 @@ options:
          RouterOS aip and return '.id'.
           WHERE is key word which extend query. WHERE format is
          key operator value - with spaces.
-          WHERE valid operators are "==", "!=", ">", "<".
-          Example path "ip address" and query ".id address" will return
-         only ".id" and "address" for all items in "ip address" path.
-          Example path "ip address" and
-          query ".id address WHERE address == 1.1.1.3/32"
-         will return only ".id" and "address" for items in "ip address"
+          WHERE valid operators are C(==), C(!=), C(>), C(<).
+          Example path C(ip address) and query C(.id address) will return
+         only C(.id) and (address) for all items in C(ip address) path.
+          Example path C(ip address) and
+          query C(.id address WHERE address == 1.1.1.3/32)
+         will return only C(.id) and C(address) for items in C(ip address)
           path, where address is eq to 1.1.1.3/32.
-          Example path "interface" and query "mtu name WHERE mut > 1400" will
-         return only interfaces "mtu,name" where mtu is bigger than 1400.
-          Equivalent in RouterOS cli "/interface print where mtu > 1400".
+          Example path C(interface) and query C(mtu name WHERE mut > 1400) will
+         return only interfaces C(mtu,name) where mtu is bigger than 1400.
+          Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
     type: str
   cmd:
     description:
       - Execute any/arbitrary command in selected path,
-         after the command we can add ".id".
-         Example path "system script" and cmd "run .id=*03"
-         is equivalent in RouterOS cli "/system script run number=0",
-          example path "ip address" and cmd "print"
-         equivalent in RouterOS cli "/ip address print".
+         after the command we can add C(.id).
+         Example path C(system script) and cmd C(run .id=*03)
+         is equivalent in RouterOS CLI C(/system script run number=0),
+          example path C(ip address) and cmd C(print)
+         equivalent in RouterOS CLI C(/ip address print).
     type: str
 '''
 
@@ -117,13 +117,6 @@ EXAMPLES = '''
     ip2: "2.2.2.2/32"
     ip3: "3.3.3.3/32"
 
-    addips:
-      - "address={{ ip1 }} interface={{ nic }}"
-      - "address={{ ip2 }} interface={{ nic }}"
-
-    rmips:
-      - "{{ ip2 }}"
-      - "{{ ip3 }}"
   tasks:
     - name: Get "{{ path }} print"
       community.network.routeros_api:
@@ -137,14 +130,16 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
-    - name: Add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+    - name: Add ip address "{{ ip1 }}" and "{{ ip2 }}"
       community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
         add: "{{ item }}"
-      loop: "{{ addips }}"
+      loop:
+        - "address={{ ip1 }} interface={{ nic }}"
+        - "address={{ ip2 }} interface={{ nic }}"
       register: addout
 
     - name: Result routeros '.id' for new added items
@@ -180,7 +175,7 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: Remove ips -  stage 1 - query for '.id' {{ rmips }}
+    - name: Remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -188,7 +183,9 @@ EXAMPLES = '''
         path: "{{ path }}"
         query: ".id address WHERE address == {{ item }}"
       register: id_to_remove
-      loop: "{{ rmips }}"
+      loop:
+        - "{{ ip2 }}"
+        - "{{ ip3 }}"
 
     # set fact for '.id' from 'query for {{ path }}'
     - ansible.builtin.set_fact:
@@ -200,7 +197,7 @@ EXAMPLES = '''
         msg: '{{ to_be_remove }}'
 
     # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: Remove ips -  stage 2 - remove {{ rmips }} by '.id'
+    - name: Remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -467,17 +464,17 @@ class ROS_api_module:
 def main():
     # define available arguments/parameters a user can pass to the module
     ros = ROS_api_module(dict(
-        username=dict(type='str', required=True, no_log=False),
+        username=dict(type='str', required=True),
         password=dict(type='str', required=True, no_log=True),
-        hostname=dict(type='str', required=True, no_log=False),
-        port=dict(type='int', required=False, no_log=False),
-        ssl=dict(type='bool', required=False, default=False, no_log=False),
-        path=dict(type='str', required=True, no_log=False),
-        add=dict(type='str', required=False, no_log=False),
-        remove=dict(type='str', required=False, no_log=False),
-        update=dict(type='str', required=False, no_log=False),
-        cmd=dict(type='str', required=False, no_log=False),
-        query=dict(type='str', required=False, no_log=False)))
+        hostname=dict(type='str', required=True),
+        port=dict(type='int'),
+        ssl=dict(type='bool', default=False),
+        path=dict(type='str', required=True),
+        add=dict(type='str'),
+        remove=dict(type='str'),
+        update=dict(type='str'),
+        cmd=dict(type='str'),
+        query=dict(type='str')))
 
 
 if __name__ == '__main__':
