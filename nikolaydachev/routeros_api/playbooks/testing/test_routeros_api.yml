@@ -1,0 +1,7 @@
+- name: test role for routeros_api 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: routeros_api

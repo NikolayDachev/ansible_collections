@@ -1,0 +1,18 @@
+---
+# tasks file for routeros_api
+- name: query for '.id' in "{{ ros_t_path }} WHERE address == {{ ros_t_ip2 }}"
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_t_path }}"
+    query: ".id address WHERE address == {{ ros_t_ip2 }}"
+  register: queryout
+  delegate_to: localhost
+
+- name: result - query result and set fact with '.id' for {{ ros_t_ip2 }}
+  debug:
+    msg: '{{ queryout }}'
+
+- set_fact:
+    query_id : "{{ queryout['msg'][0]['.id'] }}"

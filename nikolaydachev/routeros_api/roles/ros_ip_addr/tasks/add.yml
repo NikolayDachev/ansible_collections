@@ -1,0 +1,23 @@
+---
+- name: add ip address
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "ip address"
+    add:
+      broadcast={{ ip_addr_broadcast }}
+      comment={{ ip_addr_comment }}
+      copy-from={{ ip_addr_copy_from }}
+      disabled={{ ip_addr_disabled }}
+      netmask={{ ip_addr_netmask }}
+      network={{ ip_addr_network }}
+      address={{ ip_addr_address }}
+      interface={{ ip_addr_interface }}
+  register: ipaddrout
+  delegate_to: localhost
+
+- name: result ip address config
+  debug:
+    msg: '{{ ipaddrout }}'
+

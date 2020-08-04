@@ -1,0 +1,14 @@
+- name: ros dhcp server 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+#  - role: ros_ip_pool
+  - role: ros_dhcp_server
+    dhcp_server_config:
+      - add_network
+      - add_server
+#      - add_lease
+#      - add_options
+#      - add_vci

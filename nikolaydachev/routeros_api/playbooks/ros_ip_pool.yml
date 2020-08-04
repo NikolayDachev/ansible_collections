@@ -1,0 +1,7 @@
+- name: ros ip pool 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: ros_ip_pool

@@ -1,0 +1,8 @@
+---
+# tasks file for routeros_api
+- import_tasks: cmd.yml
+- import_tasks: get.yml
+- import_tasks: add.yml
+- import_tasks: query.yml
+- import_tasks: update.yml
+- import_tasks: remove.yml

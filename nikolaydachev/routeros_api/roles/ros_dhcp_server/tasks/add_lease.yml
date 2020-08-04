@@ -1,0 +1,31 @@
+---
+- name: configure dhcp server lease
+  routeros_api:
+    ros_hostname: ""
+    ros_username: "admin"
+    ros_password: ""
+    path: "{{ dhcp_lease_path }}"
+    add:
+      address={{ dhcp_lease_address }}
+      allow-dual-stack-queue={{ dhcp_lease_allow_dual_stack_queue }}
+      block-access={{ dhcp_lease_block_access }}
+      comment={{ dhcp_lease_comment }}
+      dhcp-option={{ dhcp_lease_dhcp_option }}
+      disabled={{ dhcp_lease_disabled }}
+      lease-time={{ dhcp_lease_lease_time }}
+      rate-limit={{ dhcp_lease_rate_limit }}
+      use-src-mac={{ dhcp_lease_use_src_mac }}
+      address-lists={{ dhcp_lease_address_lists }}
+      always-broadcast={{ dhcp_lease_always_broadcast }}
+      client-id={{ dhcp_lease_client_id }}
+      dhcp-option-set={{ dhcp_lease_dhcp_option_set }}
+      insert-queue-before={{ dhcp_lease_insert_queue_before }}
+      mac-address={{ dhcp_lease_mac_address }}
+      server={{ dhcp_lease_server }}
+  
+  register: dhcpleaseout
+  delegate_to: localhost
+
+- name: result configure dhcp server lease
+  debug:
+    msg: "{{ dhcpleaseout }}"

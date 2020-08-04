@@ -1,0 +1,21 @@
+---
+# tasks file for ros_ip_pool
+- name: configure ip pool
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ip_pool_path }}"
+    add:
+      comment={{ ip_pool_comment }}
+      name={{ ip_pool_name }}
+      next-pool={{ ip_pool_next_pool }}
+      ranges={{ ip_pool_ranges }}
+      copy-form={{ ip_pool_copy_from }}
+
+  register: ippoolout
+  delegate_to: localhost
+
+- name: result ip pool config
+  debug:
+    msg: '{{ ippoolout }}'

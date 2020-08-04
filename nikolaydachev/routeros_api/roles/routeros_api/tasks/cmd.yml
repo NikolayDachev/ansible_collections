@@ -1,0 +1,15 @@
+---
+# tasks file for routeros_api
+- name: arbitrary command example "/system identity print"
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "system identity"
+    cmd: "print"
+  register: cmdout
+  delegate_to: localhost
+
+- name: dump "/system identity print" output
+  debug:
+    msg: "{{ cmdout }}"

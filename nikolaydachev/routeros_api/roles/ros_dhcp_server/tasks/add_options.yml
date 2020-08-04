@@ -1,0 +1,23 @@
+---
+- name: configure dhcp server options
+  routeros_api:
+    ros_hostname: ""
+    ros_username: "admin"
+    ros_password: ""
+    path: "{{ dhcp_options_path }}"
+    add:
+      value={{ dhcp_options_value }}
+      code={{ dhcp_options_code }}
+      name={{ dhcp_options_name }}
+
+  register: dhcpoptout
+  delegate_to: localhost
+
+- name: result configure dhcp server options
+  debug:
+    msg: "{{ dhcpoptout }}"
+
+
+
+
+

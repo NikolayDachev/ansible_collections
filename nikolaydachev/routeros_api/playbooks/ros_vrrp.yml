@@ -1,0 +1,10 @@
+- name: ros vrrp 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: ros_vrrp
+#  - role: ros_ip_addr
+#    ip_addr_interface: "{{ vrrp_name }}"
+#    ip_addr_address: "{{ vrrp_vip }}"

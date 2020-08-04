@@ -1,0 +1,38 @@
+---
+# tasks file for routeros_api
+- name: remove ips -  stage 1 - query for '.id' {{ ros_t_rmips }}
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_t_path }}"
+    query: ".id address WHERE address == {{ item }}"
+  register: id_to_remove
+  loop: "{{ ros_t_rmips }}"
+  delegate_to: localhost
+
+ # set fact for '.id' from 'query for {{ ros_t_path }}'
+- set_fact:
+    to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
+  loop: "{{ id_to_remove.results }}"
+
+- name: remove ips - stage 1 - dump '.id'
+  debug:
+    msg: '{{ to_be_remove }}'
+
+  # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
+- name: remove ips -  stage 2 - remove {{ ros_t_rmips }} by '.id'
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_t_path }}"
+    remove: "{{ item }}"
+  register: remove
+  loop: "{{ to_be_remove }}"
+  delegate_to: localhost
+
+- name: remove ips - stage 2 - dump result
+  debug:
+    msg: '{{ remove }}'
+

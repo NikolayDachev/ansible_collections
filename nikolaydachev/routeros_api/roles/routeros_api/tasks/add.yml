@@ -1,0 +1,16 @@
+---
+# tasks file for routeros_api
+- name: add - "ip address add {{ ros_t_addips[0] }}" "ip address add {{ ros_t_addips[1] }}"
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_t_path }}"
+    add: "{{ item }}"
+  loop: "{{ ros_t_addips }}"
+  register: addout
+  delegate_to: localhost
+
+- name: result - routeros '.id' for new added items
+  debug:
+    msg: '{{ addout }}'

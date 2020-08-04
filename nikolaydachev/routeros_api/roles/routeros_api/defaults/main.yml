@@ -1,0 +1,20 @@
+---
+  ros_hostname: ""
+  ros_username: "admin"
+  ros_password: ""
+
+  ros_t_path: "ip address"
+
+  ros_t_nic: "ether2"
+  ros_t_ip1: "1.1.1.1/32"
+  ros_t_ip2: "2.2.2.2/32"
+  ros_t_ip3: "3.3.3.3/32"
+
+  ros_t_addips:
+    - "address={{ ros_t_ip1 }} interface={{ ros_t_nic }}"
+    - "address={{ ros_t_ip2 }} interface={{ ros_t_nic }}"
+
+  ros_t_rmips:
+    - "{{ ros_t_ip2 }}"
+    - "{{ ros_t_ip3 }}"
+

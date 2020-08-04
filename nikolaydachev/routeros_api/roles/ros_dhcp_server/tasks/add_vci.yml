@@ -1,0 +1,20 @@
+---
+- name: configure dhcp server vendor class id
+  routeros_api:
+    ros_hostname: ""
+    ros_username: "admin"
+    ros_password: ""
+    path: "{{ dhcp_vci_path }}"
+    add:
+      disabled={{ dhcp_vci_disabled }}
+      vid={{ dhcp_vci_vid }}
+      address-pool={{ dhcp_vci_address_pool }}
+      name={{ dhcp_vci_name }}
+      server{{ dhcp_vci_server }}
+
+  register: dhcpvciout
+  delegate_to: localhost
+
+- name: result configure dhcp server vendor class id
+  debug:
+    msg: "{{ dhcpvciout }}"

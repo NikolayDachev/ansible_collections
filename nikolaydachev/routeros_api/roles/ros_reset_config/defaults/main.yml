@@ -1,0 +1,14 @@
+---
+# defaults file for ros_reset_config
+  ros_hostname: ""
+  ros_password: "admin"
+  ros_username: ""
+
+  reset_config_path: "system"
+
+  reset_config_caps_mode: ""
+  reset_config_keep_users: "yes"
+  reset_config_no_defaults: ""
+  reset_config_run_after_reset: ""
+  reset_config_skip_back: ""
+  reset_config_confirm: False

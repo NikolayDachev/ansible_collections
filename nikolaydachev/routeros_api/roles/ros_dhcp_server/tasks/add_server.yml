@@ -1,0 +1,38 @@
+---
+- name: configure dhcp server
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ dhcp_server_path }}"
+    add:
+      add-arp={{ dhcp_server_add_arp }}
+      allow-dual-stack-queue={{ dhcp_server_allow_dual_stack_queue }}
+      authoritative={{ dhcp_server_authoritative }}
+      bootp-support={{ dhcp_server_bootp_support }}
+      conflict-detection={{ dhcp_server_conflict_detection }}
+      delay-threshold={{ dhcp_server_delay_threshold }}
+      disabled={{ dhcp_server_disabled }}
+      lease-script={{ dhcp_server_lease_script }}
+      name={{ dhcp_server_name }}
+      relay={{ dhcp_server_relay }}
+      use-framed-as-classless={{ dhcp_server_use_framed_as_classless }}
+      interface={{ dhcp_server_interface }}
+      address-pool={{ dhcp_server_address_pool }}
+      always-broadcast={{ dhcp_server_always_broadcast }}
+      bootp-lease-time={{ dhcp_server_bootp_lease_time }}
+      client-mac-limit={{ dhcp_server_client_mac_limit }}
+      copy-from={{ dhcp_server_copy_from }}
+      dhcp-option-set={{ dhcp_server_dhcp_option_set }}
+      insert-queue-before={{ dhcp_server_insert_queue_before }}
+      lease-time={{ dhcp_server_lease_time }}
+      parent-queue={{ dhcp_server_parent_queue }}
+      src-address={{ dhcp_server_src_address }}
+      use-radius={{ dhcp_server_use_radius }}
+
+  register: dhcpserverout
+  delegate_to: localhost
+
+- name: result configure dhcp server
+  debug:
+    msg: "{{ dhcpserverout }}"

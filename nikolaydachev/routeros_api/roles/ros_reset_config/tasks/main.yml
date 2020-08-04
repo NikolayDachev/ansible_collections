@@ -1,0 +1,4 @@
+---
+# tasks file for ros_reset_config
+  - import_tasks: reset_cfg.yml
+    when: reset_config_confirm == "True" 

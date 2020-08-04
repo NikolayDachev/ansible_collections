@@ -1,0 +1,32 @@
+---
+# tasks file for routeros_api
+- name: configure vrrp
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ vrrp_path }}"
+    add:
+      password={{ vrrp_pwd }}
+      arp={{ vrrp_arp }}
+      authentication={{ vrrp_authentication }}
+      interval={{ vrrp_interval }}
+      name={{ vrrp_name }}
+      on-master={{ vrrp_on_master }}
+      on-backup={{ vrrp_on_backup }}
+      preemption-mode={{ vrrp_preemption_mode }}
+      vrid={{ vrrp_vrid }}
+      arp-timeout={{ vrrp_arp_timeout }}
+      comment={{ vrrp_comment }}
+      disabled={{ vrrp_disabled }}
+      mtu={{ vrrp_mtu }}
+      priority={{ vrrp_priority }}
+      version={{ vrrp_version }}
+      interface={{ vrrp_interface }}
+      v3-protocol={{ vrrp_v3_protocol }}
+  register: vrrpout
+  delegate_to: localhost
+
+- name: result vrrp config
+  debug:
+    msg: '{{ vrrpout }}'

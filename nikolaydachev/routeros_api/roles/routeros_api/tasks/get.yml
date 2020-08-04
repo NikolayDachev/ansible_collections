@@ -1,0 +1,15 @@
+---
+# tasks file for routeros_api
+- name: get - "{{ ros_t_path }} print"
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    ssl: True
+    path: "{{ ros_t_path }}"
+  register: print_path
+  delegate_to: localhost
+
+- name: result - "{{ ros_t_path }} print"
+  debug:
+    msg: '{{ print_path }}'

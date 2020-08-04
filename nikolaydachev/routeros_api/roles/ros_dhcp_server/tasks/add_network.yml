@@ -1,0 +1,30 @@
+---
+- name: configure dhcp server network
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ dhcp_network_path }}"
+    add:
+      address={{ dhcp_network_address }}
+      boot-file-name={{ dhcp_network_boot_file_name }}
+      caps-manager={{ dhcp_network_caps_manager }}
+      comment={{ dhcp_network_comment }}
+      dhcp-option={{ dhcp_network_dhcp_option }}
+      dhcp-option-set={{ dhcp_network_dhcp_option_set }}
+      dns-none={{ dhcp_network_dns_none }}
+      dns-server={{ dhcp_network_dns_server }}
+      domain={{ dhcp_network_domain }}
+      gateway={{ dhcp_network_gateway }}
+      netmask={{ dhcp_network_netmask }}
+      ntp-server={{ dhcp_network_ntp_server }}
+      wins-server={{ dhcp_network_wins_server }}
+      next-server={{ dhcp_network_next_server }}
+
+  register: dhcpnetout
+  delegate_to: localhost
+
+- name: result configure dhcp server network
+  debug:
+    msg: "{{ dhcpnetout }}"
+

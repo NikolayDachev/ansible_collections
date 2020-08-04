@@ -1,0 +1,21 @@
+---
+- name: RESET CONFIGURATION!
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ reset_config_path }}"
+    cmd:
+      reset-configuration
+      caps-mode={{ reset_config_caps_mode }}
+      keep-users={{ reset_config_keep_users }}
+      no-defaults={{ reset_config_no_defaults }}
+      run-after-reset={{ reset_config_run_after_reset }}
+      skip-back={{ reset_config_skip_back }}
+
+  register: resetout
+  delegate_to: localhost
+
+- name: result for reset-configuration
+  debug:
+    msg: "{{ resetout }}"

@@ -1,0 +1,7 @@
+---
+# defaults file for ros_get
+    ros_hostname: ""
+    ros_username: "admin"
+    ros_password: ""
+
+    ros_path: ""

@@ -1,0 +1,127 @@
+- name: routeros_api test
+  hosts: all
+  gather_facts: no
+  connection: local
+
+
+  vars:
+    hostname: "{{ test_hostname }}"
+    username: "admin"
+    password: "{{ test_password }}"
+
+    path: "ip address"
+
+    nic: "ether2"
+    ip1: "1.1.1.1/32"
+    ip2: "2.2.2.2/32"
+    ip3: "3.3.3.3/32"
+
+    addips:
+      - "address={{ ip1 }} interface={{ nic }}"
+      - "address={{ ip2 }} interface={{ nic }}"
+
+    rmips:
+      - "{{ ip2 }}"
+      - "{{ ip3 }}"
+  tasks:
+    - name: get "{{ path }} print"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+      register: print_path
+
+    - name: result "{{ path }} print"
+      ansible.builtin.debug:
+        msg: '{{ print_path }}'
+
+    - name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        add: "{{ item }}"
+      loop: "{{ addips }}"
+      register: addout
+
+    - name: result routeros '.id' for new added items
+      ansible.builtin.debug:
+        msg: '{{ addout }}'
+
+    - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        query: ".id address WHERE address == {{ ip2 }}"
+      register: queryout
+
+    - name: result query result and set fact with '.id' for {{ ip2 }}
+      ansible.builtin.debug:
+        msg: '{{ queryout }}'
+
+    - ansible.builtin.set_fact:
+        query_id : "{{ queryout['msg'][0]['.id'] }}"
+
+    - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        update: ".id={{ query_id }} address={{ ip3 }}"
+      register: updateout
+
+    - name: result prunt update status
+      ansible.builtin.debug:
+        msg: '{{ updateout }}'
+
+    - name: remove ips -  stage 1 - query for '.id' {{ rmips }}
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        query: ".id address WHERE address == {{ item }}"
+      register: id_to_remove
+      loop: "{{ rmips }}"
+
+    # set fact for '.id' from 'query for {{ path }}'
+    - ansible.builtin.set_fact:
+        to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
+      loop: "{{ id_to_remove.results }}"
+
+    - name: remove ips stage 1 - dump '.id'
+      ansible.builtin.debug:
+        msg: '{{ to_be_remove }}'
+
+    # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
+    - name: remove ips -  stage 2 - remove {{ rmips }} by '.id'
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        remove: "{{ item }}"
+      register: remove
+      loop: "{{ to_be_remove }}"
+
+    - name: remove ips stage 2 dump result
+      ansible.builtin.debug:
+        msg: '{{ remove }}'
+
+    - name: arbitrary command example "/system identity print"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "system identity"
+        cmd: "print"
+      register: cmdout
+
+    - name: dump "/system identity print" output
+      ansible.builtin.debug:
+        msg: "{{ cmdout }}"

@@ -1,0 +1,14 @@
+---
+# tasks file for ros_get
+- name: get config"
+  routeros_api:
+    hostname: "{{ ros_hostname }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_path }}"
+  register: print_path
+  delegate_to: localhost
+
+- name: result config"
+  debug:
+    msg: '{{ print_path }}'
