@@ -1,4 +1,4 @@
-- name: ros ip address
+- name: ros reset configuration
   hosts: all
   gather_facts: no
   connection: local
