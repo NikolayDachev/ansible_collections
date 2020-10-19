@@ -11,12 +11,17 @@ DOCUMENTATION = '''
 ---
 module: routeros_api
 version_added: 1.1.0
-author: Nikolay Dachev (@nikolaydachev)
+author: "Nikolay Dachev (@NikolayDachev)"
 short_description: Ansible module for RouterOS API
 description:
   - Ansible module for RouterOS API with python librouteros.
-    This module can add, remove, update, query and execute arbitrary command
-    in routeros via API.
+  - This module can add, remove, update, query and execute arbitrary command in routeros via API.
+notes:
+  - I(add), I(remove), I(update), I(cmd) and I(query) are mutually exclusive.
+  - I(check_mode) is not supported.
+requirements:
+  - librouteros
+  - Python >= 3.6 (for librouteros)
 options:
   hostname:
     description:
@@ -41,62 +46,52 @@ options:
   port:
     description:
       - RouterOS api port. If ssl is set, port will apply to ssl connection.
-        Defaults are C(8728) for the HTTP API,  and C(8729) for the HTTPS API.
+      - Defaults are C(8728) for the HTTP API, and C(8729) for the HTTPS API.
     type: int
   path:
     description:
       - Main path for all other arguments.
-        If other arguments are not set, api will return all items in selected path.
-        Example C(ip address). Eqvivalent of RouterOS CLI C(/ip address print).
+      - If other arguments are not set, api will return all items in selected path.
+      - Example C(ip address). Equivalent of RouterOS CLI C(/ip address print).
     required: true
     type: str
   add:
     description:
       - Will add selected arguments in selected path to RouterOS config.
-        Example C(address=1.1.1.1/32 interface=ether1).
-        Equivalent in RouterOS CLI C(/ip address add address=1.1.1.1/32 interface=ether1).
+      - Example C(address=1.1.1.1/32 interface=ether1).
+      - Equivalent in RouterOS CLI C(/ip address add address=1.1.1.1/32 interface=ether1).
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'.
-         Example C(*03) will remove config/value with C(id=*03) in selected path.
-          Equivalent in RouterOS CLI C(/ip address remove numbers=1).
-          Note C(number) in RouterOS CLI is different from C(.id).
+      - Example C(*03) will remove config/value with C(id=*03) in selected path.
+      - Equivalent in RouterOS CLI C(/ip address remove numbers=1).
+      - Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   update:
     description:
       - Update config/value in RouterOS by '.id' in selected path.
-         Example C(.id=*03 address=1.1.1.3/32) and path C(ip address)
-         will replace existing ip address with C(.id=*03).
-         Equivalent in RouterOS CLI
-         C(/ip address set address=1.1.1.3/32 numbers=1).
-         Note C(number) in RouterOS CLI is different from C(.id).
+      - Example C(.id=*03 address=1.1.1.3/32) and path C(ip address) will replace existing ip address with C(.id=*03).
+      - Equivalent in RouterOS CLI C(/ip address set address=1.1.1.3/32 numbers=1).
+      - Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   query:
     description:
-      - Query given path for selected query attributes from
-         RouterOS aip and return '.id'.
-          WHERE is key word which extend query. WHERE format is
-         key operator value - with spaces.
-          WHERE valid operators are C(==), C(!=), C(>), C(<).
-          Example path C(ip address) and query C(.id address) will return
-         only C(.id) and (address) for all items in C(ip address) path.
-          Example path C(ip address) and
-          query C(.id address WHERE address == 1.1.1.3/32)
-         will return only C(.id) and C(address) for items in C(ip address)
-          path, where address is eq to 1.1.1.3/32.
-          Example path C(interface) and query C(mtu name WHERE mut > 1400) will
-         return only interfaces C(mtu,name) where mtu is bigger than 1400.
-          Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
+      - Query given path for selected query attributes from RouterOS aip and return '.id'.
+      - WHERE is key word which extend query. WHERE format is key operator value - with spaces.
+      - WHERE valid operators are C(==), C(!=), C(>), C(<).
+      - Example path C(ip address) and query C(.id address) will return only C(.id) and C(address) for all items in C(ip address) path.
+      - Example path C(ip address) and query C(.id address WHERE address == 1.1.1.3/32).
+        will return only C(.id) and C(address) for items in C(ip address) path, where address is eq to 1.1.1.3/32.
+      - Example path C(interface) and query C(mtu name WHERE mut > 1400) will
+        return only interfaces C(mtu,name) where mtu is bigger than 1400.
+      - Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
     type: str
   cmd:
     description:
-      - Execute any/arbitrary command in selected path,
-         after the command we can add C(.id).
-         Example path C(system script) and cmd C(run .id=*03)
-         is equivalent in RouterOS CLI C(/system script run number=0),
-          example path C(ip address) and cmd C(print)
-         equivalent in RouterOS CLI C(/ip address print).
+      - Execute any/arbitrary command in selected path, after the command we can add C(.id).
+      - Example path C(system script) and cmd C(run .id=*03) is equivalent in RouterOS CLI C(/system script run number=0).
+      - Example path C(ip address) and cmd C(print) is equivalent in RouterOS CLI C(/ip address print).
     type: str
 '''
 
@@ -126,7 +121,7 @@ EXAMPLES = '''
         path: "{{ path }}"
       register: print_path
 
-    - name: Result "{{ path }} print"
+    - name: Dump "{{ path }} print" output
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
@@ -142,7 +137,7 @@ EXAMPLES = '''
         - "address={{ ip2 }} interface={{ nic }}"
       register: addout
 
-    - name: Result routeros '.id' for new added items
+    - name: Dump "Add ip address" output - ".id" for new added items
       ansible.builtin.debug:
         msg: '{{ addout }}'
 
@@ -155,7 +150,7 @@ EXAMPLES = '''
         query: ".id address WHERE address == {{ ip2 }}"
       register: queryout
 
-    - name: Result query result and set fact with '.id' for {{ ip2 }}
+    - name: Dump "Query for" output and set fact with ".id" for "{{ ip2 }}"
       ansible.builtin.debug:
         msg: '{{ queryout }}'
 
@@ -171,11 +166,11 @@ EXAMPLES = '''
         update: ".id={{ query_id }} address={{ ip3 }}"
       register: updateout
 
-    - name: Result prunt update status
+    - name: Dump "Update" output
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: Remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
+    - name: Remove ips - stage 1 - query ".id" for "{{ ip2 }}" and "{{ ip3 }}"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -187,17 +182,17 @@ EXAMPLES = '''
         - "{{ ip2 }}"
         - "{{ ip3 }}"
 
-    # set fact for '.id' from 'query for {{ path }}'
-    - ansible.builtin.set_fact:
+    - name: set fact for ".id" from "Remove ips - stage 1 - query"
+      ansible.builtin.set_fact:
         to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
       loop: "{{ id_to_remove.results }}"
 
-    - name: Remove ips stage 1 - dump '.id'
+    - name: Dump "Remove ips - stage 1 - query" output
       ansible.builtin.debug:
         msg: '{{ to_be_remove }}'
 
-    # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: Remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
+    # Remove "{{ rmips }}" with ".id" by "to_be_remove" from query
+    - name: Remove ips - stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -207,7 +202,7 @@ EXAMPLES = '''
       register: remove
       loop: "{{ to_be_remove }}"
 
-    - name: Remove ips stage 2 dump result
+    - name: Dump "Remove ips - stage 2 - remove" output
       ansible.builtin.debug:
         msg: '{{ remove }}'
 
@@ -220,7 +215,7 @@ EXAMPLES = '''
         cmd: "print"
       register: cmdout
 
-    - name: Dump "/system identity print" output
+    - name: Dump "Arbitrary command example" output
       ansible.builtin.debug:
         msg: "{{ cmdout }}"
 '''
@@ -229,39 +224,59 @@ RETURN = '''
 ---
 message:
     description: All outputs are in list with dictionary elements returned from RouterOS api.
+    sample: C([{...},{...}])
     type: list
     returned: always
 '''
 
 from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.basic import missing_required_lib
 from ansible.module_utils._text import to_native
 
 import ssl
+import traceback
+
+LIB_IMP_ERR = None
 try:
     from librouteros import connect
     from librouteros.query import Key
     HAS_LIB = True
 except Exception as e:
     HAS_LIB = False
+    LIB_IMP_ERR = traceback.format_exc()
 
 
 class ROS_api_module:
-    def __init__(self, module_args):
+    def __init__(self):
+        module_args = (dict(
+            username=dict(type='str', required=True),
+            password=dict(type='str', required=True, no_log=True),
+            hostname=dict(type='str', required=True),
+            port=dict(type='int'),
+            ssl=dict(type='bool', default=False),
+            path=dict(type='str', required=True),
+            add=dict(type='str'),
+            remove=dict(type='str'),
+            update=dict(type='str'),
+            cmd=dict(type='str'),
+            query=dict(type='str')))
+
         self.module = AnsibleModule(argument_spec=module_args,
-                                    supports_check_mode=False)
+                                    supports_check_mode=False,
+                                    mutually_exclusive=(('add', 'remove', 'update',
+                                                         'cmd', 'query'),),)
 
         if not HAS_LIB:
-            self.module.fail_json(msg=to_native('librouteros for Python is required for this module'))
+            self.module.fail_json(msg=missing_required_lib("librouteros"),
+                                  exception=LIB_IMP_ERR)
 
-        # ros api config
-        self.user = self.module.params['username']
-        self.password = self.module.params['password']
-        self.host = self.module.params['hostname']
-        self.port = self.module.params['port']
-        self.ssl = self.module.params['ssl']
+        self.api = self.ros_api_connect(self.module.params['username'],
+                                        self.module.params['password'],
+                                        self.module.params['hostname'],
+                                        self.module.params['port'],
+                                        self.module.params['ssl'])
 
         self.path = self.list_remove_empty(self.module.params['path'].split(' '))
-
         self.add = self.module.params['add']
         self.remove = self.module.params['remove']
         self.update = self.module.params['update']
@@ -280,30 +295,8 @@ class ROS_api_module:
         self.result = dict(
             message=[])
 
-        # connect to routeros api
-        try:
-            conn_status = {"connection": {"username": self.user,
-                                          "hostname": self.host,
-                                          "port": self.port,
-                                          "ssl": self.ssl,
-                                          "status": "Connected"}}
-            if self.ssl is True:
-                if not self.port:
-                    self.port = 8729
-                    conn_status["connection"]["port"] = self.port
-                self.conn_ssl()
-            else:
-                if not self.port:
-                    self.port = 8728
-                    conn_status["connection"]["port"] = self.port
-                self.conn()
-        except Exception as e:
-            conn_status["connection"]["status"] = "error: %s" % e
-            self.result['message'].append(conn_status)
-            self.return_result(False, False)
-
         # create api base path
-        self.api_add_path()
+        self.api_path = self.api_add_path(self.api, self.path)
 
         # api call's
         if self.add:
@@ -318,22 +311,6 @@ class ROS_api_module:
             self.api_arbitrary()
         else:
             self.api_get_all()
-
-    def conn(self):
-        self.api = connect(username=self.user,
-                           password=self.password,
-                           host=self.host,
-                           port=self.port)
-
-    def conn_ssl(self):
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.set_ciphers('ADH:@SECLEVEL=0')
-        self.api = connect(username=self.user,
-                           password=self.password,
-                           host=self.host,
-                           ssl_wrapper=ctx.wrap_socket,
-                           port=self.port)
 
     def list_remove_empty(self, check_list):
         while("" in check_list):
@@ -352,10 +329,11 @@ class ROS_api_module:
                 dict[p[0]] = p[1]
         return dict
 
-    def api_add_path(self):
-        self.api_path = self.api.path()
-        for p in self.path:
-            self.api_path = self.api_path.join(p)
+    def api_add_path(self, api, path):
+        api_path = api.path()
+        for p in path:
+            api_path = api_path.join(p)
+        return api_path
 
     def api_get_all(self):
         try:
@@ -447,7 +425,7 @@ class ROS_api_module:
             self.errors(e)
 
     def return_result(self, ch_status=False, status=True):
-        if not status:
+        if status == "False":
             self.module.fail_json(msg=to_native(self.result['message']))
         else:
             self.module.exit_json(changed=ch_status,
@@ -460,21 +438,43 @@ class ROS_api_module:
         self.result['message'].append("%s" % e)
         self.return_result(False, False)
 
+    def ros_api_connect(self, username, password, host, port, ssl):
+        # connect to routeros api
+        conn_status = {"connection": {"username": username,
+                                      "hostname": host,
+                                      "port": port,
+                                      "ssl": ssl,
+                                      "status": "Connected"}}
+        try:
+            if ssl is True:
+                if not port:
+                    port = 8729
+                    conn_status["connection"]["port"] = port
+                ctx = ssl.create_default_context()
+                ctx.check_hostname = False
+                ctx.set_ciphers('ADH:@SECLEVEL=0')
+                api = connect(username=username,
+                              password=password,
+                              host=host,
+                              ssl_wrapper=ctx.wrap_socket,
+                              port=port)
+            else:
+                if not port:
+                    port = 8728
+                    conn_status["connection"]["port"] = port
+                api = connect(username=username,
+                              password=password,
+                              host=host,
+                              port=port)
+        except Exception as e:
+            conn_status["connection"]["status"] = "error: %s" % e
+            self.module.fail_json(msg=to_native([conn_status]))
+        return api
+
 
 def main():
-    # define available arguments/parameters a user can pass to the module
-    ros = ROS_api_module(dict(
-        username=dict(type='str', required=True),
-        password=dict(type='str', required=True, no_log=True),
-        hostname=dict(type='str', required=True),
-        port=dict(type='int'),
-        ssl=dict(type='bool', default=False),
-        path=dict(type='str', required=True),
-        add=dict(type='str'),
-        remove=dict(type='str'),
-        update=dict(type='str'),
-        cmd=dict(type='str'),
-        query=dict(type='str')))
+
+    ROS_api_module()
 
 
 if __name__ == '__main__':
