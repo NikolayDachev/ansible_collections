@@ -5,7 +5,7 @@
 
   roles:
 #  - role: ros_ip_pool
-  - role: ros_dhcp_server
+  - role: ros_ip_dhcp_server
     dhcp_server_config:
       - add_network
       - add_server

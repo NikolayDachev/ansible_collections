@@ -1,5 +1,5 @@
 ---
-# tasks file for ros_dhcp_server
+# tasks file for ros_ip_dhcp_server
   - import_tasks: add_network.yml
     when: '"add_network" in dhcp_server_config'
   - import_tasks: add_server.yml

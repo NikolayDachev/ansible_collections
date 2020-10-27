@@ -10,7 +10,7 @@
     ip_addr_address: "{{ vrrp_lan_ip }}"
 
   # configure vrrp
-  - role: ros_vrrp
+  - role: ros_int_vrrp
 
   # add vrrp vip address
   - role: ros_ip_addr
@@ -21,7 +21,7 @@
   - role: ros_ip_pool
 
   # configure dhcp server for vrrp vip / network
-  - role: ros_dhcp_server
+  - role: ros_ip_dhcp_server
     dhcp_server_config:
       - add_network
       - add_server

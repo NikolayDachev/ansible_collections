@@ -1,5 +1,5 @@
 ---
-# defaults file for ros_dhcp_server
+# defaults file for ros_ip_dhcp_server
   ros_hostname: ""
   ros_username: "admin"
   ros_password: ""
