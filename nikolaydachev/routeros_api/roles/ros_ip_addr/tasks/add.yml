@@ -1,6 +1,6 @@
 ---
 - name: add ip address
-  routeros_api:
+  community.routeros.api:
     hostname: "{{ ros_hostname }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"

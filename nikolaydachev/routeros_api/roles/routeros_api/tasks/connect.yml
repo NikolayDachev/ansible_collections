@@ -1,10 +1,11 @@
 ---
 # tasks file for routeros_api
 - name: get - "{{ ros_t_path }} print"
-  routeros_api:
+  community.routeros.api:
     hostname: "{{ ros_hostname }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
+    ssl: "{{ ros_ssl }}"
   register: conn
   delegate_to: localhost
 

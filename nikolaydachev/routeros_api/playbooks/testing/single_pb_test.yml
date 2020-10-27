@@ -8,7 +8,6 @@
     hostname: "{{ test_hostname }}"
     username: "admin"
     password: "{{ test_password }}"
-
     path: "ip address"
 
     nic: "ether2"
@@ -18,7 +17,7 @@
 
   tasks:
     - name: get "{{ path }} print"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -30,7 +29,7 @@
         msg: '{{ print_path }}'
 
     - name: add ip address "{{ ip1 }}" and "{{ ip2 }}"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -46,7 +45,7 @@
         msg: '{{ addout }}'
 
     - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -62,7 +61,7 @@
         query_id : "{{ queryout['msg'][0]['.id'] }}"
 
     - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -75,7 +74,7 @@
         msg: '{{ updateout }}'
 
     - name: remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -97,7 +96,7 @@
 
     # Remove "{{ ip2 }}" and "{{ ip3 }}" with '.id' by 'to_be_remove' from query
     - name: remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -111,7 +110,7 @@
         msg: '{{ remove }}'
 
     - name: arbitrary command example "/system identity print"
-      routeros_api:
+      community.routeros.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"

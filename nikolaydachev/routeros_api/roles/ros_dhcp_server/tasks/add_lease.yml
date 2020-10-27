@@ -1,6 +1,6 @@
 ---
 - name: configure dhcp server lease
-  routeros_api:
+  community.routeros.api:
     ros_hostname: ""
     ros_username: "admin"
     ros_password: ""

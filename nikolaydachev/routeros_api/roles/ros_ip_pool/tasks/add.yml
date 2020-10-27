@@ -1,7 +1,7 @@
 ---
 # tasks file for ros_ip_pool
 - name: configure ip pool
-  routeros_api:
+  community.routeros.api:
     hostname: "{{ ros_hostname }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"

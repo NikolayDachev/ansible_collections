@@ -1,11 +1,12 @@
 ---
 # tasks file for routeros_api
 - name: remove ips -  stage 1 - query for '.id' {{ ros_t_rmips }}
-  routeros_api:
+  community.routeros.api:
     hostname: "{{ ros_hostname }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ ros_t_path }}"
+    ssl: "{{ ros_ssl }}"
     query: ".id address WHERE address == {{ item }}"
   register: id_to_remove
   loop: "{{ ros_t_rmips }}"
@@ -22,10 +23,11 @@
 
   # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
 - name: remove ips -  stage 2 - remove {{ ros_t_rmips }} by '.id'
-  routeros_api:
+  community.routeros.api:
     hostname: "{{ ros_hostname }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
+    ssl: "{{ ros_ssl }}"
     path: "{{ ros_t_path }}"
     remove: "{{ item }}"
   register: remove
