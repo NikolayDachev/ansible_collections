@@ -9,8 +9,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
-module: routeros_api
-version_added: 1.1.0
+module: api
 author: "Nikolay Dachev (@NikolayDachev)"
 short_description: Ansible module for RouterOS API
 description:
@@ -97,7 +96,7 @@ options:
 
 EXAMPLES = '''
 ---
-- name: Test routeros_api
+- name: Test api
   hosts: localhost
   gather_facts: no
   vars:
@@ -114,7 +113,7 @@ EXAMPLES = '''
 
   tasks:
     - name: Get "{{ path }} print"
-      community.network.routeros_api:
+      community.network.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -126,7 +125,7 @@ EXAMPLES = '''
         msg: '{{ print_path }}'
 
     - name: Add ip address "{{ ip1 }}" and "{{ ip2 }}"
-      community.network.routeros_api:
+      community.network.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -142,7 +141,7 @@ EXAMPLES = '''
         msg: '{{ addout }}'
 
     - name: Query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
-      community.network.routeros_api:
+      community.network.api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -158,7 +157,7 @@ EXAMPLES = '''
         query_id : "{{ queryout['msg'][0]['.id'] }}"
 
     - name: Update ".id = {{ query_id }}" taken with custom fact "fquery_id"
-      routeros_api:
+      api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -171,7 +170,7 @@ EXAMPLES = '''
         msg: '{{ updateout }}'
 
     - name: Remove ips - stage 1 - query ".id" for "{{ ip2 }}" and "{{ ip3 }}"
-      routeros_api:
+      api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -193,7 +192,7 @@ EXAMPLES = '''
 
     # Remove "{{ rmips }}" with ".id" by "to_be_remove" from query
     - name: Remove ips - stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
-      routeros_api:
+      api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -207,7 +206,7 @@ EXAMPLES = '''
         msg: '{{ remove }}'
 
     - name: Arbitrary command example "/system identity print"
-      routeros_api:
+      api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"

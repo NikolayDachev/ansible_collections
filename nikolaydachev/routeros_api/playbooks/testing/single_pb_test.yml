@@ -6,6 +6,7 @@
 
   vars:
     hostname: "{{ test_hostname }}"
+    ssl: "true"
     username: "admin"
     password: "{{ test_password }}"
     path: "ip address"
@@ -19,6 +20,7 @@
     - name: get "{{ path }} print"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -31,6 +33,7 @@
     - name: add ip address "{{ ip1 }}" and "{{ ip2 }}"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -47,6 +50,7 @@
     - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -63,6 +67,7 @@
     - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -76,6 +81,7 @@
     - name: remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -98,6 +104,7 @@
     - name: remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
@@ -112,6 +119,7 @@
     - name: arbitrary command example "/system identity print"
       community.routeros.api:
         hostname: "{{ hostname }}"
+        ssl: "true"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "system identity"

@@ -4,4 +4,4 @@
   connection: local
 
   roles:
-  - role: routeros_api
+  - role: ros_api_demo

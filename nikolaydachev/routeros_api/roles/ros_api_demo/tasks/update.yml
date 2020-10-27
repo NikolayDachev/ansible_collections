@@ -1,5 +1,5 @@
 ---
-# tasks file for routeros_api
+# tasks file for ros_api_demo
 - name: update '.id = {{ query_id }}' taken with custom fact from 'query.yml' "{{ ros_t_ip2 }} to {{ ros_t_ip3 }}"
   community.routeros.api:
     hostname: "{{ ros_hostname }}"

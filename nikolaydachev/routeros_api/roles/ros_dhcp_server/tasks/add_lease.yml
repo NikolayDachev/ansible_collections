@@ -1,9 +1,10 @@
 ---
 - name: configure dhcp server lease
   community.routeros.api:
-    ros_hostname: ""
-    ros_username: "admin"
-    ros_password: ""
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
     path: "{{ dhcp_lease_path }}"
     add:
       address={{ dhcp_lease_address }}

@@ -3,6 +3,7 @@
   ros_hostname: ""
   ros_password: "admin"
   ros_username: ""
+  ros_ssl: "true"
 
   reset_config_path: "system"
 

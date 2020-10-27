@@ -1,5 +1,5 @@
 ---
-# tasks file for routeros_api
+# tasks file for ros_api_demo
 - name: add - "ip address add {{ ros_t_addips[0] }}" "ip address add {{ ros_t_addips[1] }}"
   community.routeros.api:
     hostname: "{{ ros_hostname }}"

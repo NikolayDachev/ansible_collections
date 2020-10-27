@@ -1,5 +1,5 @@
 ---
-# tasks file for routeros_api
+# tasks file for ros_api_demo
 - name: arbitrary command example "/system identity print"
   community.routeros.api:
     hostname: "{{ ros_hostname }}"

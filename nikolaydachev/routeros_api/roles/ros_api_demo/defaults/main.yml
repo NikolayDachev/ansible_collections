@@ -3,6 +3,7 @@
   ros_username: "admin"
   ros_password: ""
   ros_ssl: "true"
+
   ros_t_path: "ip address"
 
   ros_t_nic: "ether2"

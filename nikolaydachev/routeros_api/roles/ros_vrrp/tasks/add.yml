@@ -3,6 +3,7 @@
 - name: configure vrrp
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ vrrp_path }}"

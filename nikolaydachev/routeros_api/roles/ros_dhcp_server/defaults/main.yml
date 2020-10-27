@@ -3,6 +3,8 @@
   ros_hostname: ""
   ros_username: "admin"
   ros_password: ""
+  ros_ssl: "true"
+
   dhcp_server_config: []
 
   dhcp_network_path: "{{ dhcp_server_path }} network"

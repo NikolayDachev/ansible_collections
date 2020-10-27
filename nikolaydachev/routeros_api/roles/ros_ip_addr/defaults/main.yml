@@ -3,6 +3,7 @@
  ros_hostname: ""
  ros_username: "admin"
  ros_password: ""
+ ros_ssl: "true"
 
  ip_addr_path: "ip address"
 

@@ -1,6 +1,6 @@
 galaxy_info:
   author: Nikolay Dahcev
-  description: Test role for routeros_api.py module
+  description: Test role for ros_api_demo.py module
   company: public
 
   license: license (GPL-3.0-or-later)
