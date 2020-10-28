@@ -5,23 +5,23 @@
 
   roles:
   # add ip address to interface from vrrp vip network
-  - role: ros_ip_addr
+  - role: nikolaydachev.routeros_api.ros_ip_addr
     ip_addr_interface: "{{ vrrp_interface }}"
     ip_addr_address: "{{ vrrp_lan_ip }}"
 
   # configure vrrp
-  - role: ros_int_vrrp
+  - role: nikolaydachev.routeros_api.ros_int_vrrp
 
   # add vrrp vip address
-  - role: ros_ip_addr
+  - role: nikolaydachev.routeros_api.ros_ip_addr
     ip_addr_interface: "{{ vrrp_name }}"
     ip_addr_address: "{{ vrrp_vip }}"
 
   # create ip pool from vrrp vip network
-  - role: ros_ip_pool
+  - role: nikolaydachev.routeros_api.ros_ip_pool
 
   # configure dhcp server for vrrp vip / network
-  - role: ros_ip_dhcp_server
+  - role: nikolaydachev.routeros_api.ros_ip_dhcp_server
     dhcp_server_config:
       - add_network
       - add_server

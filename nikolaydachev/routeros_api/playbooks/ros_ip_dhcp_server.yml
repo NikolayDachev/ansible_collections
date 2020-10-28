@@ -4,8 +4,8 @@
   connection: local
 
   roles:
-#  - role: ros_ip_pool
-  - role: ros_ip_dhcp_server
+#  - role: nikolaydachev.routeros_api.ros_ip_pool
+  - role: nikolaydachev.routeros_api.ros_ip_dhcp_server
     dhcp_server_config:
       - add_network
       - add_server

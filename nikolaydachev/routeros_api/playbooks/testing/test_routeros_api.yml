@@ -4,4 +4,4 @@
   connection: local
 
   roles:
-  - role: ros_api_demo
+  - role: nikolaydachev.routeros_api.ros_api_demo

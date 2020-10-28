@@ -1,0 +1,8 @@
+- name: ros ip service
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - nikolaydachev.routeros_api.ros_ip_service
+

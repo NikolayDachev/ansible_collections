@@ -4,5 +4,5 @@
   connection: local
 
   roles:
-  - role: ros_reset_config
+  - role: nikolaydachev.routeros_api.ros_reset_config
     reset_config_confirm: False
