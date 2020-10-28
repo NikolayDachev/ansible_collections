@@ -1,0 +1,10 @@
+---
+# defaults file for ros_ip_service
+ ros_hostname: ""
+ ros_username: "admin"
+ ros_password: ""
+ ros_ssl: "true"
+
+ ip_service_path: "ip service"
+
+ ip_service_set: ""
