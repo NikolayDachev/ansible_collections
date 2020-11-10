@@ -5,4 +5,4 @@
     ros_password: ""
     ros_ssl: "true"
 
-    ros_path: ""
+    ros_get_path: ""

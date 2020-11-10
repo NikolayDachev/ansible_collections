@@ -1,12 +1,12 @@
 ---
 # tasks file for ros_ip_dhcp_server
   - import_tasks: add_network.yml
-    when: '"add_network" in dhcp_server_config'
+    when: '"add_network" in ros_ip_dhcp_server_config'
   - import_tasks: add_server.yml
-    when: '"add_server" in dhcp_server_config'
+    when: '"add_server" in ros_ip_dhcp_server_config'
   - import_tasks: add_lease.yml
-    when: '"add_lease" in dhcp_server_config'
+    when: '"add_lease" in ros_ip_dhcp_server_config'
   - import_tasks: add_options.yml
-    when: '"add_options" in dhcp_server_config'
+    when: '"add_options" in ros_ip_dhcp_server_config'
   - import_tasks: add_vci.yml
-    when: '"add_vci" in dhcp_server_config'
+    when: '"add_vci" in ros_ip_dhcp_server_config'

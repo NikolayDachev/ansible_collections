@@ -5,22 +5,22 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ dhcp_network_path }}"
+    path: "{{ ros_ip_dhcp_network_path }}"
     add:
-      address={{ dhcp_network_address }}
-      boot-file-name={{ dhcp_network_boot_file_name }}
-      caps-manager={{ dhcp_network_caps_manager }}
-      comment={{ dhcp_network_comment }}
-      dhcp-option={{ dhcp_network_dhcp_option }}
-      dhcp-option-set={{ dhcp_network_dhcp_option_set }}
-      dns-none={{ dhcp_network_dns_none }}
-      dns-server={{ dhcp_network_dns_server }}
-      domain={{ dhcp_network_domain }}
-      gateway={{ dhcp_network_gateway }}
-      netmask={{ dhcp_network_netmask }}
-      ntp-server={{ dhcp_network_ntp_server }}
-      wins-server={{ dhcp_network_wins_server }}
-      next-server={{ dhcp_network_next_server }}
+      address={{ ros_ip_dhcp_network_address }}
+      boot-file-name={{ ros_ip_dhcp_network_boot_file_name }}
+      caps-manager={{ ros_ip_dhcp_network_caps_manager }}
+      comment={{ ros_ip_dhcp_network_comment }}
+      dhcp-option={{ ros_ip_dhcp_network_ros_ip_dhcp_option }}
+      dhcp-option-set={{ ros_ip_dhcp_network_ros_ip_dhcp_option_set }}
+      dns-none={{ ros_ip_dhcp_network_dns_none }}
+      dns-server={{ ros_ip_dhcp_network_dns_server }}
+      domain={{ ros_ip_dhcp_network_domain }}
+      gateway={{ ros_ip_dhcp_network_gateway }}
+      netmask={{ ros_ip_dhcp_network_netmask }}
+      ntp-server={{ ros_ip_dhcp_network_ntp_server }}
+      wins-server={{ ros_ip_dhcp_network_wins_server }}
+      next-server={{ ros_ip_dhcp_network_next_server }}
 
   register: dhcpnetout
   delegate_to: localhost

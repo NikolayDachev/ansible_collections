@@ -5,11 +5,11 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ ip_service_path }}"
+    path: "{{ ros_ip_service_path }}"
     cmd: "set numbers={{ item.key }} {{ item.value | join(' ') }}"
   register: ipsrvsetout
   delegate_to: localhost
-  loop: "{{ lookup('dict', ip_service_set) }}"
+  loop: "{{ lookup('dict', ros_ip_service_set) }}"
 
 - name: result ip service set
   debug:

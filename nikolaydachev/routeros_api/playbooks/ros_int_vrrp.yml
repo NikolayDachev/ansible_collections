@@ -6,5 +6,5 @@
   roles:
   - role: nikolaydachev.routeros_api.ros_int_vrrp
 #  - role: nikolaydachev.routeros_api.ros_ip_addr
-#    ip_addr_interface: "{{ vrrp_name }}"
-#    ip_addr_address: "{{ vrrp_vip }}"
+#    ip_addr_interface: "{{ ros_int_vrrp_name }}"
+#    ip_addr_address: "{{ ros_int_vrrp_vip }}"

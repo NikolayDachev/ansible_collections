@@ -5,11 +5,11 @@
   ros_username: ""
   ros_ssl: "true"
 
-  reset_config_path: "system"
+  ros_reset_config_path: "system"
 
-  reset_config_caps_mode: ""
-  reset_config_keep_users: "yes"
-  reset_config_no_defaults: ""
-  reset_config_run_after_reset: ""
-  reset_config_skip_back: ""
-  reset_config_confirm: False
+  ros_reset_config_caps_mode: ""
+  ros_reset_config_keep_users: "yes"
+  ros_reset_config_no_defaults: ""
+  ros_reset_config_run_after_reset: ""
+  ros_reset_config_skip_back: ""
+  ros_reset_config_confirm: False

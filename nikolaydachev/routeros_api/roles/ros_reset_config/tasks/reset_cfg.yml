@@ -5,14 +5,14 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ reset_config_path }}"
+    path: "{{ ros_reset_config_path }}"
     cmd:
       reset-configuration
-      caps-mode={{ reset_config_caps_mode }}
-      keep-users={{ reset_config_keep_users }}
-      no-defaults={{ reset_config_no_defaults }}
-      run-after-reset={{ reset_config_run_after_reset }}
-      skip-back={{ reset_config_skip_back }}
+      caps-mode={{ ros_reset_config_caps_mode }}
+      keep-users={{ ros_reset_config_keep_users }}
+      no-defaults={{ ros_reset_config_no_defaults }}
+      run-after-reset={{ ros_reset_config_run_after_reset }}
+      skip-back={{ ros_reset_config_skip_back }}
 
   register: resetout
   delegate_to: localhost

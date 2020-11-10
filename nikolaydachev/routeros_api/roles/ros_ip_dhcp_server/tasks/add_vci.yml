@@ -5,13 +5,13 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ dhcp_vci_path }}"
+    path: "{{ ros_ip_dhcp_vci_path }}"
     add:
-      disabled={{ dhcp_vci_disabled }}
-      vid={{ dhcp_vci_vid }}
-      address-pool={{ dhcp_vci_address_pool }}
-      name={{ dhcp_vci_name }}
-      server{{ dhcp_vci_server }}
+      disabled={{ ros_ip_dhcp_vci_disabled }}
+      vid={{ ros_ip_dhcp_vci_vid }}
+      address-pool={{ ros_ip_dhcp_vci_address_pool }}
+      name={{ ros_ip_dhcp_vci_name }}
+      server{{ ros_ip_dhcp_vci_server }}
 
   register: dhcpvciout
   delegate_to: localhost

@@ -1,17 +1,17 @@
 ---
-# defaults file for ros_ip_addr
+# defaults file for ros_ros_ip_addr
  ros_hostname: ""
  ros_username: "admin"
  ros_password: ""
  ros_ssl: "true"
 
- ip_addr_path: "ip address"
+ ros_ip_addr_path: "ip address"
 
- ip_addr_broadcast: ""
- ip_addr_comment: "added_by_ansible_routeros_api"
- ip_addr_copy_from: ""
- ip_addr_disabled: "no"
- ip_addr_netmask: ""
- ip_addr_network: ""
- ip_addr_address: ""
- ip_addr_interface: ""
+ ros_ip_addr_broadcast: ""
+ ros_ip_addr_comment: "added_by_ansible_routeros_api"
+ ros_ip_addr_copy_from: ""
+ ros_ip_addr_disabled: "no"
+ ros_ip_addr_netmask: ""
+ ros_ip_addr_network: ""
+ ros_ip_addr_address: ""
+ ros_ip_addr_interface: ""

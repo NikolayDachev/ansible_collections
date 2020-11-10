@@ -6,7 +6,7 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ ros_path }}"
+    path: "{{ ros_get_path }}"
   register: print_path
   delegate_to: localhost
 
