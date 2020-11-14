@@ -7,8 +7,8 @@
 #  - role: nikolaydachev.routeros_api.ros_ip_pool
   - role: nikolaydachev.routeros_api.ros_ip_dhcp_server
     ros_ip_dhcp_server_config:
-      - add_network
-      - add_server
-#      - add_lease
-#      - add_options
-#      - add_vci
+      - network
+      - server
+#      - lease
+#      - options
+#      - vci

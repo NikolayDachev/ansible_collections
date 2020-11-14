@@ -17,7 +17,7 @@
   ros_int_vrrp_comment: "added_by_ansible_routeros_api"
   ros_int_vrrp_disabled: "no"
   ros_int_vrrp_mtu: "1500"
-  ros_int_vrrp_pwd: ""
+  ros_int_vrrp_password: ""
   ros_int_vrrp_priority: "100"
   ros_int_vrrp_version: "2"
   ros_int_vrrp_interface: ""

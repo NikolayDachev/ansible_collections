@@ -5,24 +5,24 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ ros_ip_dhcp_lease_path }}"
+    path: "{{ ros_ip_dhcp_server_lease_path }}"
     add:
-      address={{ ros_ip_dhcp_lease_address }}
-      allow-dual-stack-queue={{ ros_ip_dhcp_lease_allow_dual_stack_queue }}
-      block-access={{ ros_ip_dhcp_lease_block_access }}
-      comment={{ ros_ip_dhcp_lease_comment }}
-      dhcp-option={{ ros_ip_dhcp_lease_ros_ip_dhcp_option }}
-      disabled={{ ros_ip_dhcp_lease_disabled }}
-      lease-time={{ ros_ip_dhcp_lease_lease_time }}
-      rate-limit={{ ros_ip_dhcp_lease_rate_limit }}
-      use-src-mac={{ ros_ip_dhcp_lease_use_src_mac }}
-      address-lists={{ ros_ip_dhcp_lease_address_lists }}
-      always-broadcast={{ ros_ip_dhcp_lease_always_broadcast }}
-      client-id={{ ros_ip_dhcp_lease_client_id }}
-      dhcp-option-set={{ ros_ip_dhcp_lease_ros_ip_dhcp_option_set }}
-      insert-queue-before={{ ros_ip_dhcp_lease_insert_queue_before }}
-      mac-address={{ ros_ip_dhcp_lease_mac_address }}
-      server={{ ros_ip_dhcp_lease_server }}
+      address={{ ros_ip_dhcp_server_lease_address }}
+      allow-dual-stack-queue={{ ros_ip_dhcp_server_lease_allow_dual_stack_queue }}
+      block-access={{ ros_ip_dhcp_server_lease_block_access }}
+      comment={{ ros_ip_dhcp_server_lease_comment }}
+      dhcp-option={{ ros_ip_dhcp_server_lease_dhcp_server_option }}
+      disabled={{ ros_ip_dhcp_server_lease_disabled }}
+      lease-time={{ ros_ip_dhcp_server_lease_lease_time }}
+      rate-limit={{ ros_ip_dhcp_server_lease_rate_limit }}
+      use-src-mac={{ ros_ip_dhcp_server_lease_use_src_mac }}
+      address-lists={{ ros_ip_dhcp_server_lease_address_lists }}
+      always-broadcast={{ ros_ip_dhcp_server_lease_always_broadcast }}
+      client-id={{ ros_ip_dhcp_server_lease_client_id }}
+      dhcp-option-set={{ ros_ip_dhcp_server_lease_dhcp_server_option_set }}
+      insert-queue-before={{ ros_ip_dhcp_server_lease_insert_queue_before }}
+      mac-address={{ ros_ip_dhcp_server_lease_mac_address }}
+      server={{ ros_ip_dhcp_server_lease_server }}
   
   register: dhcpleaseout
   delegate_to: localhost

@@ -4,4 +4,4 @@
   connection: local
 
   roles:
-  - role: nikolaydachev.routeros_api.ros_ros_ip_addr
+  - role: nikolaydachev.routeros_api.ros_ip_addr

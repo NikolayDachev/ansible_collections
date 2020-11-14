@@ -8,7 +8,7 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_vrrp_path }}"
     add:
-      password={{ ros_int_vrrp_pwd }}
+      password={{ ros_int_vrrp_password }}
       arp={{ ros_int_vrrp_arp }}
       authentication={{ ros_int_vrrp_authentication }}
       interval={{ ros_int_vrrp_interval }}
