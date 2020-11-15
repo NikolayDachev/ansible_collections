@@ -28,6 +28,9 @@ ros_ssl: "community.routeros.api ssl", default for this role is set to "true"
 All role variables are combination from role name as prefix and the the actual RouterOS property   
 Role var prefix: **ros_get_**  
 
+NOTE: This role require variable [ros_get_path](https://ansible.fontein.de/collections/community/routeros/api_module.html#parameter-path)
+
+
 Dependencies
 ------------
 

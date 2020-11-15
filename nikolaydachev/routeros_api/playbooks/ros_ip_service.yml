@@ -2,6 +2,10 @@
   hosts: all
   gather_facts: no
   connection: local
+  vars:
+    ros_ip_service_set:
+      telnet:
+        - disabled=yes
 
   roles:
   - nikolaydachev.routeros_api.ros_ip_service

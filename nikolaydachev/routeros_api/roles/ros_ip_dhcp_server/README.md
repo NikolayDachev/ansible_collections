@@ -27,7 +27,7 @@ All role variables are combination from role name as prefix, general configurati
 With general configuration variable this role can configure only selected RouterOS sub configurations.  
 
 Role var prefix: **ros_ip_dchp_server_**  
-General configuration variable: **ros_ip_dhcp_server_config**  
+General configuration variable: **ros_ip_dhcp_server_config** type list  
 Sub configuations:  
 - network  
   RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/DHCP_Server#Networks  

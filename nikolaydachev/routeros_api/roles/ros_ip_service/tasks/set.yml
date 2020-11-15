@@ -9,7 +9,7 @@
     cmd: "set numbers={{ item.key }} {{ item.value | join(' ') }}"
   register: ipsrvsetout
   delegate_to: localhost
-  loop: "{{ lookup('dict', ros_ip_service_set) }}"
+  loop: "{{ query('dict', ros_ip_service_set) }}"
 
 - name: result ip service set
   debug:
