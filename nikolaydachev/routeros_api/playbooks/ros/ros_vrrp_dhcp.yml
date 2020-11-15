@@ -1,4 +1,4 @@
-- name: ros vrrp demo with dhcp server
+- name: ros vrrp with dhcp server
   hosts: all
   gather_facts: no
   connection: local
@@ -23,5 +23,5 @@
   # configure dhcp server for vrrp vip / network
   - role: nikolaydachev.routeros_api.ros_ip_dhcp_server
     dhcp_server_config:
-      - add_network
-      - add_server
+      - network
+      - server

@@ -1,4 +1,4 @@
-- name: test role for routeros_api 
+- name: test role for routeros api 
   hosts: all
   gather_facts: no
   connection: local
