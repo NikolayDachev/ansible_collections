@@ -18,3 +18,13 @@ Please report any [issue](https://github.com/NikolayDachev/ansible_collections/i
 Since RouterOS have many functionalities and I cannot cover all of them, please feel free to open github [future request](https://github.com/NikolayDachev/ansible_collections/issues)  
 
 If anyone want to help with more roles or playbooks for this collection please trigger a github  [pull request](https://github.com/NikolayDachev/ansible_collections/pulls).  
+
+License
+-------
+
+GNU General Public License v3.0 or later.  
+
+Author Information
+------------------
+
+Nikolay Dachev (@NikolayDachev)  
