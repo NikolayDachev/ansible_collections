@@ -1,0 +1,37 @@
+---
+- name: configure ipsec identity
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_ipsec_identity_path }}"
+    add:
+      auth-method="{ ros_ip_ipsec_identity_auth_method }"
+      certificate="{ ros_ip_ipsec_identity_certificate }"
+      comment="{ ros_ip_ipsec_identity_comment }"
+      copy-from="{ ros_ip_ipsec_identity_copy_from }"
+      disabled="{ ros_ip_ipsec_identity_disabled }"
+      eap-methods="{ ros_ip_ipsec_identity_eap_methods }"
+      generate-policy="{ ros_ip_ipsec_identity_generate_policy }"
+      key="{ ros_ip_ipsec_identity_key }"
+      match-by="{ ros_ip_ipsec_identity_match_by }"
+      mode-config="{ ros_ip_ipsec_identity_mode_config }"
+      my-id="{ ros_ip_ipsec_identity_my_id }"
+      notrack-chain="{ ros_ip_ipsec_identity_notrack_chain }"
+      password="{ ros_ip_ipsec_identity_password }"
+      policy-template-group="{ ros_ip_ipsec_identity_policy_template_group }"
+      remote-certificate="{ ros_ip_ipsec_identity_remote_certificate }"
+      remote-id="{ ros_ip_ipsec_identity_remote_id }"
+      remote-key="{ ros_ip_ipsec_identity_remote_key }"
+      secret="{ ros_ip_ipsec_identity_secret }"
+      username="{ ros_ip_ipsec_identity_username }"
+      peer="{ ros_ip_ipsec_identity_peer }"
+
+  register: ipsecidentity
+  delegate_to: localhost
+
+- name: result configure ipsec identity
+  debug:
+    msg: "{{ ipsecidentity }}"
+
