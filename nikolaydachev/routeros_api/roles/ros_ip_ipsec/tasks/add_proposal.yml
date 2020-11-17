@@ -1,17 +1,24 @@
 ---
-- name: configure ipsec
+- name: configure ipsec proposal
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ ros_ip_ipsec__path }}"
+    path: "{{ ros_ip_ipsec_proposal_path }}"
     add:
-
-  register: ipsec
+      auth_algorithms="{{ ros_ip_ipsec_proposal_auth_algorithms }}"
+      comment="{{ ros_ip_ipsec_proposal_comment }}"
+      copy-from="{{ ros_ip_ipsec_proposal_copy_from }}"
+      disabled="{{ ros_ip_ipsec_proposal_disabled }}"
+      enc-algorithms="{{ ros_ip_ipsec_proposal_enc_algorithms }}"
+      lifetime="{{ ros_ip_ipsec_proposal_lifetime }}"
+      name="{{ ros_ip_ipsec_proposal_name }}"
+      pfs-group="{{ ros_ip_ipsec_proposal_pfs_group }}"
+  register: ipsecproposal
   delegate_to: localhost
 
-- name: result configure ipsec
+- name: result configure ipsec proposal
   debug:
-    msg: "{{ ipsec }}"
+    msg: "{{ ipsecproposal }}"
 

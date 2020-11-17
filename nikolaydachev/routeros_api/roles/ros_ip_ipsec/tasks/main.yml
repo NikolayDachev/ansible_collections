@@ -3,7 +3,7 @@
   - import_tasks: add_identity.yml
     when: '"identity" in ros_ip_ipsec_config'
   - import_tasks: flush_installed-sa.yml
-    when: 'ros_ip_ipsec_installed_sa_flush: "True"'
+    when: 'ros_ip_ipsec_installed_sa_flush=="True"'
   - import_tasks: add_mode-config.yml
     when: '"mode-config" in ros_ip_ipsec_config'
   - import_tasks: add_peer.yml

@@ -1,17 +1,60 @@
 ---
-- name: configure ipsec
-  community.routeros.api:
-    hostname: "{{ ros_hostname }}"
-    ssl: "{{ ros_ssl }}"
-    password: "{{ ros_password }}"
-    username: "{{ ros_username }}"
-    path: "{{ ros_ip_ipsec__path }}"
-    add:
+- name: configure ipsec key generate-key
+  block:
+    - name: generate-key
+      community.routeros.api:
+        hostname: "{{ ros_hostname }}"
+        ssl: "{{ ros_ssl }}"
+        password: "{{ ros_password }}"
+        username: "{{ ros_username }}"
+        path: "{{ ros_ip_ipsec_key_path }}"
+        cmd:
+          generate-key
+          key-size="{{ ros_ip_ipsec_key_generate_key_key_size }}"
+          name="{{ ros_ip_ipsec_key_generate_key_name }}"
+      register: ipseckeygeneratekey
+      delegate_to: localhost
+    - name: result configure ipsec key generate-key
+      debug:
+        msg: "{{ ipseckeygeneratekey }}"
+  when: ros_ip_ipsec_key_generate_key_key_size is defined and ros_ip_ipsec_key_generate_key_name is defined
 
-  register: ipsec
-  delegate_to: localhost
+- name: configure ipsec key export-pub-key
+  block:
+    - name: export-pub-key
+      community.routeros.api:
+        hostname: "{{ ros_hostname }}"
+        ssl: "{{ ros_ssl }}"
+        password: "{{ ros_password }}"
+        username: "{{ ros_username }}"
+        path: "{{ ros_ip_ipsec_key_path }}"
+        cmd:
+          export-pub-key
+          file-name="{{ ros_ip_ipsec_key_export_pub_key_file_name }}"
+          key="{{ ros_ip_ipsec_key_export_pub_key_key }}"
+      register: ipseckeyexportpubkey
+      delegate_to: localhost
+    - name: result configure ipsec key export-pub-key
+      debug:
+        msg: "{{ ipseckeyexportpubkey }}"
+  when: ros_ip_ipsec_key_export_pub_key_file_name is defined and ros_ip_ipsec_key_export_pub_key_key is defined
 
-- name: result configure ipsec
-  debug:
-    msg: "{{ ipsec }}"
-
+- name: configure ipsec key import
+  block:
+    - name: import
+      community.routeros.api:
+        hostname: "{{ ros_hostname }}"
+        ssl: "{{ ros_ssl }}"
+        password: "{{ ros_password }}"
+        username: "{{ ros_username }}"
+        path: "{{ ros_ip_ipsec_key_path }}"
+        cmd:
+          import
+          file-name="{{ ros_ip_ipsec_key_import_file_name }}"
+          name="{{ ros_ip_ipsec_key_import_name }}"
+      register: ipseckeyimport
+      delegate_to: localhost
+    - name: result configure ipsec key import
+      debug:
+        msg: "{{ ipseckeyimport }}"
+  when: ros_ip_ipsec_key_import_file_name is defined and ros_ip_ipsec_key_import_name is defined
