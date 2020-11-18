@@ -1,4 +1,4 @@
-- name: ros reset configuration
+- name: ros system reset-configuration
   hosts: all
   gather_facts: no
   connection: local

@@ -1,4 +1,4 @@
-- name: ros check current config
+- name: ros print current config
   hosts: all
   gather_facts: no
   connection: local

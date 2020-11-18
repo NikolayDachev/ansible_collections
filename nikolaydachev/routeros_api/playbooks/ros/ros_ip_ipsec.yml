@@ -1,0 +1,19 @@
+- name: ros ip ipsec 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+#  - role: nikolaydachev.routeros_api.ros_int_ipip
+  - role: nikolaydachev.routeros_api.ros_ip_ipsec
+    ros_ip_ipsec_config:
+#      - settings
+      - profile
+      - peer
+#      - key
+      - identity
+      - proposal
+#      - policy_group
+#      - mode-config
+      - policy
+
