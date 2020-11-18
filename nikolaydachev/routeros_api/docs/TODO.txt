@@ -14,13 +14,13 @@ ros_int_ipip
 
 Futured:
 
-ros_sys_users
+ros_user
 ros_sys_identity
 ros_sys_clock
-ros_sys_certificates
+ros_certificates
 ros_ip_dhcp_client
 ros_ip_dhcp_relay
-ros_ip_dhcp_firewall
+ros_ip_firewall
 ros_routing_ospf
 ros_routing_filters
 ros_routing_bfd
