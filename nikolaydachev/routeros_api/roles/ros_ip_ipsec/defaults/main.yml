@@ -82,7 +82,7 @@
   ros_ip_ipsec_policy_template: "no"
   ros_ip_ipsec_policy_tunnel: "no"
 
-  ros_ip_ipsec_policy_group_path: "{{ ros_ip_ipsec_path }} policy group"
+  ros_ip_ipsec_policy_group_path: "{{ ros_ip_ipsec_policy_path }} group"
   ros_ip_ipsec_policy_group_comment: ""
   ros_ip_ipsec_policy_group_copy_from: ""
   ros_ip_ipsec_policy_group_name: ""

@@ -1,17 +1,17 @@
 ---
-- name: configure ipsec
+- name: configure user
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "{{ ros_ip_ipsec__path }}"
+    path: "{{ ros_user_path }}"
     add:
 
-  register: ipsec
+  register: user
   delegate_to: localhost
 
-- name: result configure ipsec
+- name: result configure user
   debug:
-    msg: "{{ ipsec }}"
+    msg: "{{ user }}"
 
