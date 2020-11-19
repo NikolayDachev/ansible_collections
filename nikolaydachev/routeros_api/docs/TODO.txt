@@ -23,6 +23,7 @@ ros_user
 Futured:
 
 ros_sys_identity
+ros_tool_romon
 ros_sys_clock
 ros_certificates
 ros_ip_dhcp_client
