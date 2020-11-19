@@ -1,13 +1,13 @@
 ---
 # tasks file for ros_user
   - import_tasks: add.yml
+    when: '"user" in ros_user_config'
   - import_tasks: add_user_group.yml
-    when: ros_user_group_name
+    when: '"group" in ros_user_config'
   - import_tasks: add_user_aaa.yml
+    when: '"aaa" in ros_user_config'
   - import_tasks: add_user_ssh-keys.yml
-    when: ros_user_ssh_keys_import_user is defined
+    when: '"ssh-keys" in ros_user_config'
   - import_tasks: add_user_ssh-keys_private.yml
-    when: ros_user_ssh_keys_private_user is defined
-
-
-      # ?when: '"settings" in ros_ip_ipsec_config'
+    when: '"ssh-keys_private" in ros_user_config'
+    

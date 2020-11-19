@@ -14,11 +14,14 @@ ros_int_ipip
 
 19/11/2020
 ros_user
+  - testing
+  - playbooks
+  - readme
 
+20/11/2020
 
 Futured:
 
-ros_user
 ros_sys_identity
 ros_sys_clock
 ros_certificates
