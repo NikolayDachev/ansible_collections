@@ -24,9 +24,13 @@ ros_sys_identity
   - playbooks
   - readme
 
+ros_tool_romon
+  - testing
+  - playbooks
+  - readme
+
 Futured:
 
-ros_tool_romon
 ros_sys_clock
 ros_certificates
 ros_ip_dhcp_client
