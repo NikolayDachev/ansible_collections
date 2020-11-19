@@ -19,10 +19,13 @@ ros_user
   - readme
 
 20/11/2020
+ros_sys_identity
+  - testing
+  - playbooks
+  - readme
 
 Futured:
 
-ros_sys_identity
 ros_tool_romon
 ros_sys_clock
 ros_certificates

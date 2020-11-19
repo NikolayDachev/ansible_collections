@@ -1,17 +1,18 @@
 ---
-- name: configure user
+- name: configure system identity
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ ros_user_path }}"
-    add:
+    cmd:
+      set
+      name="{{ ros_sys_identity_name }}"
 
-  register: user
+  register: systemidentity
   delegate_to: localhost
 
-- name: result configure user
+- name: result configure system identity
   debug:
-    msg: "{{ user }}"
-
+    msg: "{{ systemidentity }}"

@@ -1,2 +1,10 @@
 ---
 # defaults file for ros_sys_identity
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_password: "admin"
+  ros_username: ""
+  ros_ssl: "true"
+
+  ros_sys_identity_path: "system identity"
+
+  ros_sys_identity_name: ""
