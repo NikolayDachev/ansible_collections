@@ -1,45 +1,49 @@
 18/11/2020
-
-Current:
-
 ros_ip_ipsec
   - testing
   - playbooks
   - readme
+  - meta
 
 ros_int_ipip
   - testing
   - playbooks
   - readme
+  - meta
 
 19/11/2020
 ros_user
   - testing
   - playbooks
   - readme
+  - meta
 
 20/11/2020
 ros_sys_identity
   - testing
   - playbooks
   - readme
+  - meta
 
 ros_tool_romon
   - testing
   - playbooks
   - readme
+  - meta
 
 23/11/2020
 ros_sys_clock
   - testing
   - playbooks
   - readme
+  - meta
 
 ros_certificates
   - testing
   - playbooks
   - readme
-  
+  - meta
+
 Futured:
 
 ros_ip_dhcp_client

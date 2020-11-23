@@ -1,2 +1,69 @@
 ---
 # defaults file for ros_certificates
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+
+  ros_certificates_path: "certificates"
+  ros_certificates_config: []
+
+  ros_certificates_crl_path: "{{ ros_certificates_path }} crl"
+  ros_certificates_crl_copy_from: ""
+  ros_certificates_crl_fingerprint: ""
+  ros_certificates_crl_url: ""
+
+  ros_certificates_settings_path:  "{{ ros_certificates_path }} settings"
+  ros_certificates_settings_crl_download: ""
+  ros_certificates_settings_crl_store: ""
+  ros_certificates_settings_crl_use: ""
+
+  ros_certificates_add_common_name: ""
+  ros_certificates_add_copy_from: ""
+  ros_certificates_add_country: ""
+  ros_certificates_add_days_valid: ""
+  ros_certificates_add_key_size: ""
+  ros_certificates_add_key_usage: ""
+  ros_certificates_add_locality: ""
+  ros_certificates_add_name: ""
+  ros_certificates_add_organization: ""
+  ros_certificates_add_state: ""
+  ros_certificates_add_subject_alt_name: ""
+  ros_certificates_add_trusted: ""
+  ros_certificates_add_unit: ""
+
+  ros_certificates_export_certificate_export_passphrase: ""
+  ros_certificates_export_certificate_file_name: ""
+  ros_certificates_export_certificate_type: ""
+  ros_certificates_export_certificate_numbers: ""
+
+  ros_certificates_import_file_name: ""
+  ros_certificates_import_name: ""
+  ros_certificates_import_passphrase: ""
+
+  ros_certificates_sign_ca: ""
+  ros_certificates_sign_ca_crl_host: ""
+  ros_certificates_sign_ca_on_smart_card: ""
+  ros_certificates_sign_do: ""
+  ros_certificates_sign_duration: ""
+  ros_certificates_sign_interval: ""
+  ros_certificates_sign_name: ""
+  ros_certificates_sign_number: ""
+
+  ros_certificates_create_certificate_request_append: ""
+  ros_certificates_create_certificate_request_as_value: ""
+  ros_certificates_create_certificate_request_challenge_passphrase: ""
+  ros_certificates_create_certificate_request_do: ""
+  ros_certificates_create_certificate_request_duration: ""
+  ros_certificates_create_certificate_request_interval: ""
+  ros_certificates_create_certificate_request_once: ""
+  ros_certificates_create_certificate_request_unstructured_address: ""
+  ros_certificates_create_certificate_request_without_paging: ""
+  ros_certificates_create_certificate_request_key_passphrase: ""
+  ros_certificates_create_certificate_request_template: ""
+
+  ros_certificates_issued_revoke: ""
+  
+  ros_certificates_sign_certificate_request_days_valid: ""
+  ros_certificates_sign_certificate_request_ca: ""
+  ros_certificates_sign_certificate_request_file_name: ""

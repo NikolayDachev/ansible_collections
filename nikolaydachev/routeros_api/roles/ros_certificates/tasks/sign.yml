@@ -1,0 +1,25 @@
+---
+- name: configure certificate sign
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_certificates_path }}"
+    cmd:
+      sign
+      ca="{{ ros_certificates_sign_ca }}"
+      crl-host="{{ ros_certificates_sign_ca_crl_host }}"
+      ca-on-smart-card="{{ ros_certificates_sign_ca_on_smart_card }}"
+      do="{{ ros_certificates_sign_do }}"
+      duration="{{ ros_certificates_sign_duration }}"
+      interval="{{ ros_certificates_sign_interval }}"
+      name="{{ ros_certificates_sign_name }}"
+      number="{{ ros_certificates_sign_number }}"
+      
+  register: certificatesign
+  delegate_to: localhost
+
+- name: result configure certificate sign
+  debug:
+    msg: "{{ certificatesign }}"
