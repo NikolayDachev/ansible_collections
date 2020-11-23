@@ -29,10 +29,19 @@ ros_tool_romon
   - playbooks
   - readme
 
+23/11/2020
+ros_sys_clock
+  - testing
+  - playbooks
+  - readme
+
+ros_certificates
+  - testing
+  - playbooks
+  - readme
+  
 Futured:
 
-ros_sys_clock
-ros_certificates
 ros_ip_dhcp_client
 ros_ip_dhcp_relay
 ros_ip_firewall

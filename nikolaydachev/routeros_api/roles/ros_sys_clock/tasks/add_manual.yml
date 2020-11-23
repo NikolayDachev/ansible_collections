@@ -1,0 +1,21 @@
+---
+- name: configure system clock manual
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_clock_manual_path }}"
+    cmd:
+      set
+      dst-delta="{{ ros_sys_clock_manual_dst_delta }}"
+      dst-end="{{ ros_sys_clock_manual_dst_end }}"
+      dst-start="{{ ros_sys_clock_manual_dst_start }}"
+      time-zone="{{ ros_sys_clock_manual_time_zone }}"
+
+  register: systemclockmanual
+  delegate_to: localhost
+
+- name: result configure system clock manual
+  debug:
+    msg: "{{ systemclockmanual }}"
