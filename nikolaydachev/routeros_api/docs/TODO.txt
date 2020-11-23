@@ -49,8 +49,9 @@ Futured:
 ros_ip_dhcp_client
 ros_ip_dhcp_relay
 ros_ip_firewall
+ros_int_brige
+
 ros_routing_ospf
 ros_routing_filters
 ros_routing_bfd
-ros_int_brige
 ...

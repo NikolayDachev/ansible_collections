@@ -1,0 +1,17 @@
+- name: ros certificates 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_certificates
+    ros_certificates_config:
+      - add
+#      - sign
+#      - create-certificate-request
+#      - sign-certificate-request
+#      - crl
+#      - export-certificate
+#      - import
+#      - issued-revoke
+#      - settings
