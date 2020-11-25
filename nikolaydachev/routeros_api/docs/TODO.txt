@@ -1,3 +1,5 @@
+Current:
+
 18/11/2020
 ros_ip_ipsec
   - testing
@@ -20,10 +22,8 @@ ros_user
 
 20/11/2020
 ros_sys_identity
-  - testing
-  - playbooks
   - readme
-  - meta
+
 
 ros_tool_romon
   - testing
