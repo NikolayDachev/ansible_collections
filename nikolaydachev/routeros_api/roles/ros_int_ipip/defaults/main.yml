@@ -7,9 +7,9 @@ ros_ssl: "true"
 
 ros_int_ipip_path: "interface ipip"
 
-ros_int_ipip_allow_fast_path: ""
+ros_int_ipip_allow_fast_path: "no"
 ros_int_ipip_comment: ""
-ros_int_ipip_disabled: ""
+ros_int_ipip_disabled: "no"
 ros_int_ipip_dscp: ""
 ros_int_ipip_keepalive: "10s,10"
 ros_int_ipip_mtu: "1500"
