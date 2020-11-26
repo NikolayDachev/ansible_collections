@@ -22,7 +22,7 @@ ros_user
 
 20/11/2020
 ros_sys_identity
-  - readme
+  - done
 
 
 ros_tool_romon
