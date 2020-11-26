@@ -34,7 +34,7 @@ n/a
 Example Playbook
 ----------------
 ```
-- name: ros ip pool 
+- name: ros system identity 
   hosts: all
   gather_facts: no
   connection: local
