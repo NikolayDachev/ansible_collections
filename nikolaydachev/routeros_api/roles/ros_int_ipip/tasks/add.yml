@@ -7,19 +7,19 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_ipip_path }}"
     add:
-      allow-fast-path="{{ ros_int_ipip_allow_fast_path }}"
-      comment="{{ ros_int_ipip_comment }}"
-      disabled="{{ ros_int_ipip_disabled }}"
-      dscp="{{ ros_int_ipip_dscp }}"
-      keepalive="{{ ros_int_ipip_keepalive }}"
-      mtu="{{ ros_int_ipip_mtu }}"
-      remote-address="{{ ros_int_ipip_remote_address }}"
-      clamp-tcp-mss="{{ ros_int_ipip_clamp_tcp_mss }}"
-      copy-from="{{ ros_int_ipip_copy_from }}"
-      dont-fragment="{{ ros_int_ipip_dont_fragment }}"
-      ipsec-secret="{{ ros_int_ipip_ipsec_secret }}"
-      local-address="{{ ros_int_ipip_local_address }}"
-      name="{{ ros_int_ipip_name }}"
+      allow-fast-path={{ ros_int_ipip_allow_fast_path }}
+      comment={{ ros_int_ipip_comment }}
+      disabled={{ ros_int_ipip_disabled }}
+      dscp={{ ros_int_ipip_dscp }}
+      keepalive={{ ros_int_ipip_keepalive }}
+      mtu={{ ros_int_ipip_mtu }}
+      remote-address={{ ros_int_ipip_remote_address }}
+      clamp-tcp-mss={{ ros_int_ipip_clamp_tcp_mss }}
+      copy-from={{ ros_int_ipip_copy_from }}
+      dont-fragment={{ ros_int_ipip_dont_fragment }}
+      ipsec-secret={{ ros_int_ipip_ipsec_secret }}
+      local-address={{ ros_int_ipip_local_address }}
+      name={{ ros_int_ipip_name }}
   register: rosintipip
   delegate_to: localhost
 

@@ -8,9 +8,9 @@
     path: "{{ ros_tool_romon_path }}"
     cmd:
       set
-      enabled="{{ ros_tool_romon_enabled }}"
-      id="{{ ros_tool_romon_id }}"
-      secrets="{{ ros_tool_romon_secrets }}"
+      enabled={{ ros_tool_romon_enabled }}
+      id={{ ros_tool_romon_id }}
+      secrets={{ ros_tool_romon_secrets }}
 
   register: toolromon
   delegate_to: localhost

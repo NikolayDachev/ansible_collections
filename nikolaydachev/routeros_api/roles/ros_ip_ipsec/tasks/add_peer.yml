@@ -7,17 +7,17 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_ipsec_peer_path }}"
     add:
-      address="{{ ros_ip_ipsec_peer_address }}"
-      comment="{{ ros_ip_ipsec_peer_comment }}"
-      copy-from="{{ ros_ip_ipsec_peer_copy_from }}"
-      disabled="{{ ros_ip_ipsec_peer_disabled }}"
-      exchange-mode="{{ ros_ip_ipsec_peer_exchange_mode }}"
-      local-address="{{ ros_ip_ipsec_peer_local_address }}"
-      name="{{ ros_ip_ipsec_peer_name }}"
-      passive="{{ ros_ip_ipsec_peer_passive }}"
-      port="{{ ros_ip_ipsec_peer_port }}"
-      profile="{{ ros_ip_ipsec_peer_profile }}"
-      send-initial-contact="{{ ros_ip_ipsec_peer_send_initial_contact }}"
+      address={{ ros_ip_ipsec_peer_address }}
+      comment={{ ros_ip_ipsec_peer_comment }}
+      copy-from={{ ros_ip_ipsec_peer_copy_from }}
+      disabled={{ ros_ip_ipsec_peer_disabled }}
+      exchange-mode={{ ros_ip_ipsec_peer_exchange_mode }}
+      local-address={{ ros_ip_ipsec_peer_local_address }}
+      name={{ ros_ip_ipsec_peer_name }}
+      passive={{ ros_ip_ipsec_peer_passive }}
+      port={{ ros_ip_ipsec_peer_port }}
+      profile={{ ros_ip_ipsec_peer_profile }}
+      send-initial-contact={{ ros_ip_ipsec_peer_send_initial_contact }}
   register: ipsecpeer
   delegate_to: localhost
 

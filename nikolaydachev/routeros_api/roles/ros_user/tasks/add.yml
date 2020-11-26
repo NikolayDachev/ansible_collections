@@ -7,13 +7,13 @@
     username: "{{ ros_username }}"
     path: "{{ ros_user_path }}"
     add:
-      address="{{ ros_user_address }}"
-      comment="{{ ros_user_comment }}"
-      copy-from="{{ ros_user_copy_from }}"
-      disabled="{{ ros_user_disabled }}"
-      password="{{ ros_user_password }}"
-      group="{{ ros_user_group }}"
-      name="{{ ros_user_name }}"
+      address={{ ros_user_address }}
+      comment={{ ros_user_comment }}
+      copy-from={{ ros_user_copy_from }}
+      disabled={{ ros_user_disabled }}
+      password={{ ros_user_password }}
+      group={{ ros_user_group }}
+      name={{ ros_user_name }}
   register: user
   delegate_to: localhost
 

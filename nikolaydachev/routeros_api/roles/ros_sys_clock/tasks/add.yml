@@ -8,10 +8,10 @@
     path: "{{ ros_sys_clock_path }}"
     cmd:
       set
-      date="{{ ros_sys_clock_date }}"
-      time="{{ ros_sys_clock_time }}"
-      time-zone-autodetect="{{ ros_sys_clock_time_zone_autodetect }}"
-      time-zone-name="{{ ros_sys_clock_time_zone_name }}"
+      date={{ ros_sys_clock_date }}
+      time={{ ros_sys_clock_time }}
+      time-zone-autodetect={{ ros_sys_clock_time_zone_autodetect }}
+      time-zone-name={{ ros_sys_clock_time_zone_name }}
 
   register: systemclock
   delegate_to: localhost

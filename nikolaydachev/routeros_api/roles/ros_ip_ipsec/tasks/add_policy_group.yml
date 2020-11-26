@@ -7,9 +7,9 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_ipsec_policy_group_path }}"
     add:
-      comment="{{ ros_ip_ipsec_policy_group_comment }}"
-      copy-from="{{ ros_ip_ipsec_policy_group_copy_from }}"
-      name="{{ ros_ip_ipsec_policy_group_name }}"
+      comment={{ ros_ip_ipsec_policy_group_comment }}
+      copy-from={{ ros_ip_ipsec_policy_group_copy_from }}
+      name={{ ros_ip_ipsec_policy_group_name }}
 
   register: ipsecpolicygroup
   delegate_to: localhost

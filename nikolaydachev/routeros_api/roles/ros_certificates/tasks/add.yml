@@ -7,19 +7,19 @@
     username: "{{ ros_username }}"
     path: "{{ ros_certificates_path }}"
     add:
-      common-name="{{ ros_certificates_add_common_name }}"
-      copy-from="{{ ros_certificates_add_copy_from }}"
-      country="{{ ros_certificates_add_country }}"
-      days-valid="{{ ros_certificates_add_days_valid }}"
-      key-size="{{ ros_certificates_add_key_size }}"
-      key-usage="{{ ros_certificates_add_key_usage }}"
-      locality="{{ ros_certificates_add_locality }}"
-      name="{{ ros_certificates_add_name }}"
-      organization="{{ ros_certificates_add_organization }}"
-      state="{{ ros_certificates_add_state }}"
-      subject-alt-name="{{ ros_certificates_add_subject_alt_name }}"
-      trusted="{{ ros_certificates_add_trusted }}"
-      add-unit="{{ ros_certificates_add_unit }}"
+      common-name={{ ros_certificates_add_common_name }}
+      copy-from={{ ros_certificates_add_copy_from }}
+      country={{ ros_certificates_add_country }}
+      days-valid={{ ros_certificates_add_days_valid }}
+      key-size={{ ros_certificates_add_key_size }}
+      key-usage={{ ros_certificates_add_key_usage }}
+      locality={{ ros_certificates_add_locality }}
+      name={{ ros_certificates_add_name }}
+      organization={{ ros_certificates_add_organization }}
+      state={{ ros_certificates_add_state }}
+      subject-alt-name={{ ros_certificates_add_subject_alt_name }}
+      trusted={{ ros_certificates_add_trusted }}
+      add-unit={{ ros_certificates_add_unit }}
 
   register: certificateadd
   delegate_to: localhost

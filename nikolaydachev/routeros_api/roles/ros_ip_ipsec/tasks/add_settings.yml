@@ -8,9 +8,9 @@
     path: "{{ ros_ip_ipsec_settings_path }}"
     cmd:
       set
-      accounting="{{ ros_ip_ipsec_settings_accounting }}"
-      interim-update="{{ ros_ip_ipsec_settings_interim_update }}" 
-      xauth-use-radius="{{ ros_ip_ipsec_settings_xauth_use_radius }}"
+      accounting={{ ros_ip_ipsec_settings_accounting }}
+      interim-update={{ ros_ip_ipsec_settings_interim_update }}
+      xauth-use-radius={{ ros_ip_ipsec_settings_xauth_use_radius }}
   register: ipsecsettings
   delegate_to: localhost
 

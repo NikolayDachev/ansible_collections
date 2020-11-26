@@ -8,10 +8,10 @@
     path: "{{ ros_sys_clock_manual_path }}"
     cmd:
       set
-      dst-delta="{{ ros_sys_clock_manual_dst_delta }}"
-      dst-end="{{ ros_sys_clock_manual_dst_end }}"
-      dst-start="{{ ros_sys_clock_manual_dst_start }}"
-      time-zone="{{ ros_sys_clock_manual_time_zone }}"
+      dst-delta={{ ros_sys_clock_manual_dst_delta }}
+      dst-end={{ ros_sys_clock_manual_dst_end }}
+      dst-start={{ ros_sys_clock_manual_dst_start }}
+      time-zone={{ ros_sys_clock_manual_time_zone }}
 
   register: systemclockmanual
   delegate_to: localhost

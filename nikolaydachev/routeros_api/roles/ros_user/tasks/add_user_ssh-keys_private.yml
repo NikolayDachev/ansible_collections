@@ -8,14 +8,12 @@
     path: "{{ ros_user_ssh_keys_private_path }}"
     cmd:
       import
-      "{{ ros_user_ssh_keys_private_user }}"
-      "{{ ros_user_ssh_keys_private_passphrase }}"
-      "{{ ros_user_ssh_keys_private_private_key_file }}"
-      "{{ ros_user_ssh_keys_private_public_key_fil }}"
-  register: usersshkeysprivate
-  delegate_to: localhost
-
-- name: result configure user ssh-keys private
-  debug:
+      user={{ ros_user_ssh_keys_private_user }}
+      pssphras={{ ros_user_ssh_keys_private_pssphrase }}
+      pivatekey-file={{ ros_user_ssh_keys_private_pivatekey_file }}
+      pblic-eyfil={{ ros_user_ssh_keys_private_pblic_eyfil }}
+  register: usersshkeysprivate  delegte_to localhost
+- name: result configure user ssh-keys privte
+ debug:
     msg: "{{ usersshkeysprivate }}"
 
