@@ -1,38 +1,103 @@
-Role Name
+ros_ip_ipsec
 =========
 
-A brief description of the role goes here.
+This role will configure RouterOS IPSEC via API.  
+https://wiki.mikrotik.com/wiki/Manual:IP/IPsec 
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros) 
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://ansible.fontein.de/collections/community/routeros/api_module.html#ansible-collections-community-routeros-api-module  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+With general configuration variable this role can configure only selected RouterOS sub configurations.  
+
+Role var prefix: **ros_ip_ipsec_**  
+General configuration variable: **ros_ip_ipsec_config** type list  
+Sub configuations:  
+- settings
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Settings
+
+- profile
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Profiles
+
+- peer
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Peers
+
+- key
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Keys
+
+- identity
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Identities
+
+- proposal
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Proposals
+
+- policy_group
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Groups
+
+- mode-config
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Mode_configs
+
+- policy
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Policies
+
+special var:
+- ros_ip_ipsec_installed_sa_flush
+  Description: When is set to "True" will remove all installed SA
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Installed_SAs
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example in lease, "sa-dst-address" is "sa_dst_address", so the full var name is "ros_ip_ipsec_policy_sa_dst_address"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros ip ipsec 
+  hosts: all
+  gather_facts: no
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+  roles:
+#  - role: nikolaydachev.routeros_api.ros_int_ipip
+  - role: nikolaydachev.routeros_api.ros_ip_ipsec
+    ros_ip_ipsec_config:
+#      - settings
+      - profile
+      - peer
+#      - key
+      - identity
+      - proposal
+#      - policy_group
+#      - mode-config
+      - policy
+      # note pilicy will be added on every run!
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

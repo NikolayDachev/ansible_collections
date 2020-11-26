@@ -2,10 +2,7 @@ Current:
 
 18/11/2020
 ros_ip_ipsec
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - testing 50/50
 
 ros_int_ipip
   - testing
