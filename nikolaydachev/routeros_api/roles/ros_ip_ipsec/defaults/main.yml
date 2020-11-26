@@ -70,7 +70,7 @@
   ros_ip_ipsec_policy_dst_port: "any"
   ros_ip_ipsec_policy_group: "default"
   ros_ip_ipsec_policy_ipsec_protocols: "esp"
-  ros_ip_ipsec_policy_level: "default"
+  ros_ip_ipsec_policy_level: "require"
   ros_ip_ipsec_policy_peer: ""
   ros_ip_ipsec_policy_place_before: ""
   ros_ip_ipsec_policy_proposal: "default"

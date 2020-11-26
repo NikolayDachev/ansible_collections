@@ -7,7 +7,7 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_ipsec_proposal_path }}"
     add:
-      auth_algorithms={{ ros_ip_ipsec_proposal_auth_algorithms }}
+      auth-algorithms={{ ros_ip_ipsec_proposal_auth_algorithms }}
       comment={{ ros_ip_ipsec_proposal_comment }}
       copy-from={{ ros_ip_ipsec_proposal_copy_from }}
       disabled={{ ros_ip_ipsec_proposal_disabled }}
