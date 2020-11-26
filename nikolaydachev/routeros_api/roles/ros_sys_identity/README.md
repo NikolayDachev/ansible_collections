@@ -25,6 +25,7 @@ ros_ssl: "community.routeros.api ssl", default for this role is set to "true"
 All role variables are combination from role name as prefix and the the actual RouterOS property   
 Role var prefix: **ros_sys_identity_**  
 
+Full variable list can be found under role defaults.
 
 Dependencies
 ------------
