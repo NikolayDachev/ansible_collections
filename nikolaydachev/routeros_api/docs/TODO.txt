@@ -9,10 +9,7 @@ ros_int_ipip
 
 19/11/2020
 ros_user
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - done
 
 20/11/2020
 ros_sys_identity

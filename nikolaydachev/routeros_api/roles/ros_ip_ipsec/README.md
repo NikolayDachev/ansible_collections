@@ -2,7 +2,7 @@ ros_ip_ipsec
 =========
 
 This role will configure RouterOS IPSEC via API.  
-https://wiki.mikrotik.com/wiki/Manual:IP/IPsec 
+https://wiki.mikrotik.com/wiki/Manual:IP/IPsec  
 
 galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
 github: https://github.com/NikolayDachev/ansible_collections  
@@ -10,7 +10,7 @@ github: https://github.com/NikolayDachev/ansible_collections
 Requirements
 ------------
 
-module: [community.routeros.api](https://galaxy.ansible.com/community/routeros) 
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------

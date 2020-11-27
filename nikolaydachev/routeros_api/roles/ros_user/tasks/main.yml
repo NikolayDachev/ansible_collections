@@ -1,7 +1,5 @@
 ---
 # tasks file for ros_user
-  - import_tasks: add.yml
-    when: '"user" in ros_user_config'
   - import_tasks: add_user_group.yml
     when: '"group" in ros_user_config'
   - import_tasks: add_user_aaa.yml
@@ -10,4 +8,5 @@
     when: '"ssh-keys" in ros_user_config'
   - import_tasks: add_user_ssh-keys_private.yml
     when: '"ssh-keys_private" in ros_user_config'
-    
+  - import_tasks: add.yml
+    when: '"user" in ros_user_config'

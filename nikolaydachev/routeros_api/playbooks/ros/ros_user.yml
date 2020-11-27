@@ -6,9 +6,9 @@
   roles:
   - role: nikolaydachev.routeros_api.ros_user
     ros_user_config:
-      - user
 #      - group
 #      - aaa
 #      - ssh-keys
 #      - ssh-keys_private
+      - user
  
