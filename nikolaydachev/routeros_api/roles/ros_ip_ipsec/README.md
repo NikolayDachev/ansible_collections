@@ -60,7 +60,7 @@ special var:
   Description: When is set to "True" will remove all installed SA
   RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/IPsec#Installed_SAs
 
-NOTE: Any "-" from RouterOS property is replaced with "_" for example in lease, "sa-dst-address" is "sa_dst_address", so the full var name is "ros_ip_ipsec_policy_sa_dst_address"  
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "sa-dst-address" is "sa_dst_address", so the full var name is "ros_ip_ipsec_policy_sa_dst_address"  
 
 Full variable list can be found under role defaults.  
 

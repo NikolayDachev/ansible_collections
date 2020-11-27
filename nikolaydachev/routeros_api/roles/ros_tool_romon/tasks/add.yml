@@ -9,9 +9,8 @@
     cmd:
       set
       enabled={{ ros_tool_romon_enabled }}
-      id={{ ros_tool_romon_id }}
       secrets={{ ros_tool_romon_secrets }}
-
+      #id={{ ros_tool_romon_id }}
   register: toolromon
   delegate_to: localhost
 

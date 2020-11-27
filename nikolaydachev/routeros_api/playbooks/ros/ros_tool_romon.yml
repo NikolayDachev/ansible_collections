@@ -5,8 +5,12 @@
 
   roles:
   - role: nikolaydachev.routeros_api.ros_tool_romon
-    ros_user_config:
+    ros_tool_romon_config:
       - enabled
-#      - port
+      # - port
+      
+      # note new port interface will be added on every run!
+      # note romon set id is not supported (https://github.com/ansible-collections/community.routeros/issues/13)
+
 
  

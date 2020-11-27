@@ -9,9 +9,9 @@
     add:
       comment={{ ros_tool_romon_port_comment }}
       copy-from={{ ros_tool_romon_port_copy_from }}
-      cost ={{ ros_tool_romon_port_cost }}"
+      cost={{ ros_tool_romon_port_cost }}
       disabled={{ ros_tool_romon_port_disabled }}
-      forbid={{ ros_tool_romon_port_forbid }
+      forbid={{ ros_tool_romon_port_forbid }}
       secrets={{ ros_tool_romon_port_secrets }}
       interface={{ ros_tool_romon_port_interface }}
   register: toolromonport

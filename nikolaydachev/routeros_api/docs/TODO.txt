@@ -15,12 +15,8 @@ ros_user
 ros_sys_identity
   - done
 
-
 ros_tool_romon
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - done
 
 23/11/2020
 ros_sys_clock

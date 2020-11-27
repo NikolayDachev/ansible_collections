@@ -43,7 +43,7 @@ Sub configuations:
 - user
   RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:Router_AAA#Router_Users
 
-NOTE: Any "-" from RouterOS property is replaced with "_" for example in lease, default-group" is "default_group", so the full var name is "ros_user_aaa_default_group"  
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, default-group" is "default_group", so the full var name is "ros_user_aaa_default_group"  
 
 Full variable list can be found under role defaults.  
 

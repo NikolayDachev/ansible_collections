@@ -45,7 +45,7 @@ Sub configuations:
   RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/DHCP_Server#Vendor_Classes  
 
 
-NOTE: Any "-" from RouterOS property is replaced with "_" for example in lease, "address-lists" is "address_lists", so the full var name is "ros_ip_dhcp_server_lease_address_lists"  
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "address-lists" is "address_lists", so the full var name is "ros_ip_dhcp_server_lease_address_lists"  
 
 Full variable list can be found under role defaults.  
 
