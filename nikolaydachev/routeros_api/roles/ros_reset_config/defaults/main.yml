@@ -1,8 +1,8 @@
 ---
 # defaults file for ros_reset_config
   ros_hostname: "{{ inventory_hostname }}"
-  ros_password: "admin"
-  ros_username: ""
+  ros_password: ""
+  ros_username: "admin"
   ros_ssl: "true"
 
   ros_reset_config_path: "system"
