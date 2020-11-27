@@ -20,10 +20,7 @@ ros_tool_romon
 
 23/11/2020
 ros_sys_clock
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - done
 
 ros_certificates
   - testing

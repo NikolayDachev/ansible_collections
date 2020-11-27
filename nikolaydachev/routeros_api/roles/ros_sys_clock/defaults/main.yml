@@ -1,15 +1,15 @@
 ---
 # defaults file for ros_sys_clock
   ros_hostname: "{{ inventory_hostname }}"
-  ros_password: "admin"
-  ros_username: ""
+  ros_password: ""
+  ros_username: "admin"
   ros_ssl: "true"
 
   ros_sys_clock_path: "system clock"
 
   ros_sys_clock_date: ""
   ros_sys_clock_time: ""
-  ros_sys_clock_time_zone_autodetect: ""
+  ros_sys_clock_time_zone_autodetect: "yes"
   ros_sys_clock_time_zone_name: ""
   
   ros_sys_clock_manual_path: "{{ ros_sys_clock_path manual }}"
