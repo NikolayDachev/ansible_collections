@@ -3,15 +3,35 @@
   gather_facts: no
   connection: local
 
-  roles:
-  - role: nikolaydachev.routeros_api.ros_certificates
-    ros_certificates_config:
-      - add
-#      - sign
-#      - create-certificate-request
-#      - sign-certificate-request
-#      - crl
-#      - export-certificate
-#      - import
-#      - issued-revoke
-#      - settings
+  tasks:
+    - name: Generate Certs
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_certificates
+      vars:
+        ros_certificates_config:
+          - add
+          - sign
+#           - create-certificate-request
+#           - sign-certificate-request
+#           - crl
+#           - export-certificate
+#           - import
+#           - issued-revoke
+#           - settings
+    
+        ros_certificates_add_common_name: "{{ item.ros_certificates_add_common_name }}"
+        ros_certificates_add_country: "{{ item.ros_certificates_add_country }}"
+        ros_certificates_add_days_valid: "{{ item.ros_certificates_add_days_valid }}"
+        ros_certificates_add_key_size: "{{ item.ros_certificates_add_key_size }}"
+        ros_certificates_add_key_usage: "{{ item.ros_certificates_add_key_usage }}"
+        ros_certificates_add_name: "{{ item.ros_certificates_add_name }}"
+        ros_certificates_add_organization: "{{ item.ros_certificates_add_organization }}"
+        ros_certificates_add_state: "{{ item.ros_certificates_add_state }}"
+        ros_certificates_add_subject_alt_name: "{{ item.ros_certificates_add_subject_alt_name }}"
+        ros_certificates_add_trusted: "{{ item.ros_certificates_add_trusted }}"
+    
+        ros_certificates_sign_ca: "{{ item.ros_certificates_sign_ca }}"
+        ros_certificates_sign_number: "{{ item.ros_certificates_sign_number }}"
+    
+      loop:
+        "{{ ros_certs }}"
