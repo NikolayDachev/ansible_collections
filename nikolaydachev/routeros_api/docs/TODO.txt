@@ -27,10 +27,7 @@ ros_certificates
 
 25/11/2020
 ros_ip_dhcp_client
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - done
 
 Futured:
 

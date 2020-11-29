@@ -1,2 +1,6 @@
 ---
 # tasks file for ros_ip_dhcp_client
+  - import_tasks: add.yml
+    when: '"add" in ros_ip_dhcp_client_config'
+  - import_tasks: add_option.yml
+    when: '"option" in ros_ip_dhcp_client_config'
