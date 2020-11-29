@@ -23,10 +23,7 @@ ros_sys_clock
   - done
 
 ros_certificates
-  - testing
-  - playbooks
-  - readme
-  - meta
+  - done
 
 25/11/2020
 ros_ip_dhcp_client
