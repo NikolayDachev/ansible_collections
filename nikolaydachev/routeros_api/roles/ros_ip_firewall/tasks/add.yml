@@ -6,8 +6,7 @@
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ ros_ip_fw_path }}"
-    add:
-      {{ item }}
+    add: "{{ item }}"
   loop:
     "{{ ros_ip_fw_rules }}"
   register: rosipfirewall
