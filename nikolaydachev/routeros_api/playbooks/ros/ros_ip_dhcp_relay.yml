@@ -1,0 +1,7 @@
+- name: ros ip dhcp-relay
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ip_dhcp_relay

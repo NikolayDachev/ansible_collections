@@ -10,7 +10,7 @@
       add-relay-info={{ ros_ip_dhcp_relay_add_relay_info }}
       delay-threshold={{ ros_ip_dhcp_relay_delay_threshold }}
       local-address={{ ros_ip_dhcp_relay_local_address }}
-      relay-info-remote_i={{ ros_ip_dhcp_relay_relay_info_remote_id }}
+      relay-info-remote_id={{ ros_ip_dhcp_relay_relay_info_remote_id }}
       interface={{ ros_ip_dhcp_relay_interface }}
       copy-from={{ ros_ip_dhcp_relay_copy_from }}
       disabled={{ ros_ip_dhcp_relay_disabled }}

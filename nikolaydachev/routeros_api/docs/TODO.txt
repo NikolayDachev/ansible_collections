@@ -31,10 +31,7 @@ ros_ip_dhcp_client
 
 30/11/2020
 ros_ip_dhcp_relay
-  - testing
-  - playbook
-  - meta
-  - readme
+  - done
 
 Futured:
 ros_ip_firewall
