@@ -1,2 +1,18 @@
 ---
 # defaults file for ros_ip_dhcp_relay
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_ip_dhcp_relay_path: "ip dhcp_relay"
+
+  ros_ip_dhcp_relay_add_relay_info: ""
+  ros_ip_dhcp_relay_delay_threshold: ""
+  ros_ip_dhcp_relay_local_address: ""
+  ros_ip_dhcp_relay_relay_info_remote_id: ""
+  ros_ip_dhcp_relay_interface: ""
+  ros_ip_dhcp_relay_copy_from: ""
+  ros_ip_dhcp_relay_disabled: "no"
+  ros_ip_dhcp_relay_name: ""
+  ros_ip_dhcp_relay_dhcp_server: ""

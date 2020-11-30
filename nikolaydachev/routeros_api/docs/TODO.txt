@@ -29,9 +29,14 @@ ros_certificates
 ros_ip_dhcp_client
   - done
 
-Futured:
-
+30/11/2020
 ros_ip_dhcp_relay
+  - testing
+  - playbook
+  - meta
+  - readme
+
+Futured:
 ros_ip_firewall
 ros_int_brige
 
