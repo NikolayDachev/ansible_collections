@@ -2,7 +2,7 @@ Current:
 
 18/11/2020
 ros_ip_ipsec
-  - testing 50/50
+  - done
 
 ros_int_ipip
   - done
@@ -33,8 +33,13 @@ ros_ip_dhcp_client
 ros_ip_dhcp_relay
   - done
 
-Futured:
 ros_ip_firewall
+  - playbook
+  - meta
+  - testing
+  - role
+
+Futured:
 ros_int_brige
 
 ros_routing_ospf
