@@ -1,4 +1,16 @@
 ---
+- name: flush ip firewall {{ ros_ip_fw_type }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_fw_path }}"
+    cmd: "remove numbers=[/ip firewall {{ ros_ip_fw_type }} find]"
+  register: rosipfirewallflush
+  delegate_to: localhost
+  when: ros_ip_firewall_flush == "true"
+
 - name: add ip firewall {{ ros_ip_fw_type }}
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
@@ -12,6 +24,4 @@
   register: rosipfirewall
   delegate_to: localhost
 
-- name: result ip firewall {{ ros_ip_fw_type }}
-  debug:
-    msg: '{{ rosipfirewall }}'
+
