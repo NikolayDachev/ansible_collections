@@ -10,7 +10,7 @@
       set
       enabled={{ ros_tool_romon_enabled }}
       secrets={{ ros_tool_romon_secrets }}
-      #id={{ ros_tool_romon_id }}
+      id={{ ros_tool_romon_id }}
   register: toolromon
   delegate_to: localhost
 

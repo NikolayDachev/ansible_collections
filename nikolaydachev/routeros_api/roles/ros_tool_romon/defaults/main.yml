@@ -9,7 +9,7 @@
   ros_tool_romon_config: []
 
   ros_tool_romon_enabled: "yes"
-  #ros_tool_romon_id: "00:00:00:00:00:00"
+  ros_tool_romon_id: "00:00:00:00:00:00"
   ros_tool_romon_secrets: ""
 
   ros_tool_romon_port_path: "{{ ros_tool_romon_path }} port"

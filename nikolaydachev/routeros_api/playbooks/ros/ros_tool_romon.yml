@@ -10,7 +10,5 @@
       # - port
       
       # note new port interface will be added on every run!
-      # note romon set id is not supported (https://github.com/ansible-collections/community.routeros/issues/13)
-
 
  
