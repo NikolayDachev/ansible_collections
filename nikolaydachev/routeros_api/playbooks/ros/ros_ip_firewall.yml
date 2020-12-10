@@ -12,6 +12,6 @@
 #      - layer7-protocol
 #      - mangle
       - nat
-      - raw
+#      - raw
 #      - connection_tracking
 #      - service-port

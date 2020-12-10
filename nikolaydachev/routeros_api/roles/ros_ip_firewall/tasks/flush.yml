@@ -12,8 +12,8 @@
 
 - name: set fact for ".id" from "query ip firewall {{ ros_ip_fw_type }}"
   ansible.builtin.set_fact:
-    to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
-  loop: "{{ rosipfirewallflushfind.results }}"
+    to_be_remove: "{{ rosipfirewallflushfind.msg }}"
+  when: '"no results for" not in rosipfirewallflushfind.msg.0'
 
 - name: flush subtask ip firewall {{ ros_ip_fw_type }}
   community.routeros.api:
@@ -22,10 +22,10 @@
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ ros_ip_fw_path }}"
-    remove: "{{ item }}"
+    remove: "{{ item['.id'] }}"
   register: rosipfirewallflush
   delegate_to: localhost
-  loop: "{{ to_be_remove }}"
+  loop: "{{ to_be_remove | default([]) }}"
 
 
 

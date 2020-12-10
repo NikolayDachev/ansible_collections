@@ -46,7 +46,7 @@
   ros_ip_firewall_connection_tracking_icmp_timeout: "10s"
   ros_ip_firewall_connection_tracking_tcp_close_wait_timeout: "10s"
   ros_ip_firewall_connection_tracking_tcp_last_ack_timeout: "10s"
-  ros_ip_firewall_connection_tracking_tcp_syn_sent_timeou: "5s"
+  ros_ip_firewall_connection_tracking_tcp_syn_sent_timeout: "5s"
   ros_ip_firewall_connection_tracking_udp_stream_timeout: "3m"
 
   ros_ip_firewall_service_port_path: "{{ ros_ip_firewall_path }} service-port"
