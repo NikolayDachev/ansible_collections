@@ -25,7 +25,5 @@
     remove: "{{ item['.id'] }}"
   register: rosipfirewallflush
   delegate_to: localhost
-  loop: "{{ to_be_remove | default([]) }}"
-
-
-
+  loop: "{{ to_be_remove|reverse|list }}"
+  when: to_be_remove is defined
