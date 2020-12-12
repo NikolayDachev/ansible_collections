@@ -7,11 +7,11 @@
   - role: nikolaydachev.routeros_api.ros_ip_firewall
     ros_ip_firewall_config:
       - address-list
-#      - calea
-      - filter
-#      - layer7-protocol
-#      - mangle
+      - service-port
       - nat
-#      - raw
-#      - connection_tracking
-#      - service-port
+      - raw
+      - filter
+      - calea
+      - layer7-protocol
+      - mangle
+      - connection-tracking

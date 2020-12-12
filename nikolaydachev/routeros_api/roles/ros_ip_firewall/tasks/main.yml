@@ -57,7 +57,7 @@
     when: '"raw" in ros_ip_firewall_config'
 
   - import_tasks: connection_tracking.yml
-    when: '"connection_tracking" in ros_ip_firewall_config'
+    when: '"connection-tracking" in ros_ip_firewall_config'
 
   - import_tasks: service_port.yml
-    when: '"service_port" in ros_ip_firewall_config'
+    when: '"service-port" in ros_ip_firewall_config'

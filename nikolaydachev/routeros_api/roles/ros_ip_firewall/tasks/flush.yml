@@ -10,7 +10,7 @@
   register: rosipfirewallflushfind
   delegate_to: localhost
 
-- name: create a list of query result
+- name: create a list of query result for {{ ros_ip_fw_type }}
   vars:
     to_be_remove: ""
   ansible.builtin.set_fact:
