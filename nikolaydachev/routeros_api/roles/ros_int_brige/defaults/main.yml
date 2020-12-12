@@ -1,2 +1,73 @@
 ---
 # defaults file for ros_int_brige
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+
+  ros_int_brige_path: "interface bridge"
+  ros_int_brige_config: []
+
+  ros_int_brige_add_dhcp_option82: ""
+  ros_int_brige_copy_from: ""
+  ros_int_brige_igmp_snooping: ""
+  ros_int_brige_membership_interval: ""
+  ros_int_brige_protocol_mode: ""
+  ros_int_brige_startup_query_count: ""
+  ros_int_brige_admin_mac: ""
+  ros_int_brige_dhcp_snooping: ""
+  ros_int_brige_igmp_version: ""
+  ros_int_brige_mld_version: ""
+  ros_int_brige_pvid: ""
+  ros_int_brige_startup_query_interval: ""
+  ros_int_brige_ageing_time: ""
+  ros_int_brige_disabled: ""
+  ros_int_brige_mtu: ""
+  ros_int_brige_querier_interval: ""
+  ros_int_brige_transmit_hold_count: ""
+  ros_int_brige_arp: ""
+  ros_int_brige_ether_type: ""
+  ros_int_brige_last_member_interval: ""
+  ros_int_brige_multicast_querier: ""
+  ros_int_brige_query_interval: ""
+  ros_int_brige_vlan_filtering: ""
+  ros_int_brige_arp_timeout: ""
+  ros_int_brige_fast_forward: ""
+  ros_int_brige_last_member_query_count: ""
+  ros_int_brige_multicast_router: ""
+  ros_int_brige_query_response_interval: ""
+  ros_int_brige_auto_mac: ""
+  ros_int_brige_forward_delay: ""
+  ros_int_brige_max_hops: ""
+  ros_int_brige_name: ""
+  ros_int_brige_region_name: ""
+  ros_int_brige_comment: ""
+  ros_int_brige_frame_types: ""
+  ros_int_brige_max_message_age: ""
+  ros_int_brige_priority: ""
+  ros_int_brige_region_revision: ""
+
+  ros_int_brige_port_path: "{{ ros_int_brige_path }} port"
+
+  ros_int_brige_mdb_path: "{{ ros_int_brige_path }} mdb"
+
+  ros_int_brige_port_controller_path: "{{ ros_int_brige_path }} port-controller"
+
+  ros_int_brige_settings_path: "{{ ros_int_brige_path }} settings"
+
+  ros_int_brige_host_path: "{{ ros_int_brige_path }} host"
+
+  ros_int_brige_msti_path: "{{ ros_int_brige_path }} msti"
+
+  ros_int_brige_port_extender_path: "{{ ros_int_brige_path }} port-extender"
+
+  ros_int_brige_vlan_path: "{{ ros_int_brige_path }} vlan"
+
+  ros_int_brige_calea_path: "{{ ros_int_brige_path }} calea"
+  ros_int_brige_calea: []
+
+  ros_int_brige_filter_path: "{{ ros_int_brige_path }} filter"
+  ros_int_brige_filter: []
+
+  ros_int_brige_nat_path: "{{ ros_int_brige_path }} nat"
+  ros_int_brige_nat: []
