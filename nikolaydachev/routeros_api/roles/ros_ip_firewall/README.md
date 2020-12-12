@@ -1,38 +1,130 @@
-Role Name
+ros_ip_ipsec
 =========
 
-A brief description of the role goes here.
+This role will configure RouterOS Firewall via API.  
+https://wiki.mikrotik.com/wiki/Manual:IP/Firewall  
+
+IMPRTATN NOTES!
+- Please be extremely careful when you manage firewall rules with any sort of automation!   
+
+- _address_list, _calea, _filter _layer7_protocol, _mangle, _nat and _raw are list vars. Each list item is a rule, rules will be added one by one from first list item to last one (in routeos the order is from top(first list item) to bottom(last list itme))!  
+
+- **ros_ip_firewall_flush** varible will remove all rules at once! The main usage is to make more easy firewall rules configuration managment. The flush happen before adding new rules, so for example if you set it to "true" with combination of 'filter' this role will first remove all exsiting rules under ip firewall filter and then will add the new rules. Can be used as general, so first to remove all exsiting rules before add any type of ip firewall rules.  
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+With general configuration variable this role can configure only selected RouterOS sub configurations.  
+
+Role var prefix: **ros_ip_firewall_**  
+General configuration variable: **ros_ip_firewall_config** type list  
+Sub configuations:  
+- address-list:  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Address_list  
+
+- service-port  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Services#Service_Ports  
+
+- nat  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/NAT  
+
+- raw  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Raw  
+
+- filter  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Filter  
+
+- calea  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/CALEA  
+
+- layer7-protocol  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/L7  
+
+- mangle  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Mangle  
+
+- connection-tracking  
+  RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Connection_tracking  
+
+special var:  
+- ros_ip_firewall_flush  
+  Description: When is set to "true" will flush/remove all rules for the current subconfig before add new rules
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "tcp-max-retrans-timeout" is "tcp_max_retrans_timeout", so the full var name is "ros_ip_firewall_connection_tracking_tcp_max_retrans_timeout"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros ip firewall
+  hosts: all
+  gather_facts: no
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ip_firewall
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    ros_ip_firewall_flush: "true"
 
+    ros_ip_firewall_filter:
+      - action=accept chain=forward connection-state=established,related,untracked
+      - action=accept chain=forward protocol=icmpv6
+      - action=accept chain=forward protocol=139
+      - action=accept chain=forward protocol=udp dst-port=500,4500
+      - action=accept chain=forward protocol=ipsec-ah
+      - action=accept chain=forward protocol=ipsec-esp
+    
+    ros_ip_firewall_nat:
+      - action=masquerade chain=srcnat out-interface=ether1 ipsec-policy=out,none
+    
+    ros_ip_firewall_raw:
+      - action=accept chain=input
+      - action=drop chain=input
+    
+    ros_ip_firewall_service_port_name: "sctp"
+    ros_ip_firewall_service_port_disabled: "yes"
+    
+    ros_ip_firewall_connection_tracking_tcp_time_wait_timeout: "20s"
+
+    ros_ip_firewall_config:
+      - address-list
+      - service-port
+      - nat
+      - raw
+      - filter
+      - calea
+      - layer7-protocol
+      - mangle
+      - connection-tracking
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

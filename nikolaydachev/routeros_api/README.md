@@ -10,7 +10,7 @@ Playbooks under **ros**, can be used for simple tasks or as a base for more coml
 + **ros_api_testing** docs/demos/playbooks are used only for ansible routeros api module testing and **direct usage is not suggested**, however contains examples for diffrent tasks which can be done with routeros api module  
 + **ros_api_demo** role is used only for ansible routeros api module testing and **direct usage is not suggested**, however contains examples for diffrent tasks which can be done with routeros api module  
 
-[RouterOS API module](https://ansible.fontein.de/collections/community/routeros/api_module.html#ansible-collections-community-routeros-api-module)  
+[RouterOS API module](https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html)  
 [GitHb](: )https://github.com/NikolayDachev/ansible_collections_
 
 Please report any [issue](https://github.com/NikolayDachev/ansible_collections/issues) via github.  
