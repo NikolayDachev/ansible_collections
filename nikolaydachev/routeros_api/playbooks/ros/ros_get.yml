@@ -5,4 +5,4 @@
 
   roles:
   - role: nikolaydachev.routeros_api.ros_get
-
+    ros_get_path: "ip address"

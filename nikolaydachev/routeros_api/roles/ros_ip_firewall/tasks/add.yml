@@ -3,7 +3,6 @@
   import_role:
     name: nikolaydachev.routeros_api.ros_flush
   vars:
-    ros_flush_type: "{{ ros_ip_fw_type }}"
     ros_flush_path: "{{ ros_ip_fw_path }}"
   when: ros_ip_firewall_flush == "true"
 
@@ -11,6 +10,5 @@
   import_role:
     name: nikolaydachev.routeros_api.ros_add
   vars:
-    ros_add_type: "{{ ros_ip_fw_type }}"
     ros_add_path: "{{ ros_ip_fw_path }}"
     ros_add_list: "{{ ros_ip_fw_rules }}"

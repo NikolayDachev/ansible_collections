@@ -1,5 +1,5 @@
 ---
-- name: query for items to flush {{ ros_flush_type }}
+- name: query for items to flush {{ ros_flush_path }}
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"
@@ -10,7 +10,7 @@
   register: rosflushfind
   delegate_to: localhost
 
-- name: create a list of query result for {{ ros_flush_type }} to flush
+- name: create a list of query result for {{ ros_flush_path }} to flush
   vars:
     to_be_flush: ""
   ansible.builtin.set_fact:
@@ -18,7 +18,7 @@
   loop: "{{ rosflushfind.msg }}"
   when: '"no results for" not in rosflushfind.msg.0'
 
-- name: flush {{ ros_flush_type }} items
+- name: flush {{ ros_flush_path }} items
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"

@@ -1,38 +1,61 @@
-Role Name
+ros_add
 =========
 
-A brief description of the role goes here.
+This general role will add multiple configuration parameters for the given path via RouterOS API.  
+https://wiki.mikrotik.com/wiki/Manual:Console#General_Commands  
+RouterOS "add".  
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+ros_add_list: "List of parametes to be added"
+
+NOTE: This role require variable [ros_add_path](https://docs.ansible.com/ansible/latest/collections/community/network/routeros_api_module.html#parameter-path)
+
+All role variables are combination from role name as prefix and the the actual RouterOS property   
+Role var prefix: **ros_add_**
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros add config example
+  hosts: all
+  gather_facts: no
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+  roles:
+  - role: nikolaydachev.routeros_api.ros_add
+    ros_add_path: "ip firewall filter"
+    ros_add_list:
+      - action=accept chain=input
+      - action=drop chain=input
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

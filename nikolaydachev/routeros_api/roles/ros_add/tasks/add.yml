@@ -1,5 +1,5 @@
 ---
-- name: add {{ ros_add_type }}
+- name: add {{ ros_add_path }}
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"

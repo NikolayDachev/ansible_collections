@@ -37,6 +37,23 @@ ros_ip_firewall
   - done
 
 12/12/2020
+ros_add
+  - done
+ros_flush
+  - done
+
+ros_query
+  - playbook
+  - meta
+  - testing
+  - role
+  
+ros_remove
+  - playbook
+  - meta
+  - testing
+  - role
+
 ros_int_brige
   - playbook
   - meta

@@ -1,7 +1,7 @@
 ros_get
 =========
 
-This role will return information that's accessible from particular RouterOS command level via API.  
+This general role will return information that's accessible from particular RouterOS command level via API.  
 https://wiki.mikrotik.com/wiki/Manual:Console  
 RouterOS "print".
 
@@ -25,11 +25,10 @@ ros_username: "community.routeros.api username"
 ros_password: "community.routeros.api password"  
 ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
 
+NOTE: This role require variable [ros_get_path](https://docs.ansible.com/ansible/latest/collections/community/network/routeros_api_module.html#parameter-path)  
+
 All role variables are combination from role name as prefix and the the actual RouterOS property   
 Role var prefix: **ros_get_**  
-
-NOTE: This role require variable [ros_get_path](https://ansible.fontein.de/collections/community/routeros/api_module.html#parameter-path)
-
 
 Dependencies
 ------------
@@ -46,6 +45,7 @@ Example Playbook
 
   roles:
   - role: nikolaydachev.routeros_api.ros_get
+    ros_get_path: "ip address"
 ```
 License
 -------

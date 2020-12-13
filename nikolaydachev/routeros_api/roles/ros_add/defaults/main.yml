@@ -1,2 +1,9 @@
 ---
 # defaults file for ros_add
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_add_path: ""
+  ros_add_list: []
