@@ -113,14 +113,14 @@ Example Playbook
     ros_ip_firewall_connection_tracking_tcp_time_wait_timeout: "20s"
 
     ros_ip_firewall_config:
-      - address-list
+    #  - address-list
       - service-port
       - nat
       - raw
       - filter
-      - calea
-      - layer7-protocol
-      - mangle
+    #  - calea
+    #  - layer7-protocol
+    #  - mangle
       - connection-tracking
 ```
 License
