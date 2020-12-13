@@ -1,0 +1,9 @@
+- name: ros query example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_query
+    ros_query_path: "ip firewall filter"
+    ros_query_for: ".id chain WHERE chain == forward"

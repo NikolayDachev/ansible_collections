@@ -1,2 +1,9 @@
 ---
 # defaults file for ros_update
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_update_path: ""
+  ros_update_cfg: ""

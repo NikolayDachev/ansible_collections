@@ -1,0 +1,15 @@
+- name: ros update example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_update
+    ros_update_path: "ip firewall filter"
+    #ros_update_cfg:
+    #  "*67":
+    #    "comment=test_ros_update_67"
+    #  "*68":
+    #    "comment=test_ros_update_68"
+    #  "*69":
+    #    "comment=test_ros_update_69"

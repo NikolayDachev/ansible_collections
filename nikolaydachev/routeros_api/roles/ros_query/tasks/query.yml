@@ -1,0 +1,11 @@
+---
+- name: query in {{ ros_query_path }} for {{ ros_query_for }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_query_path }}"
+    query: "{{ ros_query_for }}"
+  register: rosquery
+  delegate_to: localhost

@@ -1,0 +1,11 @@
+---
+- name: remove items "{{ ros_remove_id }}"
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_remove_path }}"
+    remove: "{{ ros_remove_id }}"
+  register: rosremove
+  delegate_to: localhost
