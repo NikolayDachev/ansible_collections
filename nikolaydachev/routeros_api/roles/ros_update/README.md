@@ -21,7 +21,7 @@ ros_username: "community.routeros.api username"
 ros_password: "community.routeros.api password"  
 ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
 
-ros_update_cfg: "This is a Dictunary {".id numebr":"parameter=new_valur"}"
+ros_update_cfg: "dictionary var {".id number":"parameter=new_value"}"
 
 NOTE: This role require variable [ros_update_path](https://docs.ansible.com/ansible/latest/collections/community/network/routeros_api_module.html#parameter-path)
 
