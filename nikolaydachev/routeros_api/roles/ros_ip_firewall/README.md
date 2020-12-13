@@ -9,7 +9,8 @@ IMPRTATN NOTES!
 
 - _address_list, _calea, _filter _layer7_protocol, _mangle, _nat and _raw are list vars. Each list item is a rule, rules will be added one by one from first list item to last one (in routeos the order is from top(first list item) to bottom(last list itme))!  
 
-- **ros_ip_firewall_flush** varible will remove all rules at once! The main usage is to make more easy firewall rules configuration managment. The flush happen before adding new rules, so for example if you set it to "true" with combination of 'filter' this role will first remove all exsiting rules under ip firewall filter and then will add the new rules. Can be used as general, so first to remove all exsiting rules before add any type of ip firewall rules.  
+- **ros_ip_firewall_flush** varible will remove all rules selceted in **ros_ip_firewall_config** at once! The main usage is to make more easy firewall rules configuration managment. The flush happen before adding new rules, so for example if you set it to "true" with combination of 'filter' and 'nat', this role will first remove all exsiting rules under 'ip firewall filter' and then will add the new rules also will do the same and for 'ip firewall nat' etc. Can be used as general, so first to remove all exsiting rules before add any type of ip firewall rules.  
+As suggestion, different playbooks for different 'ip firewall' sub configurations (**ros_ip_firewall_config**) can be used!  
 
 galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
 github: https://github.com/NikolayDachev/ansible_collections  

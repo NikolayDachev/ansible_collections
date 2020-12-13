@@ -90,7 +90,6 @@ Example Playbook
 #      - policy_group
 #      - mode-config
       - policy
-      # note pilicy will be added on every run!
 ```
 License
 -------

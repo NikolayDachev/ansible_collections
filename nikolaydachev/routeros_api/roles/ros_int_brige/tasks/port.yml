@@ -1,0 +1,4 @@
+auto-isolate     comment    fast-leave   ingress-filtering   multicast-router  priority         tag-stacking           
+bpdu-guard       copy-from  frame-types  interface           path-cost         pvid             trusted                
+bridge           disabled   horizon      internal-path-cost  place-before      restricted-role  unknown-multicast-flood
+broadcast-flood  edge       hw           learn               point-to-point    restricted-tcn   unknown-unicast-flood  
