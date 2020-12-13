@@ -27,7 +27,6 @@ NOTE: **ros_cmd_cfg** is a list of commands in a dictionary format, key is used 
       - "path": "action key=value key=value .."  
       - "path": "action key=value key=value .."  
 
-All role variables are combination from role name as prefix and the the actual RouterOS property   
 Role var prefix: **ros_cmd_**
 
 Dependencies
