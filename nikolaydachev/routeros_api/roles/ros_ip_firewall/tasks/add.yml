@@ -1,19 +1,16 @@
 ---
-- name: flush ip firewall {{ ros_ip_fw_type }}
-  import_tasks: flush.yml
+- name: flush ip firewall
+  import_role:
+    name: nikolaydachev.routeros_api.ros_flush
+  vars:
+    ros_flush_type: "{{ ros_ip_fw_type }}"
+    ros_flush_path: "{{ ros_ip_fw_path }}"
   when: ros_ip_firewall_flush == "true"
 
-- name: add ip firewall {{ ros_ip_fw_type }}
-  community.routeros.api:
-    hostname: "{{ ros_hostname }}"
-    ssl: "{{ ros_ssl }}"
-    password: "{{ ros_password }}"
-    username: "{{ ros_username }}"
-    path: "{{ ros_ip_fw_path }}"
-    add: "{{ item }}"
-  loop:
-    "{{ ros_ip_fw_rules }}"
-  register: rosipfirewall
-  delegate_to: localhost
-
-
+- name: add ip firewall
+  import_role:
+    name: nikolaydachev.routeros_api.ros_add
+  vars:
+    ros_add_type: "{{ ros_ip_fw_type }}"
+    ros_add_path: "{{ ros_ip_fw_path }}"
+    ros_add_list: "{{ ros_ip_fw_rules }}"

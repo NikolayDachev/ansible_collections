@@ -18,6 +18,9 @@ Requirements
 ------------
 
 module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
+role:  
+- [nikolaydachev.routeros_api.ros_flush](https://galaxy.ansible.com/nikolaydachev/routeros_api)  
+- [nikolaydachev.routeros_api.ros_add](https://galaxy.ansible.com/nikolaydachev/routeros_api)  
 
 Role Variables
 --------------
