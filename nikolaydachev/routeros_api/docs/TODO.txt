@@ -53,10 +53,7 @@ ros_upadte
   - done
 
 ros_cmd
-  - playbook
-  - meta
-  - testing
-  - role
+  - done
 
 ros_int_brige
   - playbook

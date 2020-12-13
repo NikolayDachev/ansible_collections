@@ -1,2 +1,3 @@
 ---
 # tasks file for ros_cmd
+- import_tasks: cmd.yml
