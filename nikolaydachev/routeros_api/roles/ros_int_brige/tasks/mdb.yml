@@ -1,4 +1,4 @@
-- name: add interface bridge port
+- name: set interface bridge mdb
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
     ssl: "{{ ros_ssl }}"

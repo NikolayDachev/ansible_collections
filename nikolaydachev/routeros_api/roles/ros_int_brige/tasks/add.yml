@@ -1,39 +1,11 @@
-# add
-add-dhcp-option82
-copy-from
-igmp-snooping
-membership-interval
-protocol-mode
-startup-query-count
-admin-mac
-dhcp-snooping
-igmp-version
-mld-version
-pvid
-startup-query-interval
-ageing-time
-disabled
-mtu
-querier-interval
-transmit-hold-count
-arp
-ether-type
-last-member-interval
-multicast-querier
-query-interval
-vlan-filtering
-arp-timeout
-fast-forward
-last-member-query-count
-multicast-router
-query-response-interval
-auto-mac
-forward-delay
-max-hops
-name
-region-name
-comment
-frame-types
-max-message-age
-priority
-region-revision
+- name: add interface bridge
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path:
+    add:
+
+  register: rosintbridge
+  delegate_to: localhost
