@@ -1,0 +1,25 @@
+---
+# tasks file for ros_int_bridge
+- name: "interface bridge calea"
+  import_tasks: acl.yml
+  vars:
+    ros_int_bridge_acl_type: "calea"
+    ros_int_bridge_acl_path: "{{ ros_int_bridge_calea_path }}"
+    ros_int_bridge_acl_rules: "{{ ros_int_bridge_calea }}"
+  when: '"calea" in ros_int_bridge_config'
+
+- name: "interface bridge filter"
+  import_tasks: acl.yml
+  vars:
+    ros_int_bridge_acl_type: "filter"
+    ros_int_bridge_acl_path: "{{ ros_int_bridge_filter_path }}"
+    ros_int_bridge_acl_rules: "{{ ros_int_bridge_filter }}"
+  when: '"filter" in ros_int_bridge_config'
+
+- name: "interface bridge nat"
+  import_tasks: acl.yml
+  vars:
+    ros_int_bridge_acl_type: "nat"
+    ros_int_bridge_acl_path: "{{ ros_int_bridge_nat_path }}"
+    ros_int_bridge_acl_rules: "{{ ros_int_bridge_nat }}"
+  when: '"nat" in ros_int_bridge_config'

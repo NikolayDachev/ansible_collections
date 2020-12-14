@@ -1,0 +1,39 @@
+---
+- name: add interface bridge port
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_bridge_port_path }}"
+    add:
+      auto-isolate={{ ros_int_bridge_port_auto_isolate }}
+      comment={{ ros_int_bridge_port_comment }}
+      fast-leave={{ ros_int_bridge_port_fast_leave }}
+      ingress-filtering={{ ros_int_bridge_port_ingress_filtering }}
+      multicast-router={{ ros_int_bridge_port_multicast_router }}
+      priority={{ ros_int_bridge_port_priority }}
+      tag-stacking={{ ros_int_bridge_port_tag_stacking }}
+      bpdu-guard={{ ros_int_bridge_port_bpdu_guard }}
+      copy-from={{ ros_int_bridge_port_copy_from }}
+      frame-types={{ ros_int_bridge_port_frame_types }}
+      interface={{ ros_int_bridge_port_interface }}
+      path-cost={{ ros_int_bridge_port_path_cost }}
+      pvid={{ ros_int_bridge_port_pvid }}
+      trusted={{ ros_int_bridge_port_trusted }}
+      bridge={{ ros_int_bridge_port_bridge }}
+      disabled={{ ros_int_bridge_port_disabled }}
+      horizon={{ ros_int_bridge_port_horizon }}
+      internal-path-cost={{ ros_int_bridge_port_internal_path_cost }}
+      place-before={{ ros_int_bridge_port_place_before }}
+      restricted-role={{ ros_int_bridge_port_restricted_role }}
+      unknown-multicast-flood={{ ros_int_bridge_port_unknown_multicast_flood }}
+      broadcast-flood={{ ros_int_bridge_port_broadcast_flood }}
+      edge={{ ros_int_bridge_port_edge }}
+      hw={{ ros_int_bridge_port_hw }}
+      learn={{ ros_int_bridge_port_learn }}
+      point-to-point={{ ros_int_bridge_port_point_to_point }}
+      restricted-tcn={{ ros_int_bridge_port_restricted_tcn }}
+      unknown-unicast-flood={{ ros_int_bridge_port_unknown_unicast_flood }}
+  register: rosintbridgeport
+  delegate_to: localhost

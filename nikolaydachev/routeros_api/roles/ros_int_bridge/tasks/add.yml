@@ -1,0 +1,49 @@
+---
+- name: add interface bridge
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: ros_int_bridge_path
+    add:
+      add-dhcp-option82={{ ros_int_bridge_add_dhcp_option82 }}
+      copy-from={{ ros_int_bridge_copy_from }}
+      igmp-snooping={{ ros_int_bridge_igmp_snooping }}
+      membership-interval={{ ros_int_bridge_membership_interval }}
+      protocol-mode={{ ros_int_bridge_protocol_mode }}
+      startup-query-count={{ ros_int_bridge_startup_query_count }}
+      admin-mac={{ ros_int_bridge_admin_mac }}
+      dhcp-snooping={{ ros_int_bridge_dhcp_snooping }}
+      igmp-version={{ ros_int_bridge_igmp_version }}
+      mld-version={{ ros_int_bridge_mld_version }}
+      pvid={{ ros_int_bridge_pvid }}
+      startup-query-interval={{ ros_int_bridge_startup_query_interval }}
+      ageing-time={{ ros_int_bridge_ageing_time }}
+      disabled={{ ros_int_bridge_disabled }}
+      mtu={{ ros_int_bridge_mtu }}
+      querier-interval={{ ros_int_bridge_querier_interval }}
+      transmit-hold-count={{ ros_int_bridge_transmit_hold_count }}
+      arp={{ ros_int_bridge_arp }}
+      ether-type={{ ros_int_bridge_ether_type }}
+      last-member-interval={{ ros_int_bridge_last_member_interval }}
+      multicast-querier={{ ros_int_bridge_multicast_querier }}
+      query-interval={{ ros_int_bridge_query_interval }}
+      vlan-filtering={{ ros_int_bridge_vlan_filtering }}
+      arp-timeout={{ ros_int_bridge_arp_timeout }}
+      fast-forward={{ ros_int_bridge_fast_forward }}
+      last-member-query-count={{ ros_int_bridge_last_member_query_count }}
+      multicast-router={{ ros_int_bridge_multicast_router }}
+      query-response-interval={{ ros_int_bridge_query_response_interval }}
+      auto-mac={{ ros_int_bridge_auto_mac }}
+      forward-delay={{ ros_int_bridge_forward_delay }}
+      max-hops={{ ros_int_bridge_max_hops }}
+      name={{ ros_int_bridge_name }}
+      region-name={{ ros_int_bridge_region_name }}
+      comment={{ ros_int_bridge_comment }}
+      frame-types={{ ros_int_bridge_frame_types }}
+      max-message-age={{ ros_int_bridge_max_message_age }}
+      priority={{ ros_int_bridge_priority }}
+      region-revision={{ ros_int_bridge_region_revision }}
+  register: rosintbridge
+  delegate_to: localhost
