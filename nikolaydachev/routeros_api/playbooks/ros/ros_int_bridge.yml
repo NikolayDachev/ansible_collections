@@ -1,0 +1,27 @@
+- name: ros interface bridge
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  include_role: 
+    name: nikolaydachev.routeros_api.ros_int_bridge
+  vars:
+    ros_int_bridge_config:
+      - add
+      - port
+      - vlan
+#      - host
+#      - mdb
+#      - msti
+#      - port-controller
+#      - port-controller_device
+#      - port-controller_path
+#      - port-extender
+#      - settings
+#      - calea
+#      - nat
+      - filter
+  
+
+  
+  loop: "{{ ros_int_bridge }}"
