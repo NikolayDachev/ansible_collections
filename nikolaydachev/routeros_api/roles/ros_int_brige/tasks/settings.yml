@@ -1,3 +1,4 @@
+---
 - name: set interface bridge settings
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
