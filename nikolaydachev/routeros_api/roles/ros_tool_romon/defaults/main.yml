@@ -16,7 +16,7 @@
   ros_tool_romon_port_comment: ""
   ros_tool_romon_port_copy_from: ""
   ros_tool_romon_port_cost: "100"
-  ros_tool_romon_port_disabled: ""
+  ros_tool_romon_port_disabled: "no"
   ros_tool_romon_port_forbid: "no"
   ros_tool_romon_port_secrets: ""
   ros_tool_romon_port_interface: ""

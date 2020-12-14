@@ -52,7 +52,7 @@
   ros_ip_ipsec_peer_address: "0.0.0.0/0"
   ros_ip_ipsec_peer_comment: ""
   ros_ip_ipsec_peer_copy_from: ""
-  ros_ip_ipsec_peer_disabled: ""
+  ros_ip_ipsec_peer_disabled: "no"
   ros_ip_ipsec_peer_exchange_mode: "main"
   ros_ip_ipsec_peer_local_address: ""
   ros_ip_ipsec_peer_name: ""
