@@ -4,8 +4,9 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path:
+    path: "{{ ros_int_brige_port_extender_path }}"
     add:
-
-  register: rosintbridge
+      control-ports={{ ros_int_brige_port_extender_control_ports }}
+      switch={{ ros_int_brige_port_extender_switch }}
+  register: rosintbridgeportextender
   delegate_to: localhost

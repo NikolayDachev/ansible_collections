@@ -4,8 +4,14 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path:
+    path: "{{ ros_int_brige_msti_path }}"
     add:
-
-  register: rosintbridge
+      bridge={{ ros_int_brige_msti_bridge }}
+      comment={{ ros_int_brige_msti_comment }}
+      copy-from={{ ros_int_brige_msti_copy_from }}
+      msti-copy-from={{ ros_int_brige_msti_disabled }}
+      identifier={{ ros_int_brige_msti_identifier }}
+      priority={{ ros_int_brige_msti_priority }}
+      vlan-mapping={{ ros_int_brige_msti_vlan_mapping }}
+  register: rosintbridgemsti
   delegate_to: localhost

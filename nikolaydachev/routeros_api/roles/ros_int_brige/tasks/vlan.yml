@@ -4,8 +4,14 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path:
+    path: "{{ ros_int_brige_vlan_path }}"
     add:
-
-  register: rosintbridge
+      bridge={{ ros_int_brige_vlan_bridge }}
+      comment={{ ros_int_brige_vlan_comment }}
+      copy-from={{ ros_int_brige_vlan_copy_from }}
+      disabled={{ ros_int_brige_vlan_disabled }}
+      tagged={{ ros_int_brige_vlan_tagged }}
+      untagged={{ ros_int_brige_vlan_untagged }}
+      ids={{ ros_int_brige_vlan_vlan_ids }}
+  register: rosintbridgevlan
   delegate_to: localhost

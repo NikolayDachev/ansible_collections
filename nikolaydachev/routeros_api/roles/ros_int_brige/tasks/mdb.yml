@@ -4,8 +4,10 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path:
-    add:
-
-  register: rosintbridge
+    path: "{{ ros_int_brige_mdb_path }}"
+    cmd:
+      set
+      numbers={{ ros_int_brige_mdb_numbers }}
+      ports={{ ros_int_brige_mdb_ports }}
+  register: rosintbridgemdb
   delegate_to: localhost
