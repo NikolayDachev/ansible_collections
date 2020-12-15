@@ -1,27 +1,26 @@
-- name: ros interface bridge
+- name: ros interface bridge example
   hosts: all
   gather_facts: no
   connection: local
 
-  include_role: 
-    name: nikolaydachev.routeros_api.ros_int_bridge
-  vars:
-    ros_int_bridge_config:
-      - add
-      - port
-      - vlan
-#      - host
-#      - mdb
-#      - msti
-#      - port-controller
-#      - port-controller_device
-#      - port-controller_path
-#      - port-extender
-#      - settings
-#      - calea
-#      - nat
-      - filter
-  
+  tasks:
+    - name: Bridge Config
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_int_bridge
+      vars:
+        ros_int_bridge_config: "{{ item.ros_int_bridge_config }}"
 
-  
-  loop: "{{ ros_int_bridge }}"
+        ros_int_bridge_name: "{{ item.ros_int_bridge_name }}"
+
+        ros_int_bridge_port_bridge: "{{ item.ros_int_bridge_port_bridge }}"
+        ros_int_bridge_port_interface: "{{ item.ros_int_bridge_port_interface }}"
+
+        ros_int_bridge_vlan_bridge: "{{ item.ros_int_bridge_vlan_bridge }}"
+        ros_int_bridge_vlan_untagged: "{{ item.ros_int_bridge_vlan_untagged }}"
+        ros_int_bridge_vlan_vlan_ids: "{{ item.ros_int_bridge_vlan_vlan_ids }}"
+
+        ros_int_bridge_acl_flush: "{{ item.ros_int_bridge_acl_flush }}"
+        ros_int_bridge_filter: "{{ item.ros_int_bridge_acl_flush }}"
+
+      loop:
+        "{{ ros_int_bridge }}"

@@ -5,7 +5,7 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: ros_int_bridge_path
+    path: "{{ ros_int_bridge_path }}"
     add:
       add-dhcp-option82={{ ros_int_bridge_add_dhcp_option82 }}
       copy-from={{ ros_int_bridge_copy_from }}
