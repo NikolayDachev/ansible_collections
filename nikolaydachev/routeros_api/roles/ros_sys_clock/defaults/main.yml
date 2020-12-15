@@ -9,7 +9,7 @@
 
   ros_sys_clock_date: ""
   ros_sys_clock_time: ""
-  ros_sys_clock_time_zone_autodetect: "yes"
+  ros_sys_clock_time_zone_autodetect: ""
   ros_sys_clock_time_zone_name: ""
   
   ros_sys_clock_manual_path: "{{ ros_sys_clock_path manual }}"

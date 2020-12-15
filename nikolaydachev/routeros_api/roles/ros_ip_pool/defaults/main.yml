@@ -7,7 +7,7 @@
 
   ros_ip_pool_path: "ip pool"
 
-  ros_ip_pool_comment: "added_by_ansible_routeros_api"
+  ros_ip_pool_comment: ""
   ros_ip_pool_name: ""
   ros_ip_pool_next_pool: ""
   ros_ip_pool_ranges: ""

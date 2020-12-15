@@ -8,7 +8,7 @@
   ros_reset_config_path: "system"
 
   ros_reset_config_caps_mode: ""
-  ros_reset_config_keep_users: "yes"
+  ros_reset_config_keep_users: ""
   ros_reset_config_no_defaults: ""
   ros_reset_config_run_after_reset: ""
   ros_reset_config_skip_back: ""
