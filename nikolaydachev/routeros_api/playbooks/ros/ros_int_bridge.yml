@@ -20,7 +20,7 @@
         ros_int_bridge_vlan_vlan_ids: "{{ item.ros_int_bridge_vlan_vlan_ids }}"
 
         ros_int_bridge_acl_flush: "{{ item.ros_int_bridge_acl_flush }}"
-        ros_int_bridge_filter: "{{ item.ros_int_bridge_acl_flush }}"
+        ros_int_bridge_filter: "{{ item.ros_int_bridge_filter }}"
 
       loop:
         "{{ ros_int_bridge }}"

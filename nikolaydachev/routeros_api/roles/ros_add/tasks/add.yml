@@ -6,8 +6,10 @@
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
     path: "{{ ros_add_path }}"
-    add: "{{ item }}"
+    add: "{{ add_item }}"
   loop:
     "{{ ros_add_list }}"
+  loop_control:
+    loop_var: add_item
   register: rosadd
   delegate_to: localhost

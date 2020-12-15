@@ -1,12 +1,12 @@
 ---
-- name: flush interface bridge {{ ros_int_bridge_acl_type }}
+- name: flush {{ ros_int_bridge_acl_path }}
   import_role:
     name: nikolaydachev.routeros_api.ros_flush
   vars:
     ros_flush_path: "{{ ros_int_bridge_acl_path }}"
   when: ros_int_bridge_acl_flush == "true"
 
-- name: add interface bridge {{ ros_int_bridge_acl_type }}
+- name: add {{ ros_int_bridge_acl_path }}
   import_role:
     name: nikolaydachev.routeros_api.ros_add
   vars:
