@@ -56,13 +56,28 @@ ros_cmd
   - done
 
 ros_int_brige
+  - done
+
+15/12/2020
+ros_routing_ospf
+  - playbook
+  - meta
+  - testing
+  - role
+
+ros_routing_filters
+  - playbook
+  - meta
+  - testing
+  - role
+
+ros_routing_bfd
   - playbook
   - meta
   - testing
   - role
 
 Futured:
-ros_routing_ospf
-ros_routing_filters
-ros_routing_bfd
+ - ?
+
 ...
