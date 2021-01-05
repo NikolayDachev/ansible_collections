@@ -58,7 +58,7 @@ ros_cmd
 ros_int_brige
   - done
 
-15/12/2020
+04/01/2021
 ros_routing_ospf
   - done
 
@@ -70,5 +70,3 @@ ros_routing_bfd
 
 Futured:
  - ?
-
-...
