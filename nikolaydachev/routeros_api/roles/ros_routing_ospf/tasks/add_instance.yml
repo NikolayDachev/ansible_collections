@@ -1,0 +1,37 @@
+---
+- name: add routing ospf instance
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_routing_ospf_instance_path }}"
+    add:
+      comment={{ ros_routing_ospf_instance_comment }}
+      disabled={{ ros_routing_ospf_instance_disabled }}
+      domain-id={{ ros_routing_ospf_instance_domain_id }}
+      in-filter={{ ros_routing_ospf_instance_in_filter }}
+      metric-connected={{ ros_routing_ospf_instance_metric_connected }}
+      metric-other-ospf={{ ros_routing_ospf_instance_metric_other_ospf }}
+      metric-static={{ ros_routing_ospf_instance_metric_static }}
+      mpls-te-router-id={{ ros_routing_ospf_instance_mpls_te_router_id }}
+      out-filter={{ ros_routing_ospf_instance_out_filter }}
+      router-id={{ ros_routing_ospf_instance_router_id }}
+      use-dn={{ ros_routing_ospf_instance_use_dn }}
+      copy-from={{ ros_routing_ospf_instance_copy_from }}
+      distribute-default={{ ros_routing_ospf_instance_distribute_default }}
+      domain-tag={{ ros_routing_ospf_instance_domain_tag }}
+      metric-bgp={{ ros_routing_ospf_instance_metric_bgp }}
+      metric-default={{ ros_routing_ospf_instance_metric_default }}
+      metric-rip={{ ros_routing_ospf_instance_metric_rip }}
+      mpls-te-area={{ ros_routing_ospf_instance_mpls_te_area }}
+      name={{ ros_routing_ospf_instance_name }}
+      routing-table={{ ros_routing_ospf_instance_routing_table }}
+      redistribute-bgp={{ ros_routing_ospf_instance_redistribute_bgp }}
+      redistribute-connected={{ ros_routing_ospf_instance_redistribute_connected }}
+      redistribute-other-ospf={{ ros_routing_ospf_instance_redistribute_other_ospf }}
+      redistribute-rip={{ ros_routing_ospf_instance_redistribute_rip }}
+      redistribute-static ={{ ros_routing_ospf_instance_redistribute_static }}
+  register: routingospfinstanceput
+  delegate_to: localhost
+  

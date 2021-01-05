@@ -1,0 +1,28 @@
+---
+- name: add routing ospf interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_routing_ospf_interface_path }}"
+    add:
+      authentication={{ ros_routing_ospf_interface_authentication }}
+      authentication-key-id={{ ros_routing_ospf_interface_authentication_key_id }}
+      copy-from={{ ros_routing_ospf_interface_copy_from }}
+      dead-interval={{ ros_routing_ospf_interface_dead_interval }}
+      hello-interval={{ ros_routing_ospf_interface_hello_interval }}
+      interface={{ ros_routing_ospf_interface_interface }}
+      passive={{ ros_routing_ospf_interface_passive }}
+      retransmit-interval={{ ros_routing_ospf_interface_retransmit_interval }}
+      use-bfd={{ ros_routing_ospf_interface_use_bfd }}
+      authentication-key={{ ros_routing_ospf_interface_authentication_key }}
+      comment={{ ros_routing_ospf_interface_comment }}
+      cost={{ ros_routing_ospf_interface_cost }}
+      disabled={{ ros_routing_ospf_interface_disabled }}
+      instance-id={{ ros_routing_ospf_interface_instance_id }}
+      network-type={{ ros_routing_ospf_interface_network_type }}
+      priority={{ ros_routing_ospf_interface_priority }}
+  register: routingospfinterfaceout
+  delegate_to: localhost
+  

@@ -1,0 +1,22 @@
+---
+- name: add routing ospf virtual-link
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_routing_ospf_virtual_link_path }}"
+    add:
+      authentication={{ ros_routing_ospf_virtual_link_authentication }}
+      authentication-key={{ ros_routing_ospf_virtual_link_authentication_key }}
+      authentication-key-id={{ ros_routing_ospf_virtual_link_authentication_key_id }}
+      comment={{ ros_routing_ospf_virtual_link_comment }}
+      copy-from={{ ros_routing_ospf_virtual_link_copy_from }}
+      disabled={{ ros_routing_ospf_virtual_link_disabled }}
+      instance-id={{ ros_routing_ospf_virtual_link_instance_id }}
+      use-bfd={{ ros_routing_ospf_virtual_link_use_bfd }}
+      neighbor-id={{ ros_routing_ospf_virtual_link_neighbor_id }}
+      transit-area={{ ros_routing_ospf_virtual_link_transit_area }}
+  register: routingospfvirtuallinkout
+  delegate_to: localhost
+  
