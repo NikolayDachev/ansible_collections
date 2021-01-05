@@ -1,8 +1,8 @@
 ---
 # defaults file for ros_get
-    ros_hostname: "{{ inventory_hostname }}"
-    ros_username: "admin"
-    ros_password: ""
-    ros_ssl: "true"
-
-    ros_get_path: ""
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_get_path: ""

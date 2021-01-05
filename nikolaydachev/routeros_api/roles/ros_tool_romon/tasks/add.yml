@@ -1,0 +1,19 @@
+---
+- name: configure tool romon
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_tool_romon_path }}"
+    cmd:
+      set
+      enabled={{ ros_tool_romon_enabled }}
+      secrets={{ ros_tool_romon_secrets }}
+      id={{ ros_tool_romon_id }}
+  register: toolromon
+  delegate_to: localhost
+
+- name: result configure tool romon
+  debug:
+    msg: "{{ toolromon }}"

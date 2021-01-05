@@ -15,7 +15,7 @@ module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)
 Role Variables
 --------------
 
-https://ansible.fontein.de/collections/community/routeros/api_module.html#ansible-collections-community-routeros-api-module  
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
 
 ros_hostname: "community.routeros.api hostname"  
 ros_username: "community.routeros.api username"  

@@ -1,0 +1,10 @@
+- name: ros ip dhcp-client 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ip_dhcp_client
+    ros_ip_dhcp_client_config:
+      - add
+#      - option

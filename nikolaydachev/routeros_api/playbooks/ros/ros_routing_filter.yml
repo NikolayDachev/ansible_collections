@@ -1,0 +1,14 @@
+- name: ros routing filter example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role:  nikolaydachev.routeros_api.ros_routing_filter
+
+# Example inventory for host_vars/
+# ---
+#   ros_routing_filter_flush: "true"
+#   ros_routing_filter:
+#     - chain=ospf-out prefix=1.2.3.0/20 action=discard 
+#     - chain=ospf-in prefix=3.2.1.0/24 action=discard

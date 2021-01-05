@@ -1,0 +1,8 @@
+---
+# defaults file for ros_flush
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_flush_path: ""

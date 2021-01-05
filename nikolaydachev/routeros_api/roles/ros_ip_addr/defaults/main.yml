@@ -8,7 +8,7 @@
  ros_ip_addr_path: "ip address"
 
  ros_ip_addr_broadcast: ""
- ros_ip_addr_comment: "added_by_ansible_routeros_api"
+ ros_ip_addr_comment: ""
  ros_ip_addr_copy_from: ""
  ros_ip_addr_disabled: "no"
  ros_ip_addr_netmask: ""

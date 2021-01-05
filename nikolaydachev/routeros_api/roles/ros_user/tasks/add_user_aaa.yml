@@ -1,0 +1,22 @@
+---
+- name: configure user aaa
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_user_aaa_path }}"
+    cmd:
+      set
+      accounting={{ ros_user_aaa_accounting }}
+      default-group={{ ros_user_aaa_default_group }}
+      exclude-groups={{ ros_user_aaa_exclude_groups }}
+      interim-update={{ ros_user_aaa_interim_update }}
+      radius={{ aaa_use_radius }}
+  register: useraaa
+  delegate_to: localhost
+
+- name: result configure user aaa
+  debug:
+    msg: "{{ useraaa }}"
+

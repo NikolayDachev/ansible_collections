@@ -1,0 +1,12 @@
+- name: ros cmd example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_cmd
+    ros_cmd_cfg:
+  #   - "ip address": "add address=2.2.2.2 interface=ether1"
+  #   - "ip address": "add address=3.3.3.3 interface=ether1"
+  #   - "ip dhcp-client": "add interface=ether3 disabled=no"
+  #   - "ip dhcp-client": "add interface=ether4 disabled=no"

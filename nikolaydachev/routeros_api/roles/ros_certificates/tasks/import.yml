@@ -1,0 +1,20 @@
+---
+- name: configure certificate import
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_certificates_path }}"
+    cmd:
+      import
+      file-name={{ ros_certificates_import_file_name }}
+      name={{ ros_certificates_import_name }}
+      passphrase={{ ros_certificates_import_passphrase }}
+
+  register: certificateimport
+  delegate_to: localhost
+
+- name: result configure certificate import
+  debug:
+    msg: "{{ certificateimport }}"

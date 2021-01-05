@@ -1,0 +1,27 @@
+---
+- name: configure ipsec profile
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_ipsec_profile_path }}"
+    add:
+      copy-from={{ ros_ip_ipsec_profile_copy_from }}
+      dpd-interval={{ ros_ip_ipsec_profile_dpd_interval }}
+      dpd-maximum-failures={{ ros_ip_ipsec_profile_dpd_maximum_failures }}
+      dh-group={{ ros_ip_ipsec_profile_dh_group }}
+      enc-algorithm={{ ros_ip_ipsec_profile_enc_algorithm }}
+      hash-algorithm={{ ros_ip_ipsec_profile_hash_algorithm }}
+      lifebytes={{ ros_ip_ipsec_profile_lifebytes }}
+      lifetime={{ ros_ip_ipsec_profile_lifetime }}
+      nat-traversal={{ ros_ip_ipsec_profile_nat_traversal }}
+      proposal-check={{ ros_ip_ipsec_profile_proposal_check }}
+      name={{ ros_ip_ipsec_profile_name }}
+  register: ipsecprofile
+  delegate_to: localhost
+
+- name: result configure ipsec profile
+  debug:
+    msg: "{{ ipsecprofile }}"
+

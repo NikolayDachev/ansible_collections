@@ -1,0 +1,21 @@
+---
+- name: configure system clock
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_clock_path }}"
+    cmd:
+      set
+      date={{ ros_sys_clock_date }}
+      time={{ ros_sys_clock_time }}
+      time-zone-autodetect={{ ros_sys_clock_time_zone_autodetect }}
+      time-zone-name={{ ros_sys_clock_time_zone_name }}
+
+  register: systemclock
+  delegate_to: localhost
+
+- name: result configure system clock
+  debug:
+    msg: "{{ systemclock }}"

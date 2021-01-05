@@ -1,0 +1,12 @@
+---
+- name: cmd {{ ros_cmd_cfg }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ item.key }}"
+    cmd: "{{ item.value }}"
+  register: roscmd
+  delegate_to: localhost
+  with_dict: "{{ ros_cmd_cfg }}"

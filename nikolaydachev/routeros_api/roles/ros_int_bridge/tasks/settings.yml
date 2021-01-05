@@ -1,0 +1,16 @@
+---
+- name: set interface bridge settings
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_bridge_settings_path }}"
+    cmd:
+      set
+      allow-fast-path={{ ros_int_bridge_settings_allow_fast_path }}
+      use-ip-firewall={{ ros_int_bridge_settings_use_ip_firewall }}
+      use-ip-firewall-for-pppoe={{ ros_int_bridge_settings_use_ip_firewall_for_pppoe }}
+      use-ip-firewall-for-vlan={{ ros_int_bridge_settings_use_ip_firewall_for_vlan }}
+  register: rosintbridgesettings
+  delegate_to: localhost

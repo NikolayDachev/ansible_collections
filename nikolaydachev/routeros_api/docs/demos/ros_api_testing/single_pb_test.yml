@@ -5,7 +5,7 @@
 
 
   vars:
-    hostname: "{{ test_hostname }}"
+    hostname: "{{ inventory_hostname }}"
     ssl: "true"
     username: "admin"
     password: "{{ test_password }}"

@@ -1,0 +1,25 @@
+---
+- name: add ip dhcp-relay
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_dhcp_relay_path }}"
+    add:
+      add-relay-info={{ ros_ip_dhcp_relay_add_relay_info }}
+      delay-threshold={{ ros_ip_dhcp_relay_delay_threshold }}
+      local-address={{ ros_ip_dhcp_relay_local_address }}
+      relay-info-remote_id={{ ros_ip_dhcp_relay_relay_info_remote_id }}
+      interface={{ ros_ip_dhcp_relay_interface }}
+      copy-from={{ ros_ip_dhcp_relay_copy_from }}
+      disabled={{ ros_ip_dhcp_relay_disabled }}
+      name={{ ros_ip_dhcp_relay_name }}
+      dhcp-server={{ ros_ip_dhcp_relay_dhcp_server }}
+  register: ipdhcprelay
+  delegate_to: localhost
+
+- name: result ip dhcp-relay
+  debug:
+    msg: '{{ ipdhcprelay }}'
+

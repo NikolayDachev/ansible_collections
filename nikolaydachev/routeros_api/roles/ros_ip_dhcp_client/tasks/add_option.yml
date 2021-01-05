@@ -1,0 +1,20 @@
+---
+- name: add ip dhcp-client option
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_dhcp_client_option_path }}"
+    add:
+      copy-from={{ ros_ip_dhcp_client_option_copy_from }}
+      value={{ ros_ip_dhcp_client_option_value }}
+      code={{ ros_ip_dhcp_client_option_code }}
+      name={{ ros_ip_dhcp_client_option_name }}
+  register: ipdhcpclientoption
+  delegate_to: localhost
+
+- name: result ip dhcp-client option
+  debug:
+    msg: '{{ ipdhcpclientoption }}'
+

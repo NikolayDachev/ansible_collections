@@ -1,0 +1,41 @@
+---
+# defaults file for ros_user
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_password: ""
+  ros_username: "admin"
+  ros_ssl: "true"
+
+  ros_user_path: "user"
+  ros_user_config: []
+
+  ros_user_address: ""
+  ros_user_comment: ""
+  ros_user_copy_from: ""
+  ros_user_disabled: "no"
+  ros_user_password: ""
+  ros_user_group: ""
+  ros_user_name: ""
+
+  ros_user_aaa_path: "{{ ros_user_path }} aaa"
+  ros_user_aaa_accounting: ""
+  ros_user_aaa_default_group: ""
+  ros_user_aaa_exclude_groups: ""
+  ros_user_aaa_interim_update: ""
+  ros_user_aaa_use_radius: ""
+
+  ros_user_group_path: "{{ ros_user_path }} group"
+  ros_user_group_comment: ""
+  ros_user_group_copy_from: ""
+  ros_user_group_name: ""
+  ros_user_group_policy: ""
+  ros_user_group_skin: ""
+
+  ros_user_ssh_keys_path: "{{ ros_user_path }} ssh-keys"
+  ros_user_ssh_keys_import_user: ""
+  ros_user_ssh_keys_import_public_key_file: ""
+
+  ros_user_ssh_keys_private_path: "{{ ros_user_ssh_keys_path }} private"
+  ros_user_ssh_keys_private_user: ""
+  ros_user_ssh_keys_private_passphrase: ""
+  ros_user_ssh_keys_private_private_key_file: ""
+  ros_user_ssh_keys_private_public_key_fil: ""

@@ -1,0 +1,26 @@
+- name: ros routing ospf 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_routing_ospf
+    ros_routing_ospf_config:
+      - area
+#      - area_range
+      - instance
+#      - interface
+#      - nbma_neighbor
+      - network
+#      - sham_link
+#      - virtual_link
+
+    ros_routing_ospf_instance_name: "ros_test"
+    ros_routing_ospf_instance_redistribute_connected: "as-type-1"
+  
+    ros_routing_ospf_area_area_id: "0.0.0.22"
+    ros_routing_ospf_area_name: "ros_test"
+    ros_routing_ospf_area_instance: "ros_test"
+  
+    ros_routing_ospf_network_network: "10.20.30.0/30"
+    ros_routing_ospf_network_area: "ros_test"

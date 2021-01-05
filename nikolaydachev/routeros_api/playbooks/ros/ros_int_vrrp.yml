@@ -1,4 +1,4 @@
-- name: ros vrrp 
+- name: ros interface vrrp 
   hosts: all
   gather_facts: no
   connection: local

@@ -1,0 +1,10 @@
+galaxy_info:
+  author: Nikolay Dahcev
+  description: RouterOS API general flush all items
+  company: public
+
+  license: license (GPL-3.0-or-later)
+
+  min_ansible_version: 2.9
+
+  galaxy_tags: ['routeros', 'mikrotik', 'api']

@@ -1,0 +1,11 @@
+- name: ros add config example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_add
+    ros_add_path: "ip firewall filter"
+    ros_add_list:
+      - action=accept chain=input
+      - action=drop chain=input

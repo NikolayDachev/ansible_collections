@@ -1,0 +1,15 @@
+---
+- name: add {{ ros_add_path }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_add_path }}"
+    add: "{{ add_item }}"
+  loop:
+    "{{ ros_add_list }}"
+  loop_control:
+    loop_var: add_item
+  register: rosadd
+  delegate_to: localhost

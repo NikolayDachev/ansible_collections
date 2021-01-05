@@ -1,0 +1,20 @@
+---
+- name: configure ipsec policy group
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_ipsec_policy_group_path }}"
+    add:
+      comment={{ ros_ip_ipsec_policy_group_comment }}
+      copy-from={{ ros_ip_ipsec_policy_group_copy_from }}
+      name={{ ros_ip_ipsec_policy_group_name }}
+
+  register: ipsecpolicygroup
+  delegate_to: localhost
+
+- name: result configure ipsec policy group
+  debug:
+    msg: "{{ ipsecpolicygroup }}"
+

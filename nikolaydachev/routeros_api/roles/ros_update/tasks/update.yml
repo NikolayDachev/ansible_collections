@@ -1,0 +1,12 @@
+---
+- name: update {{ ros_update_cfg }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_update_path }}"
+    update: ".id={{ item.key}} {{ item.value }}"
+  register: rosupdate
+  delegate_to: localhost
+  with_dict: "{{ ros_update_cfg }}"

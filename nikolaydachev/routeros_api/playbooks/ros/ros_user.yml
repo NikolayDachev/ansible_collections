@@ -1,0 +1,14 @@
+- name: ros user
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_user
+    ros_user_config:
+#      - group
+#      - aaa
+#      - ssh-keys
+#      - ssh-keys_private
+      - user
+ 

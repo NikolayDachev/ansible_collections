@@ -1,0 +1,20 @@
+---
+- name: configure user ssh-keys
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_user_ssh_keys_path }}"
+    cmd:
+      import
+      import-user={{ ros_user_ssh_keys_import_user }}
+      import-public-key-file{{ ros_user_ssh_keys_import_public_key_file }}
+
+  register: usersshkeys
+  delegate_to: localhost
+
+- name: result configure user ssh-keys
+  debug:
+    msg: "{{ usersshkeys }}"
+

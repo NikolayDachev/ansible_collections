@@ -1,0 +1,23 @@
+---
+# tasks file for ros_ip_ipsec
+  - import_tasks: flush_installed-sa.yml #0
+    when: 'ros_ip_ipsec_installed_sa_flush=="True"'
+  - import_tasks: add_settings.yml #1
+    when: '"settings" in ros_ip_ipsec_config'
+  - import_tasks: add_profile.yml #2
+    when: '"profile" in ros_ip_ipsec_config'
+  - import_tasks: add_peer.yml #3
+    when: '"peer" in ros_ip_ipsec_config'
+  - import_tasks: add_key.yml #4
+    when: '"key" in ros_ip_ipsec_config'
+  - import_tasks: add_identity.yml #5
+    when: '"identity" in ros_ip_ipsec_config'
+  - import_tasks: add_proposal.yml #6
+    when: '"proposal" in ros_ip_ipsec_config'
+  - import_tasks: add_policy_group.yml #7
+    when: '"policy_group" in ros_ip_ipsec_config'
+  - import_tasks: add_mode-config.yml #8
+    when: '"mode-config" in ros_ip_ipsec_config'
+  - import_tasks: add_policy.yml #9
+    when: '"policy" in ros_ip_ipsec_config'
+    

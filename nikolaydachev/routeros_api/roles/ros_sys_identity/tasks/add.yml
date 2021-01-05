@@ -1,0 +1,24 @@
+---
+- name: configure system identity
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_identity_path }}"
+    cmd:
+      set
+      name={{ ros_sys_identity_name }}
+
+- name: get system identity
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_identity_path }}"
+  register: systemidentity
+
+- name: result configure system identity
+  debug:
+    msg: "{{ systemidentity['msg'][0] }}"

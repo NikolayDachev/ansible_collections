@@ -1,0 +1,20 @@
+---
+- name: configure certificate settings
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_certificates_settings_path }}"
+    cmd:
+      set
+      crl-download={{ ros_certificates_settings_crl_download }}
+      crl-store={{ ros_certificates_settings_crl_store }}
+      crl-use={{ ros_certificates_settings_crl_use }}
+
+  register: certificatesettings
+  delegate_to: localhost
+
+- name: result configure certificate settings
+  debug:
+    msg: "{{ certificatesettings }}"

@@ -1,0 +1,14 @@
+---
+- name: set interface bridge mdb
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_bridge_mdb_path }}"
+    cmd:
+      set
+      numbers={{ ros_int_bridge_mdb_numbers }}
+      ports={{ ros_int_bridge_mdb_ports }}
+  register: rosintbridgemdb
+  delegate_to: localhost

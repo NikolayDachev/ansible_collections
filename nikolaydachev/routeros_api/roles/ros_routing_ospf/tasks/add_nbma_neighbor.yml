@@ -1,0 +1,19 @@
+---
+- name: add routing ospf nbma-neighbor
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_routing_ospf_nbma_neighbor_path }}"
+    add:
+      address={{ ros_routing_ospf_nbma_neighbor_address }}
+      comment={{ ros_routing_ospf_nbma_neighbor_comment }}
+      copy-from={{ ros_routing_ospf_nbma_neighbor_copy_from }}
+      disabled={{ ros_routing_ospf_nbma_neighbor_disabled }}
+      instance={{ ros_routing_ospf_nbma_neighbor_instance }}
+      poll-interval={{ ros_routing_ospf_nbma_neighbor_poll_interval }}
+      priority={{ ros_routing_ospf_nbma_neighbor_priority }}
+  register: routingospfnbmaneighborout
+  delegate_to: localhost
+  

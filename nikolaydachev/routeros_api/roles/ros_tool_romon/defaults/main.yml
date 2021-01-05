@@ -1,0 +1,22 @@
+---
+# defaults file for ros_tool_romon
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_password: ""
+  ros_username: "admin"
+  ros_ssl: "true"
+
+  ros_tool_romon_path: "tool romon"
+  ros_tool_romon_config: []
+
+  ros_tool_romon_enabled: "yes"
+  ros_tool_romon_id: ""
+  ros_tool_romon_secrets: ""
+
+  ros_tool_romon_port_path: "{{ ros_tool_romon_path }} port"
+  ros_tool_romon_port_comment: ""
+  ros_tool_romon_port_copy_from: ""
+  ros_tool_romon_port_cost: ""
+  ros_tool_romon_port_disabled: "no"
+  ros_tool_romon_port_forbid: ""
+  ros_tool_romon_port_secrets: ""
+  ros_tool_romon_port_interface: ""

@@ -1,0 +1,9 @@
+---
+# defaults file for ros_query
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_query_path: ""
+  ros_query_for: ""

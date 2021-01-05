@@ -1,0 +1,58 @@
+- name: ros interface bridge example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Bridge Config
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_int_bridge
+      vars:
+        ros_int_bridge_config: "{{ item.ros_int_bridge_config }}"
+
+        ros_int_bridge_name: "{{ item.ros_int_bridge_name }}"
+
+        ros_int_bridge_port_bridge: "{{ item.ros_int_bridge_port_bridge }}"
+        ros_int_bridge_port_interface: "{{ item.ros_int_bridge_port_interface }}"
+
+        ros_int_bridge_vlan_bridge: "{{ item.ros_int_bridge_vlan_bridge }}"
+        ros_int_bridge_vlan_untagged: "{{ item.ros_int_bridge_vlan_untagged }}"
+        ros_int_bridge_vlan_vlan_ids: "{{ item.ros_int_bridge_vlan_vlan_ids }}"
+
+        ros_int_bridge_acl_flush: "{{ item.ros_int_bridge_acl_flush }}"
+        ros_int_bridge_filter: "{{ item.ros_int_bridge_filter }}"
+
+      loop:
+        "{{ ros_int_bridge }}"
+
+# Example inventory for host_vars/
+# ---
+# ros_int_bridge:
+#   - ros_int_bridge_config:
+#       - add
+#     ros_int_bridge_name: "loopback"
+# 
+#   - ros_int_bridge_config:
+#       - add
+#       - port
+#       - vlan
+#     ros_int_bridge_name: "lan_br"
+# 
+#     ros_int_bridge_port_bridge: "lan_br"
+#     ros_int_bridge_port_interface: "ether3"
+# 
+#     ros_int_bridge_vlan_bridge: "lan_br"
+#     ros_int_bridge_vlan_untagged: "ether4"
+#     ros_int_bridge_vlan_vlan_ids: "12"
+# 
+#   - ros_int_bridge_config:
+#       - port
+#     ros_int_bridge_port_bridge: "lan_br"
+#     ros_int_bridge_port_interface: "ether4"
+# 
+#   - ros_int_bridge_config:
+#       - filter
+#     ros_int_bridge_acl_flush: "true"
+#     ros_int_bridge_filter:
+#       - chain=forward action=accept in-interface=ether3
+#       - chain=forward action=drop in-interface=ether4

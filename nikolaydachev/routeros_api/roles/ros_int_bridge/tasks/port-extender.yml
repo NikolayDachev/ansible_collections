@@ -1,0 +1,13 @@
+---
+- name: add interface bridge port-extender
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_bridge_port_extender_path }}"
+    add:
+      control-ports={{ ros_int_bridge_port_extender_control_ports }}
+      switch={{ ros_int_bridge_port_extender_switch }}
+  register: rosintbridgeportextender
+  delegate_to: localhost

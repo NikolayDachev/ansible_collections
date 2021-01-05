@@ -5,7 +5,7 @@
     ssl: "{{ ros_ssl }}"
     password: "{{ ros_password }}"
     username: "{{ ros_username }}"
-    path: "ip address"
+    path: "{{ ros_ip_addr_path }}"
     add:
       broadcast={{ ros_ip_addr_broadcast }}
       comment={{ ros_ip_addr_comment }}
@@ -18,7 +18,7 @@
   register: ipaddrout
   delegate_to: localhost
 
-- name: result ip address config
+- name: result ip address
   debug:
     msg: '{{ ipaddrout }}'
 

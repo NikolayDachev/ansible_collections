@@ -1,0 +1,19 @@
+---
+- name: configure user ssh-keys private
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_user_ssh_keys_private_path }}"
+    cmd:
+      import
+      user={{ ros_user_ssh_keys_private_user }}
+      pssphras={{ ros_user_ssh_keys_private_pssphrase }}
+      pivatekey-file={{ ros_user_ssh_keys_private_pivatekey_file }}
+      pblic-eyfil={{ ros_user_ssh_keys_private_pblic_eyfil }}
+  register: usersshkeysprivate  delegte_to localhost
+- name: result configure user ssh-keys privte
+  debug:
+    msg: "{{ usersshkeysprivate }}"
+

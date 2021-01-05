@@ -1,0 +1,26 @@
+---
+# defaults file for ros_ip_dhcp_client
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_ip_dhcp_client_path: "ip dhcp-client"
+  ros_ip_dhcp_client_config: []
+  
+  ros_ip_dhcp_client_add_default_route: ""
+  ros_ip_dhcp_client_comment: ""
+  ros_ip_dhcp_client_copy_from: ""
+  ros_ip_dhcp_client_default_route_distance: ""
+  ros_ip_dhcp_client_dhcp_options: ""
+  ros_ip_dhcp_client_disabled: "no"
+  ros_ip_dhcp_client_script: ""
+  ros_ip_dhcp_client_use_peer_dns: ""
+  ros_ip_dhcp_client_use_peer_ntp: ""
+  ros_ip_dhcp_client_interface: ""
+  
+  ros_ip_dhcp_client_option_path: "{{ ros_ip_dhcp_client_path }} option"
+  ros_ip_dhcp_client_option_copy_from: ""
+  ros_ip_dhcp_client_option_value: ""
+  ros_ip_dhcp_client_option_code: ""
+  ros_ip_dhcp_client_option_name: ""

@@ -1,0 +1,21 @@
+---
+- name: configure certificate export-certificate
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_certificates_path }}"
+    cmd:
+      export-certificate
+      export-passphrase={{ ros_certificates_export_certificate_export_passphrase }}
+      file-name={{ ros_certificates_export_certificate_file_name }}
+      type={{ ros_certificates_export_certificate_type }}
+      numbers={{ ros_certificates_export_certificate_numbers }}
+
+  register: certificateexportcertificate
+  delegate_to: localhost
+
+- name: result configure certificate export-certificate
+  debug:
+    msg: "{{ certificateexportcertificate }}"

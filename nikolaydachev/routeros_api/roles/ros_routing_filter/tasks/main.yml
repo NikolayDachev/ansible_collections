@@ -1,0 +1,6 @@
+---
+# tasks file for ros_routing_filter
+- import_tasks: add.yml
+  vars:
+    ros_routing_filter_acl_path: "{{ ros_routing_filter_path }}"
+    ros_routing_filter_acl_rules: "{{ ros_routing_filter }}"

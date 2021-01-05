@@ -1,0 +1,19 @@
+---
+- name: configure certificate crl
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_certificates_crl_path }}"
+    add:
+      copy-from={{ ros_certificates_crl_copy_from }}
+      fingerprint={{ ros_certificates_crl_fingerprint }}
+      url={{ ros_certificates_crl_url }}
+
+  register: certificatecrl
+  delegate_to: localhost
+
+- name: result configure certificate crl
+  debug:
+    msg: "{{ certificatecrl }}"

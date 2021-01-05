@@ -1,0 +1,29 @@
+---
+- name: configure ipsec mode-config
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_ipsec_mode_config_path }}"
+    add:
+      address={{ ros_ip_ipsec_mode_config_address }}
+      address-pool={{ ros_ip_ipsec_mode_config_address_pool }}
+      address-prefix-length={{ ros_ip_ipsec_mode_config_address_prefix_length }}
+      connection-mark={{ ros_ip_ipsec_mode_config_connection_mark }}
+      copy-from={{ ros_ip_ipsec_mode_config_copy_from }}
+      responder={{ ros_ip_ipsec_mode_config_responder }}
+      split-dns={{ ros_ip_ipsec_mode_config_split_dns }}
+      split-include={{ ros_ip_ipsec_mode_config_split_include }}
+      src-address-list={{ ros_ip_ipsec_mode_config_src_address_list }}
+      static-dns={{ ros_ip_ipsec_mode_config_static_dns }}
+      system-dns={{ ros_ip_ipsec_mode_config_system_dns }}
+      use-responder-dns={{ ros_ip_ipsec_mode_config_use_responder_dns }}
+      name={{ ros_ip_ipsec_mode_config_name }}
+  register: ipsecmodeconfig
+  delegate_to: localhost
+
+- name: result configure ipsec mode-config
+  debug:
+    msg: "{{ ipsecmodeconfig }}"
+

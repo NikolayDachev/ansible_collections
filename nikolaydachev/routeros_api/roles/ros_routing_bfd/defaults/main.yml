@@ -1,0 +1,17 @@
+---
+# defaults file for ros_routing_bfd
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+
+  ros_routing_bfd_path: "routing bfd"
+
+  ros_routing_bfd_interface_path: "{{ ros_routing_bfd_path }} interface"
+  ros_routing_bfd_interface_comment: ""
+  ros_routing_bfd_interface_copy_from: ""
+  ros_routing_bfd_interface_disabled: "no"
+  ros_routing_bfd_interface_interval: ""
+  ros_routing_bfd_interface_min_rx: ""
+  ros_routing_bfd_interface_multiplier: ""
+  ros_routing_bfd_interface_interface: ""

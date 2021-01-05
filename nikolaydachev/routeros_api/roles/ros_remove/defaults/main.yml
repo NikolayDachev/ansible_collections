@@ -1,0 +1,9 @@
+---
+# defaults file for ros_remove
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_remove_path: ""
+  ros_remove_id: ""

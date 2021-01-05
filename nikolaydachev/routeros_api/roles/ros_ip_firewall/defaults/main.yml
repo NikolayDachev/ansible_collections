@@ -1,0 +1,57 @@
+---
+# defaults file for ros_ip_firewall
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+
+  ros_ip_firewall_path: "ip firewall"
+  ros_ip_firewall_config: []
+  ros_ip_firewall_flush: "false"
+
+
+  ros_ip_firewall_address_list_path: "{{ ros_ip_firewall_path }} address-list"
+  ros_ip_firewall_address_list: []
+
+  ros_ip_firewall_calea_path: "{{ ros_ip_firewall_path }} calea"
+  ros_ip_firewall_calea: []
+
+  ros_ip_firewall_filter_path: "{{ ros_ip_firewall_path }} filter"
+  ros_ip_firewall_filter: []
+
+  ros_ip_firewall_layer7_protocol_path: "{{ ros_ip_firewall_path }} layer7-protocol"
+  ros_ip_firewall_layer7_protocol: []
+
+  ros_ip_firewall_mangle_path: "{{ ros_ip_firewall_path }} mangle"
+  ros_ip_firewall_mangle: []
+
+  ros_ip_firewall_nat_path: "{{ ros_ip_firewall_path }} nat"
+  ros_ip_firewall_nat: []
+
+  ros_ip_firewall_raw_path: "{{ ros_ip_firewall_path }} raw"
+  ros_ip_firewall_raw: []
+
+  ros_ip_firewall_connection_tracking_path: "{{ ros_ip_firewall_path }} connection tracking"
+  ros_ip_firewall_connection_tracking_enabled: ""
+  ros_ip_firewall_connection_tracking_loose_tcp_tracking: ""
+  ros_ip_firewall_connection_tracking_tcp_established_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_max_retrans_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_time_wait_timeout: ""
+  ros_ip_firewall_connection_tracking_udp_timeout: ""
+  ros_ip_firewall_connection_tracking_generic_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_close_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_fin_wait_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_syn_received_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_unacked_timeout: ""   
+  ros_ip_firewall_connection_tracking_icmp_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_close_wait_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_last_ack_timeout: ""
+  ros_ip_firewall_connection_tracking_tcp_syn_sent_timeout: ""
+  ros_ip_firewall_connection_tracking_udp_stream_timeout: ""
+
+  ros_ip_firewall_service_port_path: "{{ ros_ip_firewall_path }} service-port"
+  ros_ip_firewall_service_port_name: ""
+  ros_ip_firewall_service_port_disabled: "no"
+  ros_ip_firewall_service_port_ports: ""
+  ros_ip_firewall_service_port_sip_direct_media: ""
+  ros_ip_firewall_service_port_sip_timeout: ""

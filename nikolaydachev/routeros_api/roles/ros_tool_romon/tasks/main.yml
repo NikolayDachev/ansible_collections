@@ -1,0 +1,6 @@
+---
+# tasks file for ros_tool_romon
+- import_tasks: add.yml
+  when: '"enabled" in ros_tool_romon_config'
+- import_tasks: add_romon_port.yml
+  when: '"port" in ros_tool_romon_config'

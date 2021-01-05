@@ -1,0 +1,60 @@
+- name: ros ip firewall example
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Firewall General Config
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_ip_firewall
+      vars:
+        ros_ip_firewall_config:
+          - settings
+          - connection-tracking
+        ros_ip_firewall_service_port_name: "sctp"
+        ros_ip_firewall_service_port_disabled: "yes"
+        ros_ip_firewall_service_port_ports: ""
+
+        ros_ip_firewall_connection_tracking_tcp_time_wait_timeout: "20s"
+
+    - name: Firewall Config rules
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_ip_firewall
+      vars:
+        ros_ip_firewall_config: "{{ item.ros_ip_firewall_config }}"
+        ros_ip_firewall_flush: "{{ item.ros_ip_firewall_flush }}"
+
+        ros_ip_firewall_filter: "{{ item.ros_ip_firewall_filter }}"
+        ros_ip_firewall_nat: "{{ item.ros_ip_firewall_nat }}"
+        ros_ip_firewall_raw: "{{ item.ros_ip_firewall_raw }}"
+
+      loop:
+        "{{ ros_ip_firewall_rules }}"
+
+
+# Example inventory for host_vars/
+# ---
+# ros_ip_firewall_rules:
+#   - ros_ip_firewall_config:
+#       - filter
+#     ros_ip_firewall_flush: "true"
+#     ros_ip_firewall_filter:
+#       - action=accept chain=forward connection-state=established,related,untracked
+#       - action=accept chain=forward protocol=icmpv6
+#       - action=accept chain=forward protocol=139
+#       - action=accept chain=forward protocol=udp dst-port=500,4500
+#       - action=accept chain=forward protocol=ipsec-ah
+#       - action=accept chain=forward protocol=ipsec-esp
+# 
+#   - ros_ip_firewall_config:
+#       - nat
+#     ros_ip_firewall_flush: "true"
+#     ros_ip_firewall_nat:
+#       - chain=srcnat action=masquerade out-interface=ether1 ipsec-policy=out,none
+# 
+#   - ros_ip_firewall_config:
+#       - raw
+#     ros_ip_firewall_flush: "true"
+#     ros_ip_firewall_raw:
+#       - action=accept chain=input
+#       - action=drop chain=input

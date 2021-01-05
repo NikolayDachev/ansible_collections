@@ -1,0 +1,8 @@
+---
+# defaults file for ros_cmd
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+  
+  ros_cmd_cfg: []

@@ -1,0 +1,26 @@
+---
+- name: add ip dhcp-client
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_dhcp_client_path }}"
+    add:
+      add-default-route={{ ros_ip_dhcp_client_add_default_route }}
+      comment={{ ros_ip_dhcp_client_comment }}
+      copy-from={{ ros_ip_dhcp_client_copy_from }}
+      default-route-distance={{ ros_ip_dhcp_client_default_route_distance }}
+      dhcp-options={{ ros_ip_dhcp_client_dhcp_options }}
+      disabled={{ ros_ip_dhcp_client_disabled }}
+      script={{ ros_ip_dhcp_client_script }}
+      use-peer-dns={{ ros_ip_dhcp_client_use_peer_dns }}
+      use-peer-ntp={{ ros_ip_dhcp_client_use_peer_ntp }}
+      interface={{ ros_ip_dhcp_client_interface }}
+  register: ipdhcpclient
+  delegate_to: localhost
+
+- name: result ip dhcp-client
+  debug:
+    msg: '{{ ipdhcpclient }}'
+
