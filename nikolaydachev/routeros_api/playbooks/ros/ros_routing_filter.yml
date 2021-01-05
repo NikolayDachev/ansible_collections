@@ -5,8 +5,6 @@
 
   roles:
   - role:  nikolaydachev.routeros_api.ros_routing_filter
-    ros_routing_filter_flush: "{{ ros_routing_filter_flush }}"
-    ros_routing_filter: "{{ ros_routing_filter }}"
 
 # Example inventory for host_vars/
 # ---

@@ -8,4 +8,4 @@
   ros_routing_filter_path: "routing filter"
   ros_routing_filter_flush: "false"
 
-  ros_ip_routing_filter: []
+  ros_routing_filter: []
