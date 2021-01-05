@@ -1,0 +1,16 @@
+- name: ros routing ospf 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_routing_ospf
+    ros_routing_ospf_config:
+      - area
+#      - area_range
+#      - instance
+#      - interface
+#      - nbma_neighbor
+      - network
+#      - sham_link
+#      - virtual_link
