@@ -34,6 +34,7 @@ ros_ssl: "community.routeros.api ssl", default for this role is set to "true"
 
 All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
 
+RouterOS reference: https://wiki.mikrotik.com/wiki/Manual:Routing/Routing_filters#Properties  
 Role var prefix: **ros_routing_filter_**  
 
 special var:  

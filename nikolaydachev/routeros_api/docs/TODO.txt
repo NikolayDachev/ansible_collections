@@ -69,10 +69,7 @@ ros_routing_filters
   - done
 
 ros_routing_bfd
-  - playbook
-  - meta
-  - testing
-  - role
+  - done
 
 Futured:
  - ?

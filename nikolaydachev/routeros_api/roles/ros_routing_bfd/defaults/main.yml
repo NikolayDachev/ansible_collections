@@ -7,7 +7,7 @@
 
   ros_routing_bfd_path: "routing bfd"
 
-  ros_routing_bfd_interface_path: "{{ ros_routing_bfd_path }}"
+  ros_routing_bfd_interface_path: "{{ ros_routing_bfd_path }} interface"
   ros_routing_bfd_interface_comment: ""
   ros_routing_bfd_interface_copy_from: ""
   ros_routing_bfd_interface_disabled: "no"
