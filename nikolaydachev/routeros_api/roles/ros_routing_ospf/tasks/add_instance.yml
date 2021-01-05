@@ -31,7 +31,7 @@
       redistribute-connected={{ ros_routing_ospf_instance_redistribute_connected }}
       redistribute-other-ospf={{ ros_routing_ospf_instance_redistribute_other_ospf }}
       redistribute-rip={{ ros_routing_ospf_instance_redistribute_rip }}
-      redistribute-static ={{ ros_routing_ospf_instance_redistribute_static }}
+      redistribute-static={{ ros_routing_ospf_instance_redistribute_static }}
   register: routingospfinstanceput
   delegate_to: localhost
   

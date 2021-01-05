@@ -60,10 +60,7 @@ ros_int_brige
 
 15/12/2020
 ros_routing_ospf
-  - playbook
-  - meta
-  - testing
-  - role
+  - done
 
 ros_routing_filters
   - done

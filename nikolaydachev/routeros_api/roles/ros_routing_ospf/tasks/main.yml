@@ -1,17 +1,17 @@
 ---
 # tasks file for ros_routing_ospf
+  - import_tasks: add_instance.yml
+    when: '"instance" in ros_routing_ospf_config'
   - import_tasks: add_area.yml
     when: '"area" in ros_routing_ospf_config'
   - import_tasks: add_area_range.yml
     when: '"area_range" in ros_routing_ospf_config'
-  - import_tasks: add_instance.yml
-    when: '"instance" in ros_routing_ospf_config'
   - import_tasks: add_interface.yml
     when: '"interface" in ros_routing_ospf_config'
-  - import_tasks: add_nbma_neighbor.yml
-    when: '"nbma_neighbor" in ros_routing_ospf_config'
   - import_tasks: add_network.yml
     when: '"network" in ros_routing_ospf_config'
+  - import_tasks: add_nbma_neighbor.yml
+    when: '"nbma_neighbor" in ros_routing_ospf_config'
   - import_tasks: add_sham_link.yml
     when: '"sham_link" in ros_routing_ospf_config'
   - import_tasks: add_virtual_link.yml
