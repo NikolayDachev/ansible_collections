@@ -1,38 +1,76 @@
-Role Name
+ros_routing_filter
 =========
 
-A brief description of the role goes here.
+This role will configure RouterOS routing filter via API.  
+https://wiki.mikrotik.com/wiki/Manual:Routing/Routing_filters  
+
+IMPRTATN NOTES!
+- Please be extremely careful when you manage routing filter rules with any sort of automation!   
+
+- ros_routing_filter is a list vars. Each list item is a rule, rules will be added one by one from first list item to last one (in routeos the order is from top(first list item) to bottom(last list itme))!  
+
+- **ros_routing_filter_flush** varible will remove all routing filter rules at once! The main usage is to make more easy routing filter rules configuration managment. The flush happen before adding new rules, so for example if you set it to "true", this role will first remove all exsiting rules under 'routing filter' and then will add the new rules.  
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
+role:  
+- [nikolaydachev.routeros_api.ros_flush](https://galaxy.ansible.com/nikolaydachev/routeros_api)  
+- [nikolaydachev.routeros_api.ros_add](https://galaxy.ansible.com/nikolaydachev/routeros_api)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+
+Role var prefix: **ros_routing_filter_**  
+
+special var:  
+- ros_routing_filter_flush  
+  Description: When is set to "true" will flush/remove all rules for routing filter before add new rules
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros routing filter example
+  hosts: all
+  gather_facts: no
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  roles:
+  - role:  nikolaydachev.routeros_api.ros_routing_filter
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+# Example inventory for host_vars/
+# ---
+#   ros_routing_filter_flush: "true"
+#   ros_routing_filter:
+#     - chain=ospf-out prefix=1.2.3.0/20 action=discard 
+#     - chain=ospf-in prefix=3.2.1.0/24 action=discard
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

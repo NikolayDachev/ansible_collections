@@ -10,5 +10,5 @@
 # ---
 #   ros_routing_filter_flush: "true"
 #   ros_routing_filter:
-#     - chain=ospf-out prefix=78.83.112.0/20 action=discard 
-#     - chain=ospf-in prefix=84.238.202.0/24 action=discard
+#     - chain=ospf-out prefix=1.2.3.0/20 action=discard 
+#     - chain=ospf-in prefix=3.2.1.0/24 action=discard

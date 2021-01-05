@@ -66,10 +66,7 @@ ros_routing_ospf
   - role
 
 ros_routing_filters
-  - playbook
-  - meta
-  - testing
-  - role
+  - done
 
 ros_routing_bfd
   - playbook
