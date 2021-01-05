@@ -1,0 +1,14 @@
+---
+- name: flush {{ ros_routing_filter_path }}
+  import_role:
+    name: nikolaydachev.routeros_api.ros_flush
+  vars:
+    ros_flush_path: "{{ ros_routing_filter_acl_path }}"
+  when: ros_routing_filter_flush == "true"
+
+- name: add {{ ros_routing_filter_path }}
+  import_role:
+    name: nikolaydachev.routeros_api.ros_add
+  vars:
+    ros_add_path: "{{ ros_routing_filter_acl_path }}"
+    ros_add_list: "{{ ros_routing_filter_acl_rules }}"

@@ -1,0 +1,11 @@
+---
+# defaults file for ros_routing_filter
+  ros_hostname: "{{ inventory_hostname }}"
+  ros_username: "admin"
+  ros_password: ""
+  ros_ssl: "true"
+
+  ros_routing_filter_path: "routing filter"
+  ros_routing_filter_flush: "false"
+
+  ros_ip_routing_filter: []
