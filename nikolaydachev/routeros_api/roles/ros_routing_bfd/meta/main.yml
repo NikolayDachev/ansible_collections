@@ -1,6 +1,6 @@
 galaxy_info:
   author: Nikolay Dahcev
-  description: Configure /routing bfd
+  description: Configure /routing bfd interface
   company: public
 
   license: license (GPL-3.0-or-later)
