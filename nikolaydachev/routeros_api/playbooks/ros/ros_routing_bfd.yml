@@ -1,0 +1,7 @@
+- name: ros routing bfd
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_routing_bfd
