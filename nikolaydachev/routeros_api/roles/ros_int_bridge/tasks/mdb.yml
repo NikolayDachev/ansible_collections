@@ -8,7 +8,7 @@
     path: "{{ ros_int_bridge_mdb_path }}"
     cmd:
       set
-      numbers={{ ros_int_bridge_mdb_numbers }}
-      ports={{ ros_int_bridge_mdb_ports }}
+      numbers="{{ ros_int_bridge_mdb_numbers }}"
+      ports="{{ ros_int_bridge_mdb_ports }}"
   register: rosintbridgemdb
   delegate_to: localhost

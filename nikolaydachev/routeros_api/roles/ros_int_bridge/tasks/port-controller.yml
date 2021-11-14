@@ -7,9 +7,9 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_bridge_port_controller_path }}"
     add:
-      bridge={{ ros_int_bridge_port_controller_bridge }}
-      cascade-ports={{ ros_int_bridge_port_controller_cascade_ports }}
-      switch={{ ros_int_bridge_port_controller_switch }}
+      bridge="{{ ros_int_bridge_port_controller_bridge }}"
+      cascade-ports="{{ ros_int_bridge_port_controller_cascade_ports }}"
+      switch="{{ ros_int_bridge_port_controller_switch }}"
   register: rosintbridge
   delegate_to: localhost
 
@@ -21,8 +21,8 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_bridge_port_controller_device_path }}"
     add:
-      copy-from={{ ros_int_bridge_port_controller_device_copy_from }}
-      name={{ ros_int_bridge_port_controller_device_name }}
+      copy-from="{{ ros_int_bridge_port_controller_device_copy_from }}"
+      name="{{ ros_int_bridge_port_controller_device_name }}"
   register: rosintbridge
   delegate_to: localhost
   when: '"port-controller_device" in ros_int_bridge_config'
@@ -35,9 +35,9 @@
     username: "{{ ros_username }}"
     path: ros_int_bridge_port_controller_port_path
     add:
-      disabled={{ ros_int_bridge_port_controller_port_disabled }}
-      name={{ ros_int_bridge_port_controller_port_name }}
-      numbers={{ ros_int_bridge_port_controller_port_numbers }}
+      disabled="{{ ros_int_bridge_port_controller_port_disabled }}"
+      name="{{ ros_int_bridge_port_controller_port_name }}"
+      numbers="{{ ros_int_bridge_port_controller_port_numbers }}"
   register: rosintbridgeportcontroller
   delegate_to: localhost
   when: '"port-controller_path" in ros_int_bridge_config'
