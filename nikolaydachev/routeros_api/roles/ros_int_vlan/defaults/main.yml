@@ -1,0 +1,21 @@
+---
+# defaults file for ros_int_vlan
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+ros_int_vlan_path: "interface vlan"
+
+ros_int_vlan_arp: ""
+ros_int_vlan_arp_timeout: ""
+ros_int_vlan_comment: ""
+ros_int_vlan_copy_from: ""
+ros_int_vlan_disabled: "no"
+ros_int_vlan_interface: ""
+ros_int_vlan_loop_protect: ""
+ros_int_vlan_loop_protect_disable_time: ""
+ros_int_vlan_loop_protect_send_interval: ""
+ros_int_vlan_mtu: ""
+ros_int_vlan_name: ""
+ros_int_vlan_use_service_tag: ""
+ros_int_vlan_vlan_id: ""

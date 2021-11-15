@@ -8,26 +8,26 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_vrrp_path }}"
     add:
-      password={{ ros_int_vrrp_password }}
-      arp={{ ros_int_vrrp_arp }}
-      authentication={{ ros_int_vrrp_authentication }}
-      interval={{ ros_int_vrrp_interval }}
-      name={{ ros_int_vrrp_name }}
-      on-master={{ ros_int_vrrp_on_master }}
-      on-backup={{ ros_int_vrrp_on_backup }}
-      preemption-mode={{ ros_int_vrrp_preemption_mode }}
-      vrid={{ ros_int_vrrp_vrid }}
-      arp-timeout={{ ros_int_vrrp_arp_timeout }}
-      comment={{ ros_int_vrrp_comment }}
-      disabled={{ ros_int_vrrp_disabled }}
-      mtu={{ ros_int_vrrp_mtu }}
-      priority={{ ros_int_vrrp_priority }}
-      version={{ ros_int_vrrp_version }}
-      interface={{ ros_int_vrrp_interface }}
-      v3-protocol={{ ros_int_vrrp_v3_protocol }}
+      password="{{ ros_int_vrrp_password }}"
+      arp="{{ ros_int_vrrp_arp }}"
+      authentication="{{ ros_int_vrrp_authentication }}"
+      interval="{{ ros_int_vrrp_interval }}"
+      name="{{ ros_int_vrrp_name }}"
+      on-master="{{ ros_int_vrrp_on_master }}"
+      on-backup="{{ ros_int_vrrp_on_backup }}"
+      preemption-mode="{{ ros_int_vrrp_preemption_mode }}"
+      vrid="{{ ros_int_vrrp_vrid }}"
+      arp-timeout="{{ ros_int_vrrp_arp_timeout }}"
+      comment="{{ ros_int_vrrp_comment }}"
+      disabled="{{ ros_int_vrrp_disabled }}"
+      mtu="{{ ros_int_vrrp_mtu }}"
+      priority="{{ ros_int_vrrp_priority }}"
+      version="{{ ros_int_vrrp_version }}"
+      interface="{{ ros_int_vrrp_interface }}"
+      v3-protocol="{{ ros_int_vrrp_v3_protocol }}"
   register: vrrpout
   delegate_to: localhost
 
 - name: result vrrp config
   debug:
-    msg: '{{ vrrpout }}'
+    msg: '{{ vrrpout }}"'
