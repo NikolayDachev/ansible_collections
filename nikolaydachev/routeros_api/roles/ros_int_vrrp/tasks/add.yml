@@ -30,4 +30,4 @@
 
 - name: result vrrp config
   debug:
-    msg: '{{ vrrpout }}"'
+    msg: '{{ vrrpout }}'

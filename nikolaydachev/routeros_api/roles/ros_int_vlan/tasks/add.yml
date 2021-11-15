@@ -26,4 +26,4 @@
 
 - name: result vlan int config
   debug:
-    msg: '{{ intvlanout }}"'
+    msg: '{{ intvlanout }}'
