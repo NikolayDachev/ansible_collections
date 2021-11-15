@@ -8,17 +8,17 @@
     path: "{{ ros_certificates_path }}"
     cmd:
       create-certificate-request
-      append={{ ros_certificates_create_certificate_request_append }}
-      as-value={{ ros_certificates_create_certificate_request_as_value }}
-      challenge-passphrase={{ ros_certificates_create_certificate_request_challenge_passphrase }}
-      do={{ ros_certificates_create_certificate_request_do }}
-      duration={{ ros_certificates_create_certificate_request_duration }}
-      interval={{ ros_certificates_create_certificate_request_interval }}
-      once={{ ros_certificates_create_certificate_request_once }}
-      unstructured-address={{ ros_certificates_create_certificate_request_unstructured_address }}
-      without-paging={{ ros_certificates_create_certificate_request_without_paging }}
-      key-passphrase={{ ros_certificates_create_certificate_request_key_passphrase }}
-      request-template={{ ros_certificates_create_certificate_request_template }}
+      append="{{ ros_certificates_create_certificate_request_append }}"
+      as-value="{{ ros_certificates_create_certificate_request_as_value }}"
+      challenge-passphrase="{{ ros_certificates_create_certificate_request_challenge_passphrase }}"
+      do="{{ ros_certificates_create_certificate_request_do }}"
+      duration="{{ ros_certificates_create_certificate_request_duration }}"
+      interval="{{ ros_certificates_create_certificate_request_interval }}"
+      once="{{ ros_certificates_create_certificate_request_once }}"
+      unstructured-address="{{ ros_certificates_create_certificate_request_unstructured_address }}"
+      without-paging="{{ ros_certificates_create_certificate_request_without_paging }}"
+      key-passphrase="{{ ros_certificates_create_certificate_request_key_passphrase }}"
+      request-template="{{ ros_certificates_create_certificate_request_template }}"
 
   register: certificatecreatecertificaterequest
   delegate_to: localhost

@@ -1,20 +1,20 @@
 ---
 # tasks file for ros_certificates
-  - import_tasks: add.yml #1
+  - import_tasks: add.yml 
     when: '"add" in ros_certificates_config'
-  - import_tasks: sign.yml #1
+  - import_tasks: sign.yml 
     when: '"sign" in ros_certificates_config'
-  - import_tasks: create-certificate-request.yml #1
+  - import_tasks: create-certificate-request.yml 
     when: '"create-certificate-request" in ros_certificates_config'
-  - import_tasks: sign-certificate-request.yml #1
+  - import_tasks: sign-certificate-request.yml 
     when: '"sign-certificate-request" in ros_certificates_config'
-  - import_tasks: crl.yml #1
+  - import_tasks: crl.yml 
     when: '"crl" in ros_certificates_config'
-  - import_tasks: export-certificate.yml #1
+  - import_tasks: export-certificate.yml 
     when: '"export-certificate" in ros_certificates_config'
-  - import_tasks: import.yml #1
+  - import_tasks: import.yml 
     when: '"import" in ros_certificates_config'
-  - import_tasks: issued-revoke.yml #1
+  - import_tasks: issued-revoke.yml 
     when: '"issued-revoke" in ros_certificates_config'
-  - import_tasks: settings.yml #1
+  - import_tasks: settings.yml 
     when: '"settings" in ros_certificates_config'

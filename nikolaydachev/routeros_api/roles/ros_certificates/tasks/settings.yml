@@ -8,9 +8,9 @@
     path: "{{ ros_certificates_settings_path }}"
     cmd:
       set
-      crl-download={{ ros_certificates_settings_crl_download }}
-      crl-store={{ ros_certificates_settings_crl_store }}
-      crl-use={{ ros_certificates_settings_crl_use }}
+      crl-download="{{ ros_certificates_settings_crl_download }}"
+      crl-store="{{ ros_certificates_settings_crl_store }}"
+      crl-use="{{ ros_certificates_settings_crl_use }}"
 
   register: certificatesettings
   delegate_to: localhost
