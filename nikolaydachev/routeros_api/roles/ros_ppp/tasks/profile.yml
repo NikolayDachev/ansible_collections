@@ -1,0 +1,49 @@
+---
+# tasks file for ros_ppp
+- name: configure ppp profile
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ppp_profile_path }}"
+    add:
+      address-list="{{ ros_ppp_profile_address_list }}"
+      bridge-learning="{{ ros_ppp_profile_bridge_learning }}"
+      change-tcp-mss="{{ ros_ppp_profile_change_tcp_mss }}"
+      dhcpv6-pd-pool="{{ ros_ppp_profile_dhcpv6_pd_pool }}"
+      incoming-filter="{{ ros_ppp_profile_incoming_filter }}"
+      local-address="{{ ros_ppp_profile_local_address }}"
+      only-one="{{ ros_ppp_profile_only_one }}"
+      queue-type="{{ ros_ppp_profile_queue_type }}"
+      remote-ipv6-prefix-pool="{{ ros_ppp_profile_remote_ipv6_prefix_pool }}"
+      use-encryption="{{ ros_ppp_profile_use_encryption }}"
+      use-upnp="{{ ros_ppp_profile_use_upnp }}"
+      bridge="{{ ros_ppp_profile_bridge }}"
+      bridge-path-cost="{{ ros_ppp_profile_bridge_path_cost }}"
+      comment="{{ ros_ppp_profile_comment }}"
+      dns-server="{{ ros_ppp_profile_dns_server }}"
+      insert-queue-before="{{ ros_ppp_profile_insert_queue_before }}"
+      on-down="{{ ros_ppp_profile_on_down }}"
+      outgoing-filter="{{ ros_ppp_profile_outgoing_filter }}"
+      rate-limit="{{ ros_ppp_profile_rate_limit }}"
+      session-timeout="{{ ros_ppp_profile_session_timeout }}"
+      use-ipv6="{{ ros_ppp_profile_use_ipv6 }}"
+      wins-server="{{ ros_ppp_profile_wins_server }}"
+      bridge-horizon="{{ ros_ppp_profile_bridge_horizon }}"
+      bridge-port-priority="{{ ros_ppp_profile_bridge_port_priority }}"
+      copy-from="{{ ros_ppp_profile_copy_from }}"
+      idle-timeout="{{ ros_ppp_profile_idle_timeout }}"
+      interface-list="{{ ros_ppp_profile_interface_list }}"
+      on-up="{{ ros_ppp_profile_on_up }}"
+      parent-queue="{{ ros_ppp_profile_parent_queue }}"
+      remote-address="{{ ros_ppp_profile_remote_address }}"
+      use-compression="{{ ros_ppp_profile_use_compression }}"
+      use-mpls="{{ ros_ppp_profile_use_mpls }}"
+      name="{{ ros_ppp_profile_name }}"  
+  register: pppprofileout
+  delegate_to: localhost
+
+- name: result ppp profile config
+  debug:
+    msg: '{{ pppout }}'

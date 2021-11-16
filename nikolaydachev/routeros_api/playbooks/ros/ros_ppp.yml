@@ -1,0 +1,12 @@
+- name: ros ppp
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ppp
+    ros_ppp_config:
+      - profile
+      - secret
+      #- aaa
+      #- l2tp-secret
