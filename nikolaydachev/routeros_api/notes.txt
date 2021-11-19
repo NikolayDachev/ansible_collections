@@ -3,6 +3,5 @@ add ros_int_vlan role - to be check
 add ros_int_eoip role - to be check
 add ros_int_list role - to be check
 add ros_ppp  - to be check
-
-ros_int_ovpn
-ros_int_sstp
+add ros_int_ovpn - to be check
+add ros_int_sstp - to be check

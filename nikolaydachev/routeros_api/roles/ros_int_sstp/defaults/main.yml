@@ -1,2 +1,58 @@
 ---
 # defaults file for ros_int_sstp
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_int_sstp_server_path: "interface sstp-server"
+ros_int_sstp_client_path: "interface sstp-client"
+ros_int_sstp_config: []
+
+ros_int_sstp_server_interface_comment: ""
+ros_int_sstp_server_interface_copy_from: ""
+ros_int_sstp_server_interface_disabled: "no"
+ros_int_sstp_server_interface_name: ""
+ros_int_sstp_server_interface_user: ""
+
+ros_int_sstp_server_server_path: "{{ ros_int_sstp_server_path }} server"
+ros_int_sstp_server_server_authentication: ""
+ros_int_sstp_server_server_certificate: ""
+ros_int_sstp_server_server_default_profile: ""
+ros_int_sstp_server_server_enabled: "yes"
+ros_int_sstp_server_server_force_aes: ""
+ros_int_sstp_server_server_keepalive_timeout: ""
+ros_int_sstp_server_server_max_mru: ""
+ros_int_sstp_server_server_max_mtu: ""
+ros_int_sstp_server_server_mrru: ""
+ros_int_sstp_server_server_pfs: ""
+ros_int_sstp_server_server_port: ""
+ros_int_sstp_server_server_tls_version: ""
+ros_int_sstp_server_server_verify_client_certificate: ""
+
+ros_int_sstp_client_add_default_route: ""
+ros_int_sstp_client_certificate: ""
+ros_int_sstp_client_copy_from: ""
+ros_int_sstp_client_dial_on_demand: ""
+ros_int_sstp_client_http_proxy: ""
+ros_int_sstp_client_max_mru  mrru: ""
+ros_int_sstp_client_password: ""
+ros_int_sstp_client_profile: ""
+ros_int_sstp_client_verify_server_address_from_certificate: ""
+ros_int_sstp_client_connect_to: ""
+ros_int_sstp_client_authentication: ""
+ros_int_sstp_client_comment: ""
+ros_int_sstp_client_default_route_distance: ""
+ros_int_sstp_client_disabled: "no"
+ros_int_sstp_client_keepalive_timeout: ""
+ros_int_sstp_client_max_mtu: ""
+ros_int_sstp_client_name: ""
+ros_int_sstp_client_pfs: ""
+ros_int_sstp_client_tls_version: ""
+ros_int_sstp_client_verify_server_certificate: ""
+ros_int_sstp_client_user: ""
+
+
+
+
+

@@ -1,0 +1,21 @@
+---
+# tasks file for ros_int_ovpn
+- name: configure ovpn server static user interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_ovpn_server_path }}"
+    add:
+      comment="{{ ros_int_ovpn_server_interface_comment }}"
+      copy-from="{{ ros_int_ovpn_server_interface_copy_from }}"
+      disabled="{{ ros_int_ovpn_server_interface_disabled }}"
+      name ="{{ ros_int_ovpn_server_interface_name }}"
+      user="{{ ros_int_ovpn_server_interface_user }}"
+  register: intovpnserveuserintrout
+  delegate_to: localhost
+
+- name: result ovpn server interface config
+  debug:
+    msg: '{{ intovpnserveuserintrout }}'

@@ -1,2 +1,10 @@
 ---
 # tasks file for ros_int_sstp
+  - import_tasks: server_user_int.yml
+    when: '"server_user_int" in ros_int_sstp_config'
+
+  - import_tasks: server.yml
+    when: '"server" in ros_int_sstp_config'
+
+  - import_tasks: client.yml
+    when: '"client" in ros_int_sstp_config'

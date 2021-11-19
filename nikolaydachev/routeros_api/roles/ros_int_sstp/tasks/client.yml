@@ -1,0 +1,37 @@
+---
+# tasks file for ros_int_sstp
+- name: configure sstp client interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_sstp_client_path }}"
+    add:
+      add-default-route="{{ ros_int_sstp_client_add_default_route }}"
+      certificate="{{ ros_int_sstp_client_certificate }}"
+      copy-from="{{ ros_int_sstp_client_copy_from }}"
+      dial-on-demand="{{ ros_int_sstp_client_dial_on_demand }}"
+      http-proxy="{{ ros_int_sstp_client_http_proxy }}"
+      max-mru="{{ ros_int_sstp_client_max_mru }}"
+      password="{{ ros_int_sstp_client_password }}"
+      profile="{{ ros_int_sstp_client_profile }}"
+      verify-server_address_from_certificate="{{ ros_int_sstp_client_verify_server_address_from_certificate }}"
+      connect-to="{{ ros_int_sstp_client_connect_to }}"
+      authentication="{{ ros_int_sstp_client_authentication }}"
+      comment="{{ ros_int_sstp_client_comment }}"
+      default_route_distance="{{ ros_int_sstp_client_default_route_distance }}"
+      disabled="{{ ros_int_sstp_client_disabled }}"
+      keepalive_timeout="{{ ros_int_sstp_client_keepalive_timeout }}"
+      max-mtu="{{ ros_int_sstp_client_max_mtu }}"
+      name="{{ ros_int_sstp_client_name }}"
+      pfs="{{ ros_int_sstp_client_pfs }}"
+      tls-version="{{ ros_int_sstp_client_tls_version }}"
+      verify-server-certificate="{{ ros_int_sstp_client_verify_server_certificate }}"
+      user="{{ ros_int_sstp_client_user }}"
+  register: intsstpclientout
+  delegate_to: localhost
+
+- name: result sstp client interface config
+  debug:
+    msg: '{{ intsstpclientout }}'

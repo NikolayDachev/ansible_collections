@@ -1,0 +1,29 @@
+---
+# tasks file for ros_int_ovpn
+- name: configure ovpn server interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_ovpn_server_server_path }}"
+    cmd:
+      set
+      auth="{{ ros_int_ovpn_server_server_auth }}"
+      certificate="{{ ros_int_ovpn_server_server_certificate }}"
+      cipher="{{ ros_int_ovpn_server_server_cipher }}"
+      default-profile="{{ ros_int_ovpn_server_server_default_profile }}"
+      enabled="{{ ros_int_ovpn_server_server_enabled }}"
+      keepalive_timeout="{{ ros_int_ovpn_server_server_keepalive_timeout }}"
+      mac-address="{{ ros_int_ovpn_server_server_mac_address }}"
+      max-mtu="{{ ros_int_ovpn_server_server_max_mtu }}"
+      mode="{{ ros_int_ovpn_server_server_mode }}"
+      netmask="{{ ros_int_ovpn_server_server_netmask }}"
+      port="{{ ros_int_ovpn_server_server_port }}"
+      require-client-certificate="{{ ros_int_ovpn_server_server_require_client_certificate }}"
+  register: intovpnserverout
+  delegate_to: localhost
+
+- name: result ovpn server interface config
+  debug:
+    msg: '{{ intovpnserverout }}'
