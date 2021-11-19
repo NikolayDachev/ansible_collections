@@ -7,25 +7,25 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_ipsec_policy_path }}"
     add:
-      action={{ ros_ip_ipsec_policy_action }}
-      comment={{ ros_ip_ipsec_policy_comment }}
-      copy-from={{ ros_ip_ipsec_policy_copy_from }}
-      disabled={{ ros_ip_ipsec_policy_disabled }}
-      dst-address={{ ros_ip_ipsec_policy_dst_address }}
-      dst-port={{ ros_ip_ipsec_policy_dst_port }}
-      group={{ ros_ip_ipsec_policy_group }}
-      ipsec-protocols={{ ros_ip_ipsec_policy_ipsec_protocols }}
-      level={{ ros_ip_ipsec_policy_level }}
-      peer={{ ros_ip_ipsec_policy_peer }}
-      place-before={{ ros_ip_ipsec_policy_place_before }}
-      proposal={{ ros_ip_ipsec_policy_proposal }}
-      protocol={{ ros_ip_ipsec_policy_protocol }}
-      sa-dst-address={{ ros_ip_ipsec_policy_sa_dst_address }}
-      sa-src-address={{ ros_ip_ipsec_policy_sa_src_address }}
-      src-address={{ ros_ip_ipsec_policy_src_address }}
-      src-port={{ ros_ip_ipsec_policy_src_port }}
-      template={{ ros_ip_ipsec_policy_template }}
-      tunnel={{ ros_ip_ipsec_policy_tunnel }}
+      action="{{ ros_ip_ipsec_policy_action }}"
+      comment="{{ ros_ip_ipsec_policy_comment }}"
+      copy-from="{{ ros_ip_ipsec_policy_copy_from }}"
+      disabled="{{ ros_ip_ipsec_policy_disabled }}"
+      dst-address="{{ ros_ip_ipsec_policy_dst_address }}"
+      dst-port="{{ ros_ip_ipsec_policy_dst_port }}"
+      group="{{ ros_ip_ipsec_policy_group }}"
+      ipsec-protocols="{{ ros_ip_ipsec_policy_ipsec_protocols }}"
+      level="{{ ros_ip_ipsec_policy_level }}"
+      peer="{{ ros_ip_ipsec_policy_peer }}"
+      place-before="{{ ros_ip_ipsec_policy_place_before }}"
+      proposal="{{ ros_ip_ipsec_policy_proposal }}"
+      protocol="{{ ros_ip_ipsec_policy_protocol }}"
+      sa-dst-address="{{ ros_ip_ipsec_policy_sa_dst_address }}"
+      sa-src-address="{{ ros_ip_ipsec_policy_sa_src_address }}"
+      src-address="{{ ros_ip_ipsec_policy_src_address }}"
+      src-port="{{ ros_ip_ipsec_policy_src_port }}"
+      template="{{ ros_ip_ipsec_policy_template }}"
+      tunnel="{{ ros_ip_ipsec_policy_tunnel }}"
   register: ipsecpolicy
   delegate_to: localhost
 

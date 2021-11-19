@@ -7,11 +7,11 @@
     username: "{{ ros_username }}"
     path: "{{ ros_user_group_path }}"
     add:
-      comment={{ ros_user_group_comment }}
-      copy-from={{ ros_user_group_copy_from }}
-      name={{ ros_user_group_name }}
-      policy={{ ros_user_group_policy }}
-      skin={{ ros_user_group_skin }}
+      comment="{{ ros_user_group_comment }}"
+      copy-from="{{ ros_user_group_copy_from }}"
+      name="{{ ros_user_group_name }}"
+      policy="{{ ros_user_group_policy }}"
+      skin="{{ ros_user_group_skin }}"
   register: usergroup
   delegate_to: localhost
 

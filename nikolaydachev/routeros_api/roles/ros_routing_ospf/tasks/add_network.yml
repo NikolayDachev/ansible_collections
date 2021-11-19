@@ -7,11 +7,11 @@
     username: "{{ ros_username }}"
     path: "{{ ros_routing_ospf_network_path }}"
     add:
-      comment={{ ros_routing_ospf_network_comment }}
-      copy-from={{ ros_routing_ospf_network_copy_from }}
-      disabled={{ ros_routing_ospf_network_disabled }}
-      network={{ ros_routing_ospf_network_network }}
-      area={{ ros_routing_ospf_network_area }}
+      comment="{{ ros_routing_ospf_network_comment }}"
+      copy-from="{{ ros_routing_ospf_network_copy_from }}"
+      disabled="{{ ros_routing_ospf_network_disabled }}"
+      network="{{ ros_routing_ospf_network_network }}"
+      area="{{ ros_routing_ospf_network_area }}"
   register: routingospfnetworkout
   delegate_to: localhost
   

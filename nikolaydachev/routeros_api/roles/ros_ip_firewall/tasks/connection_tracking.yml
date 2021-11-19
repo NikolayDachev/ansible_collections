@@ -8,22 +8,22 @@
     path: "{{ ros_ip_firewall_connection_tracking_path }}"
     cmd:
       set
-      enabled={{ ros_ip_firewall_connection_tracking_enabled }}
-      loose-tcp-tracking={{ ros_ip_firewall_connection_tracking_loose_tcp_tracking }}
-      tcp-established-timeout={{ ros_ip_firewall_connection_tracking_tcp_established_timeout }}
-      tcp-max-retrans-timeout={{ ros_ip_firewall_connection_tracking_tcp_max_retrans_timeout }}
-      tcp-time-wait-timeout={{ ros_ip_firewall_connection_tracking_tcp_time_wait_timeout }}
-      udp-timeout={{ ros_ip_firewall_connection_tracking_udp_timeout }}
-      generic-timeout={{ ros_ip_firewall_connection_tracking_generic_timeout }}
-      tcp-close-timeout={{ ros_ip_firewall_connection_tracking_tcp_close_timeout }}
-      tcp-fin-wait-timeout={{ ros_ip_firewall_connection_tracking_tcp_fin_wait_timeout }}
-      tcp-syn-received-timeout={{ ros_ip_firewall_connection_tracking_tcp_syn_received_timeout }}
-      tcp-unacked-timeout={{ ros_ip_firewall_connection_tracking_tcp_unacked_timeout }}
-      icmp-timeout={{ ros_ip_firewall_connection_tracking_icmp_timeout }}
-      tcp-close-wait-timeout={{ ros_ip_firewall_connection_tracking_tcp_close_wait_timeout }}
-      tcp-last-ack-timeout={{ ros_ip_firewall_connection_tracking_tcp_last_ack_timeout }}
-      tcp-syn-sent-timeout={{ ros_ip_firewall_connection_tracking_tcp_syn_sent_timeout }}
-      udp-stream-timeout={{ ros_ip_firewall_connection_tracking_udp_stream_timeout }}
+      enabled="{{ ros_ip_firewall_connection_tracking_enabled }}"
+      loose-tcp-tracking="{{ ros_ip_firewall_connection_tracking_loose_tcp_tracking }}"
+      tcp-established-timeout="{{ ros_ip_firewall_connection_tracking_tcp_established_timeout }}"
+      tcp-max-retrans-timeout="{{ ros_ip_firewall_connection_tracking_tcp_max_retrans_timeout }}"
+      tcp-time-wait-timeout="{{ ros_ip_firewall_connection_tracking_tcp_time_wait_timeout }}"
+      udp-timeout="{{ ros_ip_firewall_connection_tracking_udp_timeout }}"
+      generic-timeout="{{ ros_ip_firewall_connection_tracking_generic_timeout }}"
+      tcp-close-timeout="{{ ros_ip_firewall_connection_tracking_tcp_close_timeout }}"
+      tcp-fin-wait-timeout="{{ ros_ip_firewall_connection_tracking_tcp_fin_wait_timeout }}"
+      tcp-syn-received-timeout="{{ ros_ip_firewall_connection_tracking_tcp_syn_received_timeout }}"
+      tcp-unacked-timeout="{{ ros_ip_firewall_connection_tracking_tcp_unacked_timeout }}"
+      icmp-timeout="{{ ros_ip_firewall_connection_tracking_icmp_timeout }}"
+      tcp-close-wait-timeout="{{ ros_ip_firewall_connection_tracking_tcp_close_wait_timeout }}"
+      tcp-last-ack-timeout="{{ ros_ip_firewall_connection_tracking_tcp_last_ack_timeout }}"
+      tcp-syn-sent-timeout="{{ ros_ip_firewall_connection_tracking_tcp_syn_sent_timeout }}"
+      udp-stream-timeout="{{ ros_ip_firewall_connection_tracking_udp_stream_timeout }}"
   register: rosipfirewallconnectiontracking
   delegate_to: localhost
 

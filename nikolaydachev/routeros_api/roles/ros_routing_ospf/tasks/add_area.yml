@@ -7,16 +7,16 @@
     username: "{{ ros_username }}"
     path: "{{ ros_routing_ospf_area_path }}"
     add:
-      area-id={{ ros_routing_ospf_area_area_id }}
-      copy-from={{ ros_routing_ospf_area_copy_from }}
-      disabled={{ ros_routing_ospf_area_disabled }}
-      instance={{ ros_routing_ospf_area_instance }}
-      translator-role={{ ros_routing_ospf_area_translator_role }}
-      comment={{ ros_routing_ospf_area_comment }}
-      default-cost={{ ros_routing_ospf_area_default_cost }}
-      inject-summary-lsas={{ ros_routing_ospf_area_inject_summary_lsas }}
-      name={{ ros_routing_ospf_area_name }}
-      type={{ ros_routing_ospf_area_type }}
+      area-id="{{ ros_routing_ospf_area_area_id }}"
+      copy-from="{{ ros_routing_ospf_area_copy_from }}"
+      disabled="{{ ros_routing_ospf_area_disabled }}"
+      instance="{{ ros_routing_ospf_area_instance }}"
+      translator-role="{{ ros_routing_ospf_area_translator_role }}"
+      comment="{{ ros_routing_ospf_area_comment }}"
+      default-cost="{{ ros_routing_ospf_area_default_cost }}"
+      inject-summary-lsas="{{ ros_routing_ospf_area_inject_summary_lsas }}"
+      name="{{ ros_routing_ospf_area_name }}"
+      type="{{ ros_routing_ospf_area_type }}"
   register: routingospfareaout
   delegate_to: localhost
   

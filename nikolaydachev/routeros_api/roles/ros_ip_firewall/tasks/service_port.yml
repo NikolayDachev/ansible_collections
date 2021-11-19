@@ -8,11 +8,11 @@
     path: "{{ ros_ip_firewall_service_port_path }}"
     cmd:
       set
-      numbers={{ ros_ip_firewall_service_port_name }}
-      disabled={{ ros_ip_firewall_service_port_disabled }}
-      ports={{ ros_ip_firewall_service_port_ports }}
-      sip-direct-media={{ ros_ip_firewall_service_port_sip_direct_media }}
-      sip-timeout={{ ros_ip_firewall_service_port_sip_timeout }}
+      numbers="{{ ros_ip_firewall_service_port_name }}"
+      disabled="{{ ros_ip_firewall_service_port_disabled }}"
+      ports="{{ ros_ip_firewall_service_port_ports }}"
+      sip-direct-media="{{ ros_ip_firewall_service_port_sip_direct_media }}"
+      sip-timeout="{{ ros_ip_firewall_service_port_sip_timeout }}"
   register: rosipfirewallserviceport
   delegate_to: localhost
 
