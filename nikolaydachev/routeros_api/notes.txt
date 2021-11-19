@@ -7,12 +7,12 @@ add ros_int_ovpn - to be check
 add ros_int_sstp - to be check
 add ros_ip_dns - to be check
 add ros_ip_cloud - to be check
+add ros_snmp - to be check
 
-ros_ip_snmp
+TODO:
 ros_caps_man
 ros7_routing_ospf
 ros7_routing_filter
 ros7_wireguard
-
 
 

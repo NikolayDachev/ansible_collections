@@ -1,2 +1,7 @@
 ---
 # tasks file for ros_snmp
+- import_tasks: snmp_community.yml
+  when: '"community" in ros_snmp_config'
+  
+- import_tasks: snmp.yml
+  when: '"snmp" in ros_snmp_config'

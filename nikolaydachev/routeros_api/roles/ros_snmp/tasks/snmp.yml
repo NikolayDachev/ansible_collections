@@ -1,0 +1,27 @@
+---
+# tasks file for ros_snmp
+- name: configure snmp
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_snmp_path }}"
+    cmd:
+      set
+      contact="{{ ros_snmp_contact }}"
+      engine-id="{{ ros_snmp_engine_id }}"
+      src-address="{{ ros_snmp_src_address }}"
+      trap-generators="{{ ros_snmp_trap_generators }}"
+      trap-target="{{ ros_snmp_trap_target }}"
+      enabled="{{ ros_snmp_enabled }}"
+      location="{{ ros_snmp_location }}"
+      trap-community="{{ ros_snmp_trap_community }}"
+      trap-interfaces="{{ ros_snmp_trap_interfaces }}"
+      trap-version="{{ ros_snmp_trap_version }}"
+  register: snmpout
+  delegate_to: localhost
+
+- name: result configure snmp
+  debug:
+    msg: '{{ snmpout }}'
