@@ -5,9 +5,9 @@ add ros_int_list role - to be check
 add ros_ppp  - to be check
 add ros_int_ovpn - to be check
 add ros_int_sstp - to be check
+add ros_ip_dns - to be check
+add ros_ip_cloud - to be check
 
-ros_ip_dns
-ros_ip_cloud
 ros_ip_snmp
 ros_caps_man
 ros7_routing_ospf

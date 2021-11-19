@@ -1,0 +1,7 @@
+- name: ros ip cloud
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ip_cloud

@@ -1,0 +1,37 @@
+---
+# tasks file for ros_ip_cloud
+- name: configure ip cloud
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_cloud_path }}"
+    cmd:
+      set
+      ddns-enabled="{{ ros_ip_cloud_ddns_enabled }}"
+      ddns-update-interval="{{ ros_ip_cloud_ddns_update_interval }}"
+      update-time="{{ ros_ip_cloud_update_time }}"
+  register: ipcloudout
+  delegate_to: localhost
+
+- name: configure ip cloud advanced
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_cloud_advanced_path }}"
+    cmd:
+      set
+      use-local-address="{{ ros_ip_cloud_advanced_use_local_address }}"
+  register: ipcloudadvancedout
+  delegate_to: localhost
+
+- name: result ip cloud
+  debug:
+    msg: '{{ ipcloudout }}'
+
+- name: result ip cloud advanced
+  debug:
+    msg: '{{ ipcloudadvancedout }}'

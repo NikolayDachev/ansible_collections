@@ -1,2 +1,3 @@
 ---
 # tasks file for ros_ip_cloud
+- include: cloud.yml
