@@ -1,2 +1,7 @@
 ---
 # tasks file for ros_ip_dns
+- import_tasks: server.yml
+  when: '"server" in ros_ip_dns_config'
+  
+- import_tasks: static.yml
+  when: '"static" in ros_ip_dns_config'

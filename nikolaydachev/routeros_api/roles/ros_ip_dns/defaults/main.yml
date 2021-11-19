@@ -1,2 +1,43 @@
 ---
 # defaults file for ros_ip_dns
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_ip_dns_path: "ip dns"
+ros_ip_dns_config: []
+
+# set 
+ros_ip_dns_allow_remote_requests: ""
+ros_ip_dns_max_concurrent_queries: ""
+ros_ip_dns_query_server_timeout: ""
+ros_ip_dns_use_doh_server: ""
+ros_ip_dns_cache_max_ttl: ""
+ros_ip_dns_max_concurrent_tcp_sessions: ""
+ros_ip_dns_query_total_timeout: ""
+ros_ip_dns_verify_doh_cert: ""
+ros_ip_dns_cache_size: ""
+ros_ip_dns_max_udp_packet_size: ""
+ros_ip_dns_servers: ""
+
+ros_ip_dns_static_path: "{{ ros_ip_dns_path }} static"
+ros_ip_dns_static_address: ""
+ros_ip_dns_static_comment: ""
+ros_ip_dns_static_disabled: "no"
+ros_ip_dns_static_mx_exchange: ""
+ros_ip_dns_static_name: ""
+ros_ip_dns_static_place_before: ""
+ros_ip_dns_static_srv_port: ""
+ros_ip_dns_static_srv_target: ""
+ros_ip_dns_static_text: ""
+ros_ip_dns_static_type: ""
+ros_ip_dns_static_cname: ""
+ros_ip_dns_static_copy_from: ""
+ros_ip_dns_static_forward_to: ""
+ros_ip_dns_static_mx_preference: ""
+ros_ip_dns_static_ns: ""
+ros_ip_dns_static_regexp: ""
+ros_ip_dns_static_srv_priority: ""
+ros_ip_dns_static_srv_weight: ""
+ros_ip_dns_static_ttl: ""
