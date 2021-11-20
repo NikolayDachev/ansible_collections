@@ -1,5 +1,5 @@
 fix all roles/tasks missing ""
-fix ros_flush to not include duplicatred files and fail, aslo exlude dynamic items/.id
+fix ros_flush to not include duplicatred .id and fail, also exclude dynamic items/.id
 add ros_int_vlan role - to be check
 add ros_int_eoip role - to be check
 add ros_int_list role - to be check
@@ -9,11 +9,13 @@ add ros_int_sstp - to be check
 add ros_ip_dns - to be check
 add ros_ip_cloud - to be check
 add ros_snmp - to be check
+add ros_ip_neighbor_discovery - to be check
 
 TODO:
 ros_caps_man
 ros7_routing_ospf
 ros7_routing_filter
 ros7_wireguard
+ros_ip_neighbor_discovery
 
 CHECK ros_flush not working properly !

@@ -1,0 +1,20 @@
+---
+# tasks file for ros_ip_neighbor_discovery
+- name: configure neighbor discovery
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_neighbor_discovery_path }}"
+    cmd:
+      set
+      discover-interface-list="{{ ros_ip_neighbor_discovery_discover_interface_list }}"
+      lldp-med-net-policy-vlan="{{ ros_ip_neighbor_discovery_lldp_med_net_policy_vlan }}"
+      protocol="{{ ros_ip_neighbor_discovery_protocol }}"
+  register: neighbordiscoveryout
+  delegate_to: localhost
+
+- name: result configure neighbor discovery
+  debug:
+    msg: "{{ neighbordiscoveryout }}"
