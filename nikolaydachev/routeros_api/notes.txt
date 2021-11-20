@@ -16,6 +16,3 @@ ros_caps_man
 ros7_routing_ospf
 ros7_routing_filter
 ros7_wireguard
-ros_ip_neighbor_discovery
-
-CHECK ros_flush not working properly !
