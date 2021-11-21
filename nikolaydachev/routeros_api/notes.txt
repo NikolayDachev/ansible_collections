@@ -12,7 +12,7 @@ add ros_snmp - to be check
 add ros_ip_neighbor_discovery - to be check
 
 IN PROG:
-ros_caps_man
+ros_caps_man - to be check
 
 TODO:
 ros_ip_route

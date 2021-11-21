@@ -1,0 +1,19 @@
+- name: ros caps-man
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_caps_man
+    ros_caps_man_config:
+      #- aaa
+      - security
+      #- access-list
+      - rates
+      #- actual-interface-configuration
+      - channel
+      - interface
+      - datapath
+      - configuration
+      - provisioning
+      - manager

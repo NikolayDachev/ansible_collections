@@ -1,0 +1,26 @@
+# tasks file for ros_caps_man
+---
+- name: add caps-man provisioning
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_provisioning_path }}"
+    add:
+      action="{{ ros_caps_man_provisioning_action }}"
+      comment="{{ ros_caps_man_provisioning_comment }}"
+      common-name-regexp="{{ ros_caps_man_provisioning_common_name_regexp }}"
+      copy-from="{{ ros_caps_man_provisioning_copy_from }}"
+      disabled="{{ ros_caps_man_provisioning_disabled }}"
+      hw-supported-modes="{{ ros_caps_man_provisioning_hw_supported_modes }}"
+      identity-regexp="{{ ros_caps_man_provisioning_identity_regexp }}"
+      ip-address-ranges="{{ ros_caps_man_provisioning_ip_address_ranges }}"
+      master-configuration="{{ ros_caps_man_provisioning_master_configuration }}"
+      name-format="{{ ros_caps_man_provisioning_name_format }}"
+      name-prefix="{{ ros_caps_man_provisioning_name_prefix }}"
+      place-before="{{ ros_caps_man_provisioning_place_before }}"
+      radio-mac="{{ ros_caps_man_provisioning_radio_mac }}"
+      slave-configurations="{{ ros_caps_man_provisioning_slave_configurations }}"
+  register: roscapsmanprovisioning
+  delegate_to: localhost

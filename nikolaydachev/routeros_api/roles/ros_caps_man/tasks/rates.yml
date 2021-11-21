@@ -1,0 +1,21 @@
+# tasks file for ros_caps_man
+---
+- name: add caps-man rates
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_rates_path }}"
+    add:
+      basic="{{ ros_caps_man_rates_basic }}"
+      comment="{{ ros_caps_man_rates_comment }}"
+      copy-from="{{ ros_caps_man_rates_copy_from }}"
+      ht-basic-mcs="{{ ros_caps_man_rates_ht_basic_mcs }}"
+      ht-supported-mcs="{{ ros_caps_man_rates_ht_supported_mcs }}"
+      supported="{{ ros_caps_man_rates_supported }}"
+      vht-basic-mcs="{{ ros_caps_man_rates_vht_basic_mcs }}"
+      vht-supported-mcs="{{ ros_caps_man_rates_vht_supported_mcs }}"
+      name="{{ ros_caps_man_rates_name }}"
+  register: roscapsmanrates
+  delegate_to: localhost
