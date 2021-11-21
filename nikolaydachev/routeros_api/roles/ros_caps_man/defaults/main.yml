@@ -5,7 +5,7 @@ ros_username: "admin"
 ros_password_path: ""
 ros_ssl: "true"
 
-ros_caps_man_path: "caps_man "
+ros_caps_man_path: "caps-man "
 ros_caps_man_config: []
 
 #set 
