@@ -11,8 +11,11 @@ add ros_ip_cloud - to be check
 add ros_snmp - to be check
 add ros_ip_neighbor_discovery - to be check
 
-TODO:
+IN PROG:
 ros_caps_man
-ros7_routing_ospf
+
+TODO:
+ros_ip_route
 ros7_routing_filter
+ros7_routing_ospf
 ros7_wireguard
