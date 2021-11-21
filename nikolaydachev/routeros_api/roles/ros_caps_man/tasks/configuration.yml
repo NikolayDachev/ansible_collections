@@ -1,0 +1,36 @@
+# tasks file for ros_caps_man
+---
+- name: add caps-man configuration
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_configuration_path }}"
+    add:
+      channel="{{ ros_caps_man_configuration_channel }}"
+      copy-from="{{ ros_caps_man_configuration_copy_from }}"
+      frame-lifetime="{{ ros_caps_man_configuration_frame_lifetime }}"
+      hw-protection-mode="{{ ros_caps_man_configuration_hw_protection_mode }}"
+      keepalive-frames="{{ ros_caps_man_configuration_keepalive_frames }}"
+      mode="{{ ros_caps_man_configuration_mode }}"
+      rx-chains="{{ ros_caps_man_configuration_rx_chains }}"
+      ssid="{{ ros_caps_man_configuration_ssid }}"
+      country="{{ ros_caps_man_configuration_country }}"
+      disconnect-timeout="{{ ros_caps_man_configuration_disconnect_timeout }}"
+      guard-interval="{{ ros_caps_man_configuration_guard_interval }}"
+      hw-retries="{{ ros_caps_man_configuration_hw_retries }}"
+      load-balancing-group="{{ ros_caps_man_configuration_load_balancing_group }}"
+      multicast-helper="{{ ros_caps_man_configuration_multicast_helper }}"
+      security="{{ ros_caps_man_configuration_security }}"
+      tx-chains="{{ ros_caps_man_configuration_tx_chains }}"
+      comment="{{ ros_caps_man_configuration_comment }}"
+      datapath="{{ ros_caps_man_configuration_datapath }}"
+      distance="{{ ros_caps_man_configuration_distance }}"
+      hide-ssid="{{ ros_caps_man_configuration_hide_ssid }}"
+      installation="{{ ros_caps_man_configuration_installation }}"
+      max-sta-count="{{ ros_caps_man_configuration_max_sta_count }}"
+      rates="{{ ros_caps_man_configuration_rates }}"
+      name="{{ ros_caps_man_configuration_name }}"
+  register: roscapsmanconfiguration
+  delegate_to: localhost

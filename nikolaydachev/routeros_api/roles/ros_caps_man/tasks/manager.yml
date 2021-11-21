@@ -1,0 +1,26 @@
+# tasks file for ros_caps_man
+---
+- name: set caps-man manager
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_manager_path }}"
+    cmd:
+      set
+
+  register: roscapsmanmanager
+  delegate_to: localhost
+
+- name: add caps-man manager interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_manager_interface_path }}"
+    add:
+
+  register: roscapsmanmanagerinterface
+  delegate_to: localhost

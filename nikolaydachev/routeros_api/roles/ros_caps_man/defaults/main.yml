@@ -10,11 +10,11 @@ ros_caps_man_config: []
 
 #set 
 ros_caps_man_aaa_path: "{{ ros_caps_man_path }} aaa"
-called_format: ""
-interim_update: ""
-mac_caching: ""
-mac_format: ""
-mac_mode: ""
+ros_caps_man_aaa_called_format: ""
+ros_caps_man_aaa_interim_update: ""
+ros_caps_man_aaa_mac_caching: ""
+ros_caps_man_aaa_mac_format: ""
+ros_caps_man_aaa_mac_mode: ""
 
 ros_caps_man_access_list_path: "{{ ros_caps_man_path }} access-list"
 ros_caps_man_access_action: ""
@@ -130,10 +130,11 @@ ros_caps_man_interface_radio_mac: ""
 ros_caps_man_interface_rates: ""
 
 ###
+# set
 ros_caps_man_manager_path: "{{ ros_caps_man_path }} manager"
 ros_caps_man_manager_ca_certificate: ""
 ros_caps_man_manager_certificate: ""
-ros_caps_man_manager_enabled: ""
+ros_caps_man_manager_enabled: "no"
 ros_caps_man_manager_package_path: ""
 ros_caps_man_manager_require_peer_certificate: ""
 ros_caps_man_manager_upgrade_policy: ""

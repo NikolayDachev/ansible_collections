@@ -1,2 +1,31 @@
 ---
 # tasks file for ros_caps_man
+- import_tasks: aaa.yml
+  when: '"aaa" in ros_caps_man_config'
+
+- import_tasks: access-list.yml
+  when: '"access-list" in ros_caps_man_config'
+
+- import_tasks: actual-interface-configuration.yml
+  when: '"actual-interface-configuration" in ros_caps_man_config'
+
+- import_tasks: channel.yml
+  when: '"channel" in ros_caps_man_config'
+
+- import_tasks: datapath.yml
+  when: '"datapath" in ros_caps_man_config'
+
+- import_tasks: configuration.yml
+  when: '"configuration" in ros_caps_man_config'
+
+- import_tasks: interface.yml
+  when: '"interface" in ros_caps_man_config'
+
+- import_tasks: .yml
+  when: '"" in ros_caps_man_config'
+
+- import_tasks: .yml
+  when: '"" in ros_caps_man_config'
+
+- import_tasks: .yml
+  when: '"" in ros_caps_man_config'
