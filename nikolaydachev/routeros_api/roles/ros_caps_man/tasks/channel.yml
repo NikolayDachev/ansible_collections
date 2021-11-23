@@ -1,5 +1,12 @@
 # tasks file for ros_caps_man
 ---
+- name: Check if {{ ros_caps_man_channel_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_channel_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_channel_name }}"
+
 - name: add caps-man channel
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
@@ -22,3 +29,4 @@
       name="{{ ros_caps_man_channel_name }}"
   register: roscapsmanchannel
   delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'

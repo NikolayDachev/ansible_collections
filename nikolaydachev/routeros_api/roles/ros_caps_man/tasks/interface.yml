@@ -1,5 +1,12 @@
 # tasks file for ros_caps_man
 ---
+- name: Check if {{ ros_caps_man_interface_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_interface_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_interface_name }}"
+
 - name: add caps-man interface
   community.routeros.api:
     hostname: "{{ ros_hostname }}"
@@ -28,3 +35,4 @@
       rates="{{ ros_caps_man_interface_rates }}"
   register: roscapsmaninterface
   delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'
