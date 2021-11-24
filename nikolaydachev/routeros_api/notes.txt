@@ -1,5 +1,5 @@
 fix all roles/tasks missing ""
-fix ros_flush to not include duplicatred .id and fail, also exclude dynamic items/.id
+fix ros_flush to not include duplicatred .id and fail, also exclude dynamic items/.id (update README for custom query var)
 add ros_int_vlan role - to be check
 add ros_int_eoip role - to be check
 add ros_int_list role - to be check
@@ -10,13 +10,13 @@ add ros_ip_dns - to be check
 add ros_ip_cloud - to be check
 add ros_snmp - to be check
 add ros_ip_neighbor_discovery - to be check
+ros_caps_man - to be check
 
 IN PROG:
-ros_caps_man - to be check
-TO FIX capsman provis and access-list flush ?!!?!?!?
+ros_ip_route
+
 
 TODO:
-ros_ip_route
 ros7_routing_filter
 ros7_routing_ospf
 ros7_wireguard

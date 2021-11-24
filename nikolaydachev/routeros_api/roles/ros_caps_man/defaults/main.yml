@@ -17,7 +17,6 @@ ros_caps_man_aaa_mac_format: ""
 ros_caps_man_aaa_mac_mode: ""
 
 ros_caps_man_access_list_path: "{{ ros_caps_man_path }} access-list"
-ros_caps_man_access_list_flush: "true"
 ros_caps_man_access_list_action: ""
 ros_caps_man_access_list_ap_tx_limit: ""
 ros_caps_man_access_list_client_tx_limit: ""
@@ -149,7 +148,6 @@ ros_caps_man_manager_interface_interface: ""
 ###
 
 ros_caps_man_provisioning_path: "{{ ros_caps_man_path }} provisioning"
-ros_caps_man_provisioning_flush: "false"
 ros_caps_man_provisioning_action: ""
 ros_caps_man_provisioning_comment: ""
 ros_caps_man_provisioning_common_name_regexp: ""
