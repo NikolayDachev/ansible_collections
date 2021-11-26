@@ -19,7 +19,7 @@ add ros_sys_script - to be check
 ad ros_sys_scheduler - to be check 
 
 IN PROG:
-ros7_wireguard
+ros7_int_wireguard
 
 TODO:
 README 

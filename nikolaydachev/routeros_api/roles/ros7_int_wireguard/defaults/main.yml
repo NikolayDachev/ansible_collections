@@ -1,0 +1,30 @@
+---
+# defaults file for ros7_int_wireguard
+ros_hostname: "{{ inventory_hostname }}"
+ros_password: "admin"
+ros_username: ""
+ros_ssl: "true"
+
+ros7_int_wireguard_path: "interface wireguard"
+ros7_int_wireguard_config: []
+
+ros7_int_wireguard_comment: ""
+ros7_int_wireguard_copy-from: ""
+ros7_int_wireguard_disabled: "no"
+ros7_int_wireguard_listen-port: ""
+ros7_int_wireguard_mtu: ""
+ros7_int_wireguard_name: ""
+ros7_int_wireguard_private-key: ""
+
+ros7_int_wireguard_peers_path: "{{ ros7_int_wireguard_path }} peers"
+ros7_int_wireguard_peers_allowed-address: ""
+ros7_int_wireguard_peers_comment: ""
+ros7_int_wireguard_peers_copy-from: ""
+ros7_int_wireguard_peers_disabled: ""
+ros7_int_wireguard_peers_endpoint-address: ""
+ros7_int_wireguard_peers_endpoint-port: ""
+ros7_int_wireguard_peers_interface: ""
+ros7_int_wireguard_peers_persistent-keepalive: ""
+ros7_int_wireguard_peers_place-before: ""
+ros7_int_wireguard_peers_preshared-key: ""
+ros7_int_wireguard_peers_public-key: ""

@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ros7_wireguard
+    - ros7_int_wireguard
