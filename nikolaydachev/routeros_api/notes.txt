@@ -13,9 +13,9 @@ add ros_ip_neighbor_discovery - to be check
 add ros_caps_man - to be check
 add ros_ip_route - to be check
 add ros7_ip_route - to be check 
+add ros7_routing_filter -to be check
 
 IN PROG:
-ros7_routing_filter
 ros7_routing_ospf
 
 TODO:
