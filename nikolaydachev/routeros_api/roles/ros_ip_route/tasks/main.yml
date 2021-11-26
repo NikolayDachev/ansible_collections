@@ -1,2 +1,10 @@
 ---
 # tasks file for ros_ip_route
+- include: vrf.yml
+  when: '"vrf" in ros_ip_route_config'
+
+- include: add.yml
+  when: '"add" in ros_ip_route_config'
+
+- include: rule.yml
+  when: '"rule" in ros_ip_route_config'

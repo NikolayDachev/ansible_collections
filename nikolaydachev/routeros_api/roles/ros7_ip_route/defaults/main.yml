@@ -1,0 +1,23 @@
+---
+# defaults file for ros7_ip_route/
+ros_hostname: "{{ inventory_hostname }}"
+ros_password: "admin"
+ros_username: ""
+ros_ssl: "true"
+
+ros_ip_route_path: "ip route"
+
+ros_ip_route_blackhole: ""
+ros_ip_route_comment: ""
+ros_ip_route_disabled: "no"
+ros_ip_route_dst_address: ""
+ros_ip_route_pref_src: ""
+ros_ip_route_scope: ""
+ros_ip_route_target_scope: ""
+ros_ip_route_check_gateway: ""
+ros_ip_route_copy_from: ""
+ros_ip_route_distance: ""
+ros_ip_route_gateway: ""
+ros_ip_route_routing_table: ""
+ros_ip_route_suppress_hw_offload: ""
+ros_ip_route_vrf_interface: ""

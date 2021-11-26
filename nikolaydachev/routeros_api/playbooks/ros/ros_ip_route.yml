@@ -1,0 +1,12 @@
+- name: ros ip route 
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_ip_route
+    ros_ip_dhcp_server_config:
+      #- vrf
+      - add
+      #- rule
+

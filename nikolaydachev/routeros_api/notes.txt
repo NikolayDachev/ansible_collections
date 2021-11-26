@@ -10,11 +10,13 @@ add ros_ip_dns - to be check
 add ros_ip_cloud - to be check
 add ros_snmp - to be check
 add ros_ip_neighbor_discovery - to be check
-ros_caps_man - to be check
+add ros_caps_man - to be check
+add ros_ip_route - to be check
+add ros7_ip_route - to be check 
 
 IN PROG:
-ros_ip_route
-
+ros7_routing_filter
+ros7_routing_ospf
 
 TODO:
 ros7_routing_filter
