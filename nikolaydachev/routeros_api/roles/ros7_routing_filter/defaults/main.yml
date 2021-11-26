@@ -7,7 +7,6 @@ ros_ssl: "true"
 
 ros7_routing_filter_path: "routing filter"
 ros7_routing_filter_config: []
-ros_routing_filter_flush: "false"
 
 ros7_routing_filter_rule_path: "{{ ros7_routing_filter_path }} rule"
 ros7_routing_filter_rule_chain: ""

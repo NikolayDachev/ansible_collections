@@ -1,0 +1,19 @@
+---
+# tasks file for ros7_routing_ospf
+- name: add routing ospf static-neighbor
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_ospf_static_neighbor_path }}"
+    add:
+      address="{{ ros7_routing_ospf_static_neighbor_address }}"
+      area="{{ ros7_routing_ospf_static_neighbor_area }}"
+      comment="{{ ros7_routing_ospf_static_neighbor_comment }}"
+      copy-from="{{ ros7_routing_ospf_static_neighbor_copy_from }}"
+      disabled="{{ ros7_routing_ospf_static_neighbor_disabled }}"
+      instance-id="{{ ros7_routing_ospf_static_neighbor_instance_id }}"
+      poll-interval="{{ ros7_routing_ospf_static_neighbor_poll_interval }}"
+  register: routingospfstaticneighborout
+  delegate_to: localhost

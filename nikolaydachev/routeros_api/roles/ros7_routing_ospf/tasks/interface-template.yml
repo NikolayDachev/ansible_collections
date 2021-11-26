@@ -1,0 +1,34 @@
+---
+# tasks file for ros7_routing_ospf
+- name: add routing ospf interface-template
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_ospf_interface_template_path }}"
+    add:
+      area="{{ ros7_routing_ospf_interface_template_area }}"
+      auth_key="{{ ros7_routing_ospf_interface_template_auth_key }}"
+      cost="{{ ros7_routing_ospf_interface_template_cost }}"
+      hello_interval="{{ ros7_routing_ospf_interface_template_hello_interval }}"
+      networks="{{ ros7_routing_ospf_interface_template_networks }}"
+      prefix-list="{{ ros7_routing_ospf_interface_template_prefix_list }}"
+      transmit-delay="{{ ros7_routing_ospf_interface_template_transmit_delay }}"
+      vlink-transit-area="{{ ros7_routing_ospf_interface_template_vlink_transit_area }}"
+      auth="{{ ros7_routing_ospf_interface_template_auth }}"
+      comment="{{ ros7_routing_ospf_interface_template_comment }}"
+      dead-interval="{{ ros7_routing_ospf_interface_template_dead_interval }}"
+      instance-id="{{ ros7_routing_ospf_interface_template_instance_id }}"
+      passive="{{ ros7_routing_ospf_interface_template_passive }}"
+      priority="{{ ros7_routing_ospf_interface_template_priority }}"
+      type="{{ ros7_routing_ospf_interface_template_type }}"
+      auth-id="{{ ros7_routing_ospf_interface_template_auth_id }}"
+      copy-from="{{ ros7_routing_ospf_interface_template_copy_from }}"
+      disabled="{{ ros7_routing_ospf_interface_template_disabled }}"
+      interfaces="{{ ros7_routing_ospf_interface_template_interfaces }}"
+      place-before="{{ ros7_routing_ospf_interface_template_place_before }}"
+      retransmit-interval="{{ ros7_routing_ospf_interface_template_retransmit_interval }}"
+      vlink-neighbor-id="{{ ros7_routing_ospf_interface_template_vlink_neighbor_id }}"
+  register: routingospfinterfacetemplateout
+  delegate_to: localhost
