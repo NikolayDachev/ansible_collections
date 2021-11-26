@@ -8,7 +8,7 @@
     username: "{{ ros_username }}"
     path: "{{ ros7_routing_ospf_area_path }}"
     add:
-      area_id="{{ ros7_routing_ospf_area_area_id }}"
+      area-id="{{ ros7_routing_ospf_area_area_id }}"
       comment="{{ ros7_routing_ospf_area_comment }}"
       copy-from="{{ ros7_routing_ospf_area_copy_from }}"
       default-cost="{{ ros7_routing_ospf_area_default_cost }}"
@@ -16,7 +16,7 @@
       instance="{{ ros7_routing_ospf_area_instance }}"
       name="{{ ros7_routing_ospf_area_name }}"
       no-summaries="{{ ros7_routing_ospf_area_no_summaries }}"
-      nssa_translator="{{ ros7_routing_ospf_area_nssa_translator }}"
+      nssa-translator="{{ ros7_routing_ospf_area_nssa_translator }}"
       type="{{ ros7_routing_ospf_area_type }}"
   register: routingospfareaout
   delegate_to: localhost

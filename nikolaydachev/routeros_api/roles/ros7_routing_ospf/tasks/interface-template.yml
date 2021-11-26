@@ -9,9 +9,9 @@
     path: "{{ ros7_routing_ospf_interface_template_path }}"
     add:
       area="{{ ros7_routing_ospf_interface_template_area }}"
-      auth_key="{{ ros7_routing_ospf_interface_template_auth_key }}"
+      auth-key="{{ ros7_routing_ospf_interface_template_auth_key }}"
       cost="{{ ros7_routing_ospf_interface_template_cost }}"
-      hello_interval="{{ ros7_routing_ospf_interface_template_hello_interval }}"
+      hello-interval="{{ ros7_routing_ospf_interface_template_hello_interval }}"
       networks="{{ ros7_routing_ospf_interface_template_networks }}"
       prefix-list="{{ ros7_routing_ospf_interface_template_prefix_list }}"
       transmit-delay="{{ ros7_routing_ospf_interface_template_transmit_delay }}"

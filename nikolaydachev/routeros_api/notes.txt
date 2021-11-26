@@ -13,10 +13,11 @@ add ros_ip_neighbor_discovery - to be check
 add ros_caps_man - to be check
 add ros_ip_route - to be check
 add ros7_ip_route - to be check 
-add ros7_routing_filter -to be check
+add ros7_routing_filter - to be check 
+add ros7_routing_ospf  - to be check 
 
 IN PROG:
-ros7_routing_ospf
+ros7_wireguard
 
 TODO:
-ros7_wireguard
+
