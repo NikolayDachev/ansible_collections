@@ -3,6 +3,8 @@ Role Name
 
 A brief description of the role goes here.
 
+      #force-aes="{{ ros_int_sstp_server_server_force_aes }}"
+
 Requirements
 ------------
 

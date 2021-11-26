@@ -14,10 +14,13 @@ add ros_caps_man - to be check
 add ros_ip_route - to be check
 add ros7_ip_route - to be check 
 add ros7_routing_filter - to be check 
-add ros7_routing_ospf  - to be check 
+add ros7_routing_ospf - to be check 
+add ros_sys_script - to be check 
+ad ros_sys_scheduler - to be check 
 
 IN PROG:
 ros7_wireguard
 
 TODO:
+README 
 

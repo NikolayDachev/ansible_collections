@@ -1,0 +1,12 @@
+---
+# tasks file for ros_sys_script
+- name: system script run {{ ros_sys_script_name }}
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_script_path }}"
+    cmd: "run {{ ros_sys_script_name }}"
+  register: sysscriptrunout
+  delegate_to: localhost

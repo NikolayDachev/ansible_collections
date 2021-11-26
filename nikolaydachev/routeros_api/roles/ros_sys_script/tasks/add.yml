@@ -1,0 +1,19 @@
+---
+# tasks file for ros_sys_script
+- name: configure system script
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_script_path }}"
+    add:
+      comment="{{ ros_sys_script_comment }}"
+      copy-from="{{ ros_sys_script_copy_from }}"
+      dont-require-permissions="{{ ros_sys_script_dont_require_permissions }}"
+      name="{{ ros_sys_script_name }}"
+      owner="{{ ros_sys_script_owner }}"
+      policy="{{ ros_sys_script_policy }}"
+      source={{ ros_sys_script_source | community.routeros.quote_argument_value }}
+  register: sysscriptout
+  delegate_to: localhost

@@ -5,7 +5,7 @@
     to_be_flush: ""
     flush_id_item: ""
 
-- name: query '{{ ros_flush_query }}'' for items to flush
+- name: query '{{ ros_flush_query }}' for items to flush
   vars:
     rosflushfind: ""
   community.routeros.api:
