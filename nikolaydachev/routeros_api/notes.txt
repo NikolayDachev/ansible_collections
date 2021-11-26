@@ -19,6 +19,4 @@ ros7_routing_filter
 ros7_routing_ospf
 
 TODO:
-ros7_routing_filter
-ros7_routing_ospf
 ros7_wireguard

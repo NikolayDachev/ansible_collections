@@ -6,7 +6,7 @@ ros_username: ""
 ros_ssl: "true"
 
 ros_ip_route_path: "ip route"
-ros_ip_route_config: ""
+ros_ip_route_config: []
 
 ros_ip_route_bgp_as_path: ""
 ros_ip_route_bgp_local_pref: ""
