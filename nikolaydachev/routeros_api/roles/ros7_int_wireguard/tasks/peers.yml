@@ -1,2 +1,23 @@
 ---
 # tasks file for ros7_int_wireguard
+- name: configure interface wireguard peers
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_int_wireguard_peers_path }}"
+    add:
+      allowed-address="{{ ros7_int_wireguard_peers_allowed_address }}"
+      comment="{{ ros7_int_wireguard_peers_comment }}"
+      copy-from="{{ ros7_int_wireguard_peers_copy_from }}"
+      disabled="{{ ros7_int_wireguard_peers_disabled }}"
+      endpoint-address="{{ ros7_int_wireguard_peers_endpoint_address }}"
+      endpoint-port="{{ ros7_int_wireguard_peers_endpoint_port }}"
+      interface="{{ ros7_int_wireguard_peers_interface }}"
+      persistent-keepalive="{{ ros7_int_wireguard_peers_persistent_keepalive }}"
+      place-before="{{ ros7_int_wireguard_peers_place_before }}"
+      preshared-key="{{ ros7_int_wireguard_peers_preshared_key }}"
+      public-key="{{ ros7_int_wireguard_peers_public_key }}"
+  register: intwireguardoutpeers
+  delegate_to: localhost
