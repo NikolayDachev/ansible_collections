@@ -14,3 +14,4 @@ license:
 
 tags: ['routeros', 'mikrotik', 'api']
 
+repository: "https://galaxy.ansible.com/nikolaydachev/routeros_api"
