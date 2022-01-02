@@ -60,7 +60,7 @@ Example Playbook
       ros_sys_script_name: "BackupFTP"
       ros_sys_script_owner: ""
       ros_sys_script_policy: ""
-        ros_sys_script_source: |
+      ros_sys_script_source: |
         :local host value=[/system identity get name];
         :local date value=[/system clock get date];
         :local day [ :pick $date 4 6 ];
