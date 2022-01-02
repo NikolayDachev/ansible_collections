@@ -22,7 +22,7 @@ ros_username: "community.routeros.api username"
 ros_password: "community.routeros.api password"  
 ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
 
-All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+All role variables are combination from role name as prefix, general configuration variable and the actual RouterOS property.  
 With general configuration variable this role can configure only selected RouterOS sub configurations.  
 
 Role var prefix: **ros_int_ovpn_**  
