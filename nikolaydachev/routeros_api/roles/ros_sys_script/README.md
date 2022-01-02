@@ -52,7 +52,9 @@ Example Playbook
     include_role: 
       name: nikolaydachev.routeros_api.ros_sys_script
     vars:
+      # script vars
       ros_backup_ftp: "192.168.1.20"
+      # role vars
       ros_sys_script_run_script: ""
       ros_sys_script_comment: "Create ros backup and send it via ftp"
       ros_sys_script_copy_from: ""
