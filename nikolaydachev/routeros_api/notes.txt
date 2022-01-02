@@ -1,5 +1,6 @@
 fix all roles/tasks missing ""
 fix ros_flush to not include duplicatred .id and fail, also exclude dynamic items/.id (update README for custom query var)
+
 add ros_int_vlan role
 add ros_int_eoip role
 add ros_int_list role
