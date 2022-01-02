@@ -1,38 +1,68 @@
-Role Name
+ros_sys_scheduler
 =========
+This role will add scheduler task via RouterOS API.  
+https://help.mikrotik.com/docs/display/ROS/Scheduler  
 
-A brief description of the role goes here.
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix and the actual RouterOS property.  
+Role var prefix: **ros_sys_scheduler_**  
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "on-event" is "on_event", so the full var name is "ros_sys_scheduler_on_event"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+```
+- name: ros system scheduler 
+  hosts: ros
+  gather_facts: no
+  connection: local
+  ignore_errors: yes
+  
+  tasks:
+  - name: add system scheduler
+    include_role: 
+      name: nikolaydachev.routeros_api.ros_sys_scheduler
+    vars:
+        ros_sys_scheduler_comment: "Run script BackupFTP"
+        ros_sys_scheduler_copy_from: ""
+        ros_sys_scheduler_disabled: "no"
+        ros_sys_scheduler_interval: "1w"
+        ros_sys_scheduler_on_event: "BackupFTP"
+        ros_sys_scheduler_policy: ""
+        ros_sys_scheduler_start_date: "jul/19/2020"
+        ros_sys_scheduler_start_time: "13:43:22"
+        ros_sys_scheduler_name: "BackupFTP"
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

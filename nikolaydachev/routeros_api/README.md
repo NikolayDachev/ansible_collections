@@ -3,12 +3,13 @@
 Documentation for the collection.
 
 This collection is set of roles/playbooks for different RouterOS configuration task via RouterOS API.  
-Please check roles **README.md** for more details
+The main idea of this collection is to help to all RouterOS users to start with Ansible community.routeros.api as using those roles and playbooks as examples.  
+Please check roles **README.md** for more details.  
+
+All roles are tested with RouterOS 6 and RouterOS 7.  
+Roles with name **ros7_** are RouterOS 7 only.  
 
 Playbooks under **ros**, can be used for simple tasks or as a base for more comlex tasks.
-
-+ **ros_api_testing** docs/demos/playbooks are used only for ansible routeros api module testing and **direct usage is not suggested**, however contains examples for diffrent tasks which can be done with routeros api module  
-+ **ros_api_demo** role is used only for ansible routeros api module testing and **direct usage is not suggested**, however contains examples for diffrent tasks which can be done with routeros api module  
 
 [RouterOS API module](https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html)  
 [GitHb](: )https://github.com/NikolayDachev/ansible_collections_
