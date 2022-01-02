@@ -1,0 +1,6 @@
+---
+# tasks file for ros_sys_script
+- import_tasks: add.yml
+
+- import_tasks: run.yml
+  when: ros_sys_script_run_script == "true"

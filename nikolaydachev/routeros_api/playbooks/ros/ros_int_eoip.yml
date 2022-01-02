@@ -1,0 +1,7 @@
+- name: ros interface eoip
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_int_eoip

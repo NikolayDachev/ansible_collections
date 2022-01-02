@@ -1,0 +1,35 @@
+---
+- name: add interface eoip
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_eoip_path }}"
+    add:
+      allow-fast-path="{{ ros_int_eoip_allow_fast_path }}"
+      arp-timeout="{{ ros_int_eoip_arp_timeout }}"
+      comment="{{ ros_int_eoip_comment }}"
+      disabled="{{ ros_int_eoip_disabled }}"
+      dscp="{{ ros_int_eoip_dscp }}"
+      keepalive="{{ ros_int_eoip_keepalive }}"
+      loop-protect="{{ ros_int_eoip_loop_protect }}"
+      loop-protect-send-interval="{{ ros_int_eoip_loop_protect_send_interval }}"
+      mtu="{{ ros_int_eoip_mtu }}"
+      remote-address="{{ ros_int_eoip_remote_address }}"
+      arp="{{ ros_int_eoip_arp }}"
+      clamp-tcp-mss="{{ ros_int_eoip_clamp_tcp_mss }}"
+      copy-from="{{ ros_int_eoip_copy_from }}"
+      dont-fragment="{{ ros_int_eoip_dont_fragment }}"
+      ipsec-secret="{{ ros_int_eoip_ipsec_secret }}"
+      local-address="{{ ros_int_eoip_local_address }}"
+      loop-protect-disable-time="{{ ros_int_eoip_loop_protect_disable_time }}"
+      mac-address="{{ ros_int_eoip_mac_address }}"
+      name="{{ ros_int_eoip_name }}"
+      tunnel-id="{{ ros_int_eoip_tunnel_id }}"
+  register: rosinteoip
+  delegate_to: localhost
+
+- name: result interface eoip
+  debug:
+    msg: '{{ rosinteoip }}"'

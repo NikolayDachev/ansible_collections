@@ -1,0 +1,19 @@
+---
+# tasks file for ros7_int_wireguard
+- name: configure interface wireguard
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_int_wireguard_path }}"
+    add:
+      comment="{{ ros7_int_wireguard_comment }}"
+      copy-from="{{ ros7_int_wireguard_copy_from }}"
+      disabled="{{ ros7_int_wireguard_disabled }}"
+      listen-port="{{ ros7_int_wireguard_listen_port }}"
+      mtu="{{ ros7_int_wireguard_mtu }}"
+      name="{{ ros7_int_wireguard_name }}"
+      private-key="{{ ros7_int_wireguard_private_key }}"
+  register: intwireguardout
+  delegate_to: localhost

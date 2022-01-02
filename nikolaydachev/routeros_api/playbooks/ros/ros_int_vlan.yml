@@ -1,0 +1,7 @@
+- name: ros interface vlan
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_int_vlan

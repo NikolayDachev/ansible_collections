@@ -1,0 +1,21 @@
+---
+# tasks file for ros_int_list
+- name: configure interface list member
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_list_member_path }}"
+    add:
+      comment="{{ ros_int_list_member_comment }}"
+      copy-from="{{ ros_int_list_member_copy_from }}"
+      disabled="{{ ros_int_list_member_disabled }}"
+      interface="{{ ros_int_list_member_interface }}"
+      list="{{ ros_int_list_member_list }}"
+  register: intlistmemberout
+  delegate_to: localhost
+
+- name: result int list member
+  debug:
+    msg: '{{ intlistmemberout }}'

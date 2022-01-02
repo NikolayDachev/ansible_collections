@@ -7,14 +7,14 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_addr_path }}"
     add:
-      broadcast={{ ros_ip_addr_broadcast }}
-      comment={{ ros_ip_addr_comment }}
-      copy-from={{ ros_ip_addr_copy_from }}
-      disabled={{ ros_ip_addr_disabled }}
-      netmask={{ ros_ip_addr_netmask }}
-      network={{ ros_ip_addr_network }}
-      address={{ ros_ip_addr_address }}
-      interface={{ ros_ip_addr_interface }}
+      broadcast="{{ ros_ip_addr_broadcast }}"
+      comment="{{ ros_ip_addr_comment }}"
+      copy-from="{{ ros_ip_addr_copy_from }}"
+      disabled="{{ ros_ip_addr_disabled }}"
+      netmask="{{ ros_ip_addr_netmask }}"
+      network="{{ ros_ip_addr_network }}"
+      address="{{ ros_ip_addr_address }}"
+      interface="{{ ros_ip_addr_interface }}"
   register: ipaddrout
   delegate_to: localhost
 

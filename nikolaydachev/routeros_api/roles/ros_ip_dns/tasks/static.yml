@@ -1,0 +1,35 @@
+---
+# tasks file for ros_ip_dns
+- name: configure dns static record
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_dns_static_path }}"
+    add:
+      address="{{ ros_ip_dns_static_address }}"
+      comment="{{ ros_ip_dns_static_comment }}"
+      disabled="{{ ros_ip_dns_static_disabled }}"
+      mx-exchange="{{ ros_ip_dns_static_mx_exchange }}"
+      name="{{ ros_ip_dns_static_name }}"
+      place-before="{{ ros_ip_dns_static_place_before }}"
+      srv-port="{{ ros_ip_dns_static_srv_port }}"
+      srv-target="{{ ros_ip_dns_static_srv_target }}"
+      text="{{ ros_ip_dns_static_text }}"
+      type="{{ ros_ip_dns_static_type }}"
+      cname="{{ ros_ip_dns_static_cname }}"
+      copy-from="{{ ros_ip_dns_static_copy_from }}"
+      forward-to="{{ ros_ip_dns_static_forward_to }}"
+      mx-preference="{{ ros_ip_dns_static_mx_preference }}"
+      ns="{{ ros_ip_dns_static_ns }}"
+      regexp="{{ ros_ip_dns_static_regexp }}"
+      srv-priority="{{ ros_ip_dns_static_srv_priority }}"
+      srv-weight="{{ ros_ip_dns_static_srv_weight }}"
+      ttl="{{ ros_ip_dns_static_ttl }}"
+  register: dnsstaticout
+  delegate_to: localhost
+
+- name: result configure dns static record
+  debug:
+    msg: "{{ dnsstaticout }}"

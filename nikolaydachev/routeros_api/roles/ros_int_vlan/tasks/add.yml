@@ -1,0 +1,29 @@
+---
+# tasks file for ros_int_vlan
+- name: configure vlan interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_vlan_path }}"
+    add:
+      arp="{{ ros_int_vlan_arp }}"
+      arp-timeout="{{ ros_int_vlan_arp_timeout }}"
+      comment="{{ ros_int_vlan_comment }}"
+      copy-from="{{ ros_int_vlan_copy_from }}"
+      disabled="{{ ros_int_vlan_disabled }}"
+      interface="{{ ros_int_vlan_interface }}"
+      loop-protect="{{ ros_int_vlan_loop_protect }}"
+      loop-protect-disable-time="{{ ros_int_vlan_loop_protect_disable_time }}"
+      loop-protect-send-interval="{{ ros_int_vlan_loop_protect_send_interval }}"
+      mtu="{{ ros_int_vlan_mtu }}"
+      name="{{ ros_int_vlan_name }}"
+      use-service-tag="{{ ros_int_vlan_use_service_tag }}"
+      vlan-id="{{ ros_int_vlan_vlan_id }}"
+  register: intvlanout
+  delegate_to: localhost
+
+- name: result vlan int config
+  debug:
+    msg: '{{ intvlanout }}'

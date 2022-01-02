@@ -1,0 +1,21 @@
+---
+# tasks file for ros_ppp
+- name: configure ppp aaa
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ppp_path }}"
+    cmd:
+      set
+      accounting="{{ ros_ppp_aaa_accounting }}"
+      interim-update="{{ ros_ppp_aaa_interim_update }}"
+      use-circuit-id-in-nas-port-id="{{ ros_ppp_aaa_use_circuit_id_in_nas_port_id }}"
+      use-radius="{{ ros_ppp_aaa_use_radius }}"
+  register: pppout
+  delegate_to: localhost
+
+- name: result ppp config
+  debug:
+    msg: '{{ pppout }}'

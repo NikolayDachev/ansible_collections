@@ -1,0 +1,22 @@
+---
+# tasks file for ros_ip_route
+- name: configure ip route vrf
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_route_vrf_path }}"
+    add:
+      bgp_nexthop="{{ ros_ip_route_vrf_bgp_nexthop }}"
+      comment="{{ ros_ip_route_vrf_comment }}"
+      copy_from="{{ ros_ip_route_vrf_copy_from }}"
+      disabled="{{ ros_ip_route_vrf_disabled }}"
+      export_route_targets="{{ ros_ip_route_vrf_export_route_targets }}"
+      import_route_targets="{{ ros_ip_route_vrf_import_route_targets }}"
+      interfaces="{{ ros_ip_route_vrf_interfaces }}"
+      place_before="{{ ros_ip_route_vrf_place_before }}"
+      route_distinguisher="{{ ros_ip_route_vrf_route_distinguisher }}"
+      routing_mark="{{ ros_ip_route_vrf_routing_mark }}"
+  register: iproutevrfout
+  delegate_to: localhost

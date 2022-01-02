@@ -1,0 +1,18 @@
+---
+# defaults file for ros_sys_scheduler
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_sys_scheduler_path: "system scheduler"
+
+ros_sys_scheduler_comment: ""
+ros_sys_scheduler_copy_from: ""
+ros_sys_scheduler_disabled: "no"
+ros_sys_scheduler_interval: ""
+ros_sys_scheduler_on_event: ""
+ros_sys_scheduler_policy: ""
+ros_sys_scheduler_start_date: ""
+ros_sys_scheduler_start_time: ""
+ros_sys_scheduler_name: ""

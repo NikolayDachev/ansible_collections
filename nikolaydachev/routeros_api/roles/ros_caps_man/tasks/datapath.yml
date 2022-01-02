@@ -1,0 +1,35 @@
+# tasks file for ros_caps_man
+---
+- name: Check if {{ ros_caps_man_datapath_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_datapath_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_datapath_name }}"
+
+- name: add caps-man datapath
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_datapath_path }}"
+    add:
+      arp="{{ ros_caps_man_datapath_arp }}"
+      bridge="{{ ros_caps_man_datapath_bridge }}"
+      bridge-cost="{{ ros_caps_man_datapath_bridge_cost }}"
+      bridge-horizon="{{ ros_caps_man_datapath_bridge_horizon }}"
+      client-to-client-forwarding="{{ ros_caps_man_datapath_client_to_client_forwarding }}"
+      comment="{{ ros_caps_man_datapath_comment }}"
+      copy-from="{{ ros_caps_man_datapath_copy_from }}"
+      interface-list="{{ ros_caps_man_datapath_interface_list }}"
+      l2mtu="{{ ros_caps_man_datapath_l2mtu }}"
+      local-forwarding="{{ ros_caps_man_datapath_local_forwarding }}"
+      mtu="{{ ros_caps_man_datapath_mtu }}"
+      openflow-switch="{{ ros_caps_man_datapath_openflow_switch }}"
+      vlan-id="{{ ros_caps_man_datapath_vlan_id }}"
+      vlan-mode="{{ ros_caps_man_datapath_vlan_mode }}"
+      name="{{ ros_caps_man_datapath_name }}"
+  register: roscapsmandatapath
+  delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'

@@ -1,0 +1,28 @@
+---
+# tasks file for ros_snmp
+- name: configure snmp community
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_snmp_community_path }}"
+    add:
+      addresses="{{ ros_snmp_community_addresses }}"
+      authentication-protocol="{{ ros_snmp_community_authentication_protocol }}"
+      copy-from="{{ ros_snmp_community_copy_from }}"
+      encryption-password="{{ ros_snmp_community_encryption_password }}"
+      name="{{ ros_snmp_community_name }}"
+      security="{{ ros_snmp_community_security }}"
+      authentication-password="{{ ros_snmp_community_authentication_password }}"
+      comment="{{ ros_snmp_community_comment }}"
+      disabled="{{ ros_snmp_community_disabled }}"
+      encryption-protocol="{{ ros_snmp_community_encryption_protocol }}"
+      read-access="{{ ros_snmp_community_read_access }}"
+      write-access="{{ ros_snmp_community_write_access }}"
+  register: snmpcommunityout
+  delegate_to: localhost
+
+- name: result configure snmp community
+  debug:
+    msg: '{{ snmpcommunityout }}'

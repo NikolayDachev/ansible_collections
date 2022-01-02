@@ -1,0 +1,12 @@
+---
+# defaults file for ros_ip_neighbor_discovery
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_ip_neighbor_discovery_path: "ip neighbor discovery-settings"
+
+ros_ip_neighbor_discovery_discover_interface_list: ""
+ros_ip_neighbor_discovery_lldp_med_net_policy_vlan: ""
+ros_ip_neighbor_discovery_protocol: ""

@@ -1,0 +1,30 @@
+---
+# tasks file for ros7_routing_ospf
+- name: add routing ospf instance
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_ospf_instance_path }}"
+    add:
+      comment="{{ ros7_routing_ospf_instance_comment }}"
+      disabled="{{ ros7_routing_ospf_instance_disabled }}"
+      domain-tag="{{ ros7_routing_ospf_instance_domain_tag }}"
+      mpls-te_address="{{ ros7_routing_ospf_instance_mpls_te_address }}"
+      name="{{ ros7_routing_ospf_instance_name }}"
+      out-filter-chain="{{ ros7_routing_ospf_instance_out_filter_chain }}"
+      redistribute="{{ ros7_routing_ospf_instance_redistribute }}"
+      routing-table="{{ ros7_routing_ospf_instance_routing_table }}"
+      version="{{ ros7_routing_ospf_instance_version }}"
+      copy-from="{{ ros7_routing_ospf_instance_copy_from }}"
+      domain-id="{{ ros7_routing_ospf_instance_domain_id }}"
+      in-filter-chain="{{ ros7_routing_ospf_instance_in_filter_chain }}"
+      mpls-te-area="{{ ros7_routing_ospf_instance_mpls_te_area }}"
+      originate-default="{{ ros7_routing_ospf_instance_originate_default }}"
+      out-filter-select="{{ ros7_routing_ospf_instance_out_filter_select }}"
+      router-id="{{ ros7_routing_ospf_instance_router_id }}"
+      use-dn="{{ ros7_routing_ospf_instance_use_dn }}"
+      vrf="{{ ros7_routing_ospf_instance_vrf }}"
+  register: routingospfinstanceout
+  delegate_to: localhost

@@ -7,12 +7,12 @@
     username: "{{ ros_username }}"
     path: "{{ ros_int_bridge_host_path }}"
     add:
-      bridge={{ ros_int_bridge_host_bridge }}
-      comment={{ ros_int_bridge_host_comment }}
-      copy-from={{ ros_int_bridge_host_copy_from }}
-      disabled={{ ros_int_bridge_host_disabled }}
-      interface={{ ros_int_bridge_host_interface }}
-      mac-address={{ ros_int_bridge_host_mac_address }}
-      vid={{ ros_int_bridge_host_vid }}
+      bridge="{{ ros_int_bridge_host_bridge }}"
+      comment="{{ ros_int_bridge_host_comment }}"
+      copy-from="{{ ros_int_bridge_host_copy_from }}"
+      disabled="{{ ros_int_bridge_host_disabled }}"
+      interface="{{ ros_int_bridge_host_interface }}"
+      mac-address="{{ ros_int_bridge_host_mac_address }}"
+      vid="{{ ros_int_bridge_host_vid }}"
   register: rosintbridgehost
   delegate_to: localhost

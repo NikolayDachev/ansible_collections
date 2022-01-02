@@ -8,7 +8,7 @@
     path: "{{ ros_sys_identity_path }}"
     cmd:
       set
-      name={{ ros_sys_identity_name }}
+      name="{{ ros_sys_identity_name }}"
 
 - name: get system identity
   community.routeros.api:

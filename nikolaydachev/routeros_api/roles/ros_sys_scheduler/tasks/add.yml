@@ -1,0 +1,21 @@
+---
+# tasks file for ros_sys_scheduler
+- name: configure system scheduler
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_sys_scheduler_path }}"
+    add:
+      comment="{{ ros_sys_scheduler_comment }}"
+      copy-from="{{ ros_sys_scheduler_copy_from }}"
+      disabled="{{ ros_sys_scheduler_disabled }}"
+      interval="{{ ros_sys_scheduler_interval }}"
+      on-event="{{ ros_sys_scheduler_on_event }}"
+      policy="{{ ros_sys_scheduler_policy }}"
+      start-date="{{ ros_sys_scheduler_start_date }}"
+      start-time="{{ ros_sys_scheduler_start_time }}"
+      name="{{ ros_sys_scheduler_name }}"
+  register: sysschedulerout
+  delegate_to: localhost

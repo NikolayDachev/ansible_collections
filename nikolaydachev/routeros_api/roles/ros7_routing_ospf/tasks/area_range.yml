@@ -1,0 +1,19 @@
+---
+# tasks file for ros7_routing_ospf
+- name: add routing ospf area range
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_ospf_area_range_path }}"
+    add:
+      advertise="{{ ros7_routing_ospf_area_range_advertise }}"
+      area="{{ ros7_routing_ospf_area_range_area }}"
+      comment="{{ ros7_routing_ospf_area_range_comment }}"
+      copy-from="{{ ros7_routing_ospf_area_range_copy_from }}"
+      cost="{{ ros7_routing_ospf_area_range_cost }}"
+      disabled="{{ ros7_routing_ospf_area_range_disabled }}"
+      prefix="{{ ros7_routing_ospf_area_range_prefix }}"
+  register: routingospfarearangeout
+  delegate_to: localhost

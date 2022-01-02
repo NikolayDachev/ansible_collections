@@ -1,0 +1,32 @@
+# tasks file for ros_caps_man
+---
+- name: Check if {{ ros_caps_man_channel_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_channel_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_channel_name }}"
+
+- name: add caps-man channel
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_channel_path }}"
+    add:
+      band="{{ ros_caps_man_channel_band }}"
+      comment="{{ ros_caps_man_channel_comment }}"
+      control-channel-width="{{ ros_caps_man_channel_control_channel_width }}"
+      copy-from="{{ ros_caps_man_channel_copy_from }}"
+      extension-channel="{{ ros_caps_man_channel_extension_channel }}"
+      frequency="{{ ros_caps_man_channel_frequency }}"
+      reselect-interval="{{ ros_caps_man_channel_reselect_interval }}"
+      save-selected="{{ ros_caps_man_channel_save_selected }}"
+      secondary-frequency="{{ ros_caps_man_channel_secondary_frequency }}"
+      skip-dfs-channels="{{ ros_caps_man_channel_skip_dfs_channels }}"
+      tx-power="{{ ros_caps_man_channel_tx_power }}"
+      name="{{ ros_caps_man_channel_name }}"
+  register: roscapsmanchannel
+  delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'

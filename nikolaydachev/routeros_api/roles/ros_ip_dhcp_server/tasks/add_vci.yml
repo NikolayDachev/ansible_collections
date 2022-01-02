@@ -7,11 +7,11 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_dhcp_server_vci_path }}"
     add:
-      disabled={{ ros_ip_dhcp_server_vci_disabled }}
-      vid={{ ros_ip_dhcp_server_vci_vid }}
-      address-pool={{ ros_ip_dhcp_server_vci_address_pool }}
-      name={{ ros_ip_dhcp_server_vci_name }}
-      server{{ ros_ip_dhcp_server_vci_server }}
+      disabled="{{ ros_ip_dhcp_server_vci_disabled }}"
+      vid="{{ ros_ip_dhcp_server_vci_vid }}"
+      address-pool="{{ ros_ip_dhcp_server_vci_address_pool }}"
+      name="{{ ros_ip_dhcp_server_vci_name }}"
+      server{{ ros_ip_dhcp_server_vci_server }}"
 
   register: dhcpvciout
   delegate_to: localhost

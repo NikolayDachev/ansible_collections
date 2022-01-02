@@ -7,9 +7,9 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_dhcp_server_options_path }}"
     add:
-      value={{ ros_ip_dhcp_server_options_value }}
-      code={{ ros_ip_dhcp_server_options_code }}
-      name={{ ros_ip_dhcp_server_options_name }}
+      value="{{ ros_ip_dhcp_server_options_value }}"
+      code="{{ ros_ip_dhcp_server_options_code }}"
+      name="{{ ros_ip_dhcp_server_options_name }}"
 
   register: dhcpoptout
   delegate_to: localhost

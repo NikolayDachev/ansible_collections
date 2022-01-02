@@ -8,9 +8,9 @@
     path: "{{ ros_certificates_path }}"
     cmd:
       sign-certificate-request
-      days-valid={{ ros_certificates_sign_certificate_request_days_valid }}
-      ca={{ ros_certificates_sign_certificate_request_ca }}
-      file-name={{ ros_certificates_sign_certificate_request_file_name }}
+      days-valid="{{ ros_certificates_sign_certificate_request_days_valid }}"
+      ca="{{ ros_certificates_sign_certificate_request_ca }}"
+      file-name="{{ ros_certificates_sign_certificate_request_file_name }}"
 
   register: certificatesigncertificaterequest
   delegate_to: localhost

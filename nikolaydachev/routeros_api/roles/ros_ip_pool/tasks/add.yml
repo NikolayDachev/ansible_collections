@@ -8,11 +8,11 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_pool_path }}"
     add:
-      comment={{ ros_ip_pool_comment }}
-      name={{ ros_ip_pool_name }}
-      next-pool={{ ros_ip_pool_next_pool }}
-      ranges={{ ros_ip_pool_ranges }}
-      copy-form={{ ros_ip_pool_copy_from }}
+      comment="{{ ros_ip_pool_comment }}"
+      name="{{ ros_ip_pool_name }}"
+      next-pool="{{ ros_ip_pool_next_pool }}"
+      ranges="{{ ros_ip_pool_ranges }}"
+      copy-form="{{ ros_ip_pool_copy_from }}"
 
   register: ippoolout
   delegate_to: localhost

@@ -1,0 +1,7 @@
+---
+# tasks file for ros7_int_wireguard
+- import_tasks: add.yml
+  when: '"add" in ros7_int_wireguard_config'
+  
+- import_tasks: peers.yml
+  when: '"peers" in ros7_int_wireguard_config'

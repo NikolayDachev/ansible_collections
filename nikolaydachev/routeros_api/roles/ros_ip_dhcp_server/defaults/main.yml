@@ -24,6 +24,7 @@
   ros_ip_dhcp_server_network_ntp_server: ""
   ros_ip_dhcp_server_network_wins_server: ""
 
+  ros_ip_dhcp_server_server_path: "{{ ros_ip_dhcp_server_path }}"
   ros_ip_dhcp_server_server_add_arp: ""
   ros_ip_dhcp_server_server_allow_dual_stack_queue: ""
   ros_ip_dhcp_server_server_authoritative: ""

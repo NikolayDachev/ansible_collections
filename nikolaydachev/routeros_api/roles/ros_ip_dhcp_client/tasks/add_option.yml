@@ -7,10 +7,10 @@
     username: "{{ ros_username }}"
     path: "{{ ros_ip_dhcp_client_option_path }}"
     add:
-      copy-from={{ ros_ip_dhcp_client_option_copy_from }}
-      value={{ ros_ip_dhcp_client_option_value }}
-      code={{ ros_ip_dhcp_client_option_code }}
-      name={{ ros_ip_dhcp_client_option_name }}
+      copy-from="{{ ros_ip_dhcp_client_option_copy_from }}"
+      value="{{ ros_ip_dhcp_client_option_value }}"
+      code="{{ ros_ip_dhcp_client_option_code }}"
+      name="{{ ros_ip_dhcp_client_option_name }}"
   register: ipdhcpclientoption
   delegate_to: localhost
 

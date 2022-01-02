@@ -1,0 +1,19 @@
+---
+# tasks file for ros7_routing_filter
+- name: configure routing filter community-ext-set
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_filter_community_ext_set_path }}"
+    add:
+      comment="{{ ros7_routing_filter_community_ext_set_comment }}"
+      communities="{{ ros7_routing_filter_community_ext_set_communities }}"
+      copy-from="{{ ros7_routing_filter_community_ext_set_copy_from }}"
+      disabled="{{ ros7_routing_filter_community_ext_set_disabled }}"
+      name="{{ ros7_routing_filter_community_ext_set_name }}"
+      place-before="{{ ros7_routing_filter_community_ext_set_place_before }}"
+      regexp="{{ ros7_routing_filter_community_ext_set_regexp }}"
+  register: routingfiltercommunityextsetout
+  delegate_to: localhost

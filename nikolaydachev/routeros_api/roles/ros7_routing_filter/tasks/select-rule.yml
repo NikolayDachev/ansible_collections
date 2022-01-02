@@ -1,0 +1,23 @@
+---
+# tasks file for ros7_routing_filter
+- name: configure routing filter select-rule
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_filter_select_rule_path }}"
+    add:
+      chain="{{ ros7_routing_filter_select_rule_chain }}"
+      comment="{{ ros7_routing_filter_select_rule_comment }}"
+      copy-from="{{ ros7_routing_filter_select_rule_copy_from }}"
+      disabled="{{ ros7_routing_filter_select_rule_disabled }}"
+      do-group-num="{{ ros7_routing_filter_select_rule_do_group_num }}"
+      do-group-prfx="{{ ros7_routing_filter_select_rule_do_group_prfx }}"
+      do-select-num="{{ ros7_routing_filter_select_rule_do_select_num }}"
+      do-select-prfx="{{ ros7_routing_filter_select_rule_do_select_prfx }}"
+      do-take="{{ ros7_routing_filter_select_rule_do_take }}"
+      do-where="{{ ros7_routing_filter_select_rule_do_where }}"
+      place-before="{{ ros7_routing_filter_select_rule_place_before }}"
+  register: routingfilterselectruleout
+  delegate_to: localhost

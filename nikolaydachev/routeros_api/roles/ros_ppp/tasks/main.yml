@@ -1,0 +1,13 @@
+---
+# tasks file for ros_ppp
+  - import_tasks: aaa.yml
+    when: '"aaa" in ros_ppp_config'
+
+  - import_tasks: l2tp-secret.yml
+    when: '"l2tp-secret" in ros_ppp_config'
+
+  - import_tasks: profile.yml
+    when: '"profile" in ros_ppp_config'
+
+  - import_tasks: secret.yml
+    when: '"secret" in ros_ppp_config'

@@ -7,13 +7,13 @@
     username: "{{ ros_username }}"
     path: "{{ ros_routing_ospf_area_range_path }}"
     add:
-      advertise={{ ros_routing_ospf_area_range_advertise }}
-      comment={{ ros_routing_ospf_area_range_comment }}
-      copy-from={{ ros_routing_ospf_area_range_copy_from }}
-      cost={{ ros_routing_ospf_area_range_cost }}
-      disabled={{ ros_routing_ospf_area_range_disabled }}
-      range={{ ros_routing_ospf_area_range_range }}
-      area={{ ros_routing_ospf_area_range_area }}
+      advertise="{{ ros_routing_ospf_area_range_advertise }}"
+      comment="{{ ros_routing_ospf_area_range_comment }}"
+      copy-from="{{ ros_routing_ospf_area_range_copy_from }}"
+      cost="{{ ros_routing_ospf_area_range_cost }}"
+      disabled="{{ ros_routing_ospf_area_range_disabled }}"
+      range="{{ ros_routing_ospf_area_range_range }}"
+      area="{{ ros_routing_ospf_area_range_area }}"
   register: routingospfarearangeout
   delegate_to: localhost
   

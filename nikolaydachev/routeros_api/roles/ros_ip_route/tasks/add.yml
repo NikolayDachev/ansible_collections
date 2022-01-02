@@ -1,0 +1,33 @@
+---
+# tasks file for ros_ip_route
+- name: configure ip route
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_route_path }}"
+    add:
+      bgp_as_path="{{ ros_ip_route_bgp_as_path }}"
+      bgp_local_pref="{{ ros_ip_route_bgp_local_pref }}"
+      bgp_prepend="{{ ros_ip_route_bgp_prepend }}"
+      copy_from="{{ ros_ip_route_copy_from }}"
+      dst_address="{{ ros_ip_route_dst_address }}"
+      route_tag="{{ ros_ip_route_route_tag }}"
+      target_scope="{{ ros_ip_route_target_scope }}"
+      bgp_atomic_aggregate="{{ ros_ip_route_bgp_atomic_aggregate }}"
+      bgp_med="{{ ros_ip_route_bgp_med }}"
+      check_gateway="{{ ros_ip_route_check_gateway }}"
+      disabled="{{ ros_ip_route_disabled }}"
+      gateway="{{ ros_ip_route_gateway }}"
+      routing_mark="{{ ros_ip_route_routing_mark }}"
+      type="{{ ros_ip_route_type }}"
+      bgp_communities="{{ ros_ip_route_bgp_communities }}"
+      bgp_origin="{{ ros_ip_route_bgp_origin }}"
+      comment="{{ ros_ip_route_comment }}"
+      distance="{{ ros_ip_route_distance }}"
+      pref_src="{{ ros_ip_route_pref_src }}"
+      scope="{{ ros_ip_route_scope }}"
+      vrf_interface="{{ ros_ip_route_vrf_interface }}"
+  register: iprouteout
+  delegate_to: localhost

@@ -1,0 +1,21 @@
+---
+# tasks file for ros_int_list
+- name: configure interface list
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_list_path }}"
+    add:
+      comment="{{ ros_int_list_comment }}"
+      copy-from="{{ ros_int_list_copy_from }}"
+      exclude="{{ ros_int_list_exclude }}"
+      include="{{ ros_int_list_include }}"
+      name="{{ ros_int_list_name }}"
+  register: intlistout
+  delegate_to: localhost
+
+- name: result int list
+  debug:
+    msg: '{{ intlistout }}'

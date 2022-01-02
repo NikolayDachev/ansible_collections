@@ -1,0 +1,36 @@
+# tasks file for ros_caps_man
+---
+- name: set caps-man manager
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_manager_path }}"
+    cmd:
+      set
+      ca-certificate="{{ ros_caps_man_manager_ca_certificate }}"
+      certificate="{{ ros_caps_man_manager_certificate }}"
+      enabled="{{ ros_caps_man_manager_enabled }}"
+      package-path="{{ ros_caps_man_manager_package_path }}"
+      require-peer-certificate="{{ ros_caps_man_manager_require_peer_certificate }}"
+      upgrade-policy="{{ ros_caps_man_manager_upgrade_policy }}"
+  register: roscapsmanmanager
+  delegate_to: localhost
+
+- name: add caps-man manager interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_manager_interface_path }}"
+    add:
+      comment="{{ ros_caps_man_manager_interface_comment }}"
+      copy-from="{{ ros_caps_man_manager_interface_copy_from }}"
+      disabled="{{ ros_caps_man_manager_interface_disabled }}"
+      forbid="{{ ros_caps_man_manager_interface_forbid }}"
+      interface="{{ ros_caps_man_manager_interface_interface }}"
+  register: roscapsmanmanagerinterface
+  delegate_to: localhost
+  when: ros_caps_man_manager_interface_interface

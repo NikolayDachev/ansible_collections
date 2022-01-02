@@ -8,7 +8,7 @@
     path: "{{ ros_certificates_path }}"
     cmd:
       issued-revoke
-      numbers={{ ros_certificates_issued_revoke }}
+      numbers="{{ ros_certificates_issued_revoke }}"
 
   register: certificateissuedrevoke
   delegate_to: localhost

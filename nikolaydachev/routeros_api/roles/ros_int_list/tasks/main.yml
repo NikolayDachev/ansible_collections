@@ -1,0 +1,6 @@
+---
+# tasks file for ros_int_list
+- import_tasks: add.yml
+  when: '"add" in ros_int_list_config'
+- import_tasks: member.yml
+  when: '"member" in ros_int_list_config'

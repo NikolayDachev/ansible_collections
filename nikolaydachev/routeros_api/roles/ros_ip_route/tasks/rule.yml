@@ -1,0 +1,22 @@
+---
+# tasks file for ros_ip_route
+- name: configure ip route rule
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_route_rule_path }}"
+    add:
+      action="{{ ros_ip_route_rule_action }}"
+      cmment="{{ ros_ip_route_rule_cmment }}"
+      copy_from="{{ ros_ip_route_rule_copy_from }}"
+      disabled="{{ ros_ip_route_rule_disabled }}"
+      dst_address="{{ ros_ip_route_rule_dst_address }}"
+      interface="{{ ros_ip_route_rule_interface }}"
+      place_before="{{ ros_ip_route_rule_place_before }}"
+      routing_mark="{{ ros_ip_route_rule_routing_mark }}"
+      src_address="{{ ros_ip_route_rule_src_address }}"
+      table="{{ ros_ip_route_rule_table }}"
+  register: iprouteruleout
+  delegate_to: localhost

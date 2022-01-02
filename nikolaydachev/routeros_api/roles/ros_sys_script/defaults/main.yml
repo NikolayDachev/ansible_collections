@@ -1,0 +1,18 @@
+---
+# defaults file for ros_sys_script
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_sys_script_path: "system script"
+ros_sys_script_run_script: "false"
+
+ros_sys_script_comment: ""
+ros_sys_script_copy_from: ""
+ros_sys_script_dont_require_permissions: ""
+ros_sys_script_name: ""
+ros_sys_script_owner: ""
+ros_sys_script_policy: ""
+ros_sys_script_source: ""
+

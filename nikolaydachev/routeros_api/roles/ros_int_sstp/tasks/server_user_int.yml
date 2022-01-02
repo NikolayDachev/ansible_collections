@@ -1,0 +1,21 @@
+---
+# tasks file for ros_int_sstp
+- name: configure sstp server interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_sstp_server_path }}"
+    add:
+      comment="{{ ros_int_sstp_server_interface_comment }}"
+      copy-from="{{ ros_int_sstp_server_interface_copy_from }}"
+      disabled="{{ ros_int_sstp_server_interface_disabled }}"
+      name="{{ ros_int_sstp_server_interface_name }}"
+      user="{{ ros_int_sstp_server_interface_user }}"
+  register: intsstpserverout
+  delegate_to: localhost
+
+- name: result sstp server interface config
+  debug:
+    msg: '{{ intsstpserverout }}'

@@ -1,0 +1,16 @@
+---
+# tasks file for ros7_routing_ospf
+- import_tasks: instance.yml
+  when: '"instance" in ros7_routing_ospf_config'
+
+- import_tasks: area.yml
+  when: '"area" in ros7_routing_ospf_config'
+
+- import_tasks: area_range.yml
+  when: '"area_range" in ros7_routing_ospf_config'
+
+- import_tasks: interface-template.yml
+  when: '"interface-template" in ros7_routing_ospf_config'
+
+- import_tasks: static-neighbor.yml
+  when: '"static-neighbor" in ros7_routing_ospf_config'

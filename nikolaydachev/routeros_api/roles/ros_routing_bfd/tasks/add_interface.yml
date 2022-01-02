@@ -7,13 +7,13 @@
     username: "{{ ros_username }}"
     path: "{{ ros_routing_bfd_interface_path }}"
     add:
-      comment={{ ros_routing_bfd_interface_comment }}
-      copy-from={{ ros_routing_bfd_interface_copy_from }}
-      disabled={{ ros_routing_bfd_interface_disabled }}
-      interval={{ ros_routing_bfd_interface_interval }}
-      min-rx={{ ros_routing_bfd_interface_min_rx }}
-      multiplier={{ ros_routing_bfd_interface_multiplier }}
-      interface={{ ros_routing_bfd_interface_interface }}
+      comment="{{ ros_routing_bfd_interface_comment }}"
+      copy-from="{{ ros_routing_bfd_interface_copy_from }}"
+      disabled="{{ ros_routing_bfd_interface_disabled }}"
+      interval="{{ ros_routing_bfd_interface_interval }}"
+      min-rx="{{ ros_routing_bfd_interface_min_rx }}"
+      multiplier="{{ ros_routing_bfd_interface_multiplier }}"
+      interface="{{ ros_routing_bfd_interface_interface }}"
   register: routingbfdinterfaceout
   delegate_to: localhost
   

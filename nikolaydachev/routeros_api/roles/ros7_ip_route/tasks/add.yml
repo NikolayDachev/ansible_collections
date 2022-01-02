@@ -1,0 +1,26 @@
+---
+# tasks file for ros7_ip_route/
+- name: configure ip route
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_ip_route_path }}"
+    add:
+      blackhole="{{ ros_ip_route_blackhole }}"
+      comment="{{ ros_ip_route_comment }}"
+      disabled="{{ ros_ip_route_disabled }}"
+      dst-address="{{ ros_ip_route_dst_address }}"
+      pref-src="{{ ros_ip_route_pref_src }}"
+      scope="{{ ros_ip_route_scope }}"
+      target-scope="{{ ros_ip_route_target_scope }}"
+      check-gateway="{{ ros_ip_route_check_gateway }}"
+      copy-from="{{ ros_ip_route_copy_from }}"
+      distance="{{ ros_ip_route_distance }}"
+      gateway="{{ ros_ip_route_gateway }}"
+      routing-table="{{ ros_ip_route_routing_table }}"
+      suppress-hw-offload="{{ ros_ip_route_suppress_hw_offload }}"
+      vrf-interface="{{ ros_ip_route_vrf_interface }}"
+  register: iprouteout
+  delegate_to: localhost

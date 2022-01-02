@@ -6,3 +6,4 @@
   ros_ssl: "true"
   
   ros_flush_path: ""
+  ros_flush_query: ".id dynamic WHERE dynamic == false"

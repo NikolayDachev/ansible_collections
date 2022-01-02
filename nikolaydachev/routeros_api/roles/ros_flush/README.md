@@ -1,7 +1,7 @@
 ros_flush
 =========
 
-This general role will flush/remove **ALL** configuration parameters for the given path via RouterOS API.  
+This general role will flush/remove **ALL** configuration parameters for the given path except dynamically created items by routeros via RouterOS API.  
 
 galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
 github: https://github.com/NikolayDachev/ansible_collections  

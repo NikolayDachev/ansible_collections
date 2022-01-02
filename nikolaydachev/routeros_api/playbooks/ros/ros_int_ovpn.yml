@@ -1,0 +1,11 @@
+- name: ros interface ovpn
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros_int_ovpn
+    ros_int_ovpn_config:
+      - server_user_int
+      - server
+      - client

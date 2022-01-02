@@ -1,0 +1,13 @@
+- name: ros7 interface wireguard
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros7_int_wireguard
+    ros7_routing_ospf_config:
+      - add
+      - peers
+
+
+

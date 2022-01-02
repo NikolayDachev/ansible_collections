@@ -1,0 +1,24 @@
+---
+# defaults file for ros_int_list
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_int_list_config: []
+
+ros_int_list_path: "interface list"
+ros_int_list_comment: ""
+ros_int_list_copy_from: ""
+ros_int_list_exclude: ""
+ros_int_list_include: ""
+ros_int_list_name: ""
+
+ros_int_list_member_path: "interface list member"
+ros_int_list_member_comment: ""
+ros_int_list_member_copy_from: ""
+ros_int_list_member_disabled: "no"
+ros_int_list_member_interface: ""
+ros_int_list_member_list: ""
+
+

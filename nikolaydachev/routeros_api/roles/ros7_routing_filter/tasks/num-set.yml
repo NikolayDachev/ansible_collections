@@ -1,0 +1,18 @@
+---
+# tasks file for ros7_routing_filter
+- name: configure routing filter num-set
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_filter_num_set_path }}"
+    add:
+      comment="{{ ros7_routing_filter_num_set_comment }}"
+      copy-from="{{ ros7_routing_filter_num_set_copy_from }}"
+      disabled="{{ ros7_routing_filter_num_set_disabled }}"
+      name="{{ ros7_routing_filter_num_set_name }}"
+      place-before="{{ ros7_routing_filter_num_set_place_before }}"
+      range="{{ ros7_routing_filter_num_set_range }}"
+  register: routingfilternumsetout
+  delegate_to: localhost

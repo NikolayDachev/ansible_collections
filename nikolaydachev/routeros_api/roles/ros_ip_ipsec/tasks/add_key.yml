@@ -10,8 +10,8 @@
         path: "{{ ros_ip_ipsec_key_path }}"
         cmd:
           generate-key
-          key-size={{ ros_ip_ipsec_key_generate_key_key_size }}
-          name={{ ros_ip_ipsec_key_generate_key_name }}
+          key-size="{{ ros_ip_ipsec_key_generate_key_key_size }}"
+          name="{{ ros_ip_ipsec_key_generate_key_name }}"
       register: ipseckeygeneratekey
       delegate_to: localhost
     - name: result configure ipsec key generate-key

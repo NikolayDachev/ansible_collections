@@ -1,0 +1,34 @@
+# tasks file for ros_caps_man
+---
+- name: Check if {{ ros_caps_man_security_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_security_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_security_name }}"
+
+- name: add caps-man security
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_security_path }}"
+    add:
+      authentication-types="{{ ros_caps_man_security_authentication_types }}"
+      comment="{{ ros_caps_man_security_comment }}"
+      copy-from="{{ ros_caps_man_security_copy_from }}"
+      disable-pmkid="{{ ros_caps_man_security_disable_pmkid }}"
+      eap-methods="{{ ros_caps_man_security_eap_methods }}"
+      eap-radius-accounting="{{ ros_caps_man_security_eap_radius_accounting }}"
+      encryption="{{ ros_caps_man_security_encryption }}"
+      group-encryption="{{ ros_caps_man_security_group_encryption }}"
+      group-key-update="{{ ros_caps_man_security_group_key_update }}"
+      passphrase="{{ ros_caps_man_security_passphrase }}"
+      tls-certificate="{{ ros_caps_man_security_tls_certificate }}"
+      tls-mode="{{ ros_caps_man_security_tls_mode }}"
+      name="{{ ros_caps_man_security_name }}"
+  register: roscapsmansecurity
+  delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'
+  

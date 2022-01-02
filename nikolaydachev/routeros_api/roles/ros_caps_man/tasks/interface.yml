@@ -1,0 +1,38 @@
+# tasks file for ros_caps_man
+---
+- name: Check if {{ ros_caps_man_interface_name }}" exist
+  include_role:
+        name: nikolaydachev.routeros_api.ros_query
+  vars:
+    ros_query_path: "{{ ros_caps_man_interface_path }}"
+    ros_query_for: "name WHERE  name == {{ ros_caps_man_interface_name }}"
+
+- name: add caps-man interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_interface_path }}"
+    add:
+      arp="{{ ros_caps_man_interface_arp }}"
+      channel="{{ ros_caps_man_interface_channel }}"
+      comment="{{ ros_caps_man_interface_comment }}"
+      datapath="{{ ros_caps_man_interface_datapath }}"
+      disable-running-check="{{ ros_caps_man_interface_disable_running_check }}"
+      l2mtu="{{ ros_caps_man_interface_l2mtu }}"
+      master-interface="{{ ros_caps_man_interface_master_interface }}"
+      name="{{ ros_caps_man_interface_name }}"
+      radio-name="{{ ros_caps_man_interface_radio_name }}"
+      security="{{ ros_caps_man_interface_security }}"
+      arp-timeout="{{ ros_caps_man_interface_arp_timeout }}"
+      configuration="{{ ros_caps_man_interface_configuration }}"
+      copy-from="{{ ros_caps_man_interface_copy_from }}"
+      disabled="{{ ros_caps_man_interface_disabled }}"
+      mac-address="{{ ros_caps_man_interface_mac_address }}"
+      mtu="{{ ros_caps_man_interface_mtu }}"
+      radio-mac="{{ ros_caps_man_interface_radio_mac }}"
+      rates="{{ ros_caps_man_interface_rates }}"
+  register: roscapsmaninterface
+  delegate_to: localhost
+  when: '"no results" in rosquery.msg[0]'

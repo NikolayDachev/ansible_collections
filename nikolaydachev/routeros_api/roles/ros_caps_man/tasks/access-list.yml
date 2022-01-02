@@ -1,0 +1,31 @@
+# tasks file for ros_caps_man
+---
+- name: add caps-man access-list
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_caps_man_access_list_path }}"
+    add:
+      action="{{ ros_caps_man_access_list_action }}"
+      ap-tx-limit="{{ ros_caps_man_access_list_ap_tx_limit }}"
+      client-tx-limit="{{ ros_caps_man_access_list_client_tx_limit }}"
+      copy-from="{{ ros_caps_man_access_list_copy_from }}"
+      interface="{{ ros_caps_man_access_list_interface }}"
+      mac-address-mask="{{ ros_caps_man_access_list_mac_address_mask }}"
+      private-passphrase="{{ ros_caps_man_access_list_private_passphrase }}"
+      signal-range="{{ ros_caps_man_access_list_signal_range }}"
+      time="{{ ros_caps_man_access_list_time }}"
+      vlan-mode="{{ ros_caps_man_access_list_vlan_mode }}"
+      allow-signal-out-of-range="{{ ros_caps_man_access_list_allow_signal_out_of_range }}"
+      client-to-client-forwarding="{{ ros_caps_man_access_list_client_to_client_forwarding }}"
+      comment="{{ ros_caps_man_access_list_comment }}"
+      disabled="{{ ros_caps_man_access_list_disabled }}"
+      mac-address="{{ ros_caps_man_access_list_mac_address }}"
+      place-before="{{ ros_caps_man_access_list_place_before }}"
+      radius-accounting="{{ ros_caps_man_access_list_radius_accounting }}"
+      ssid-regexp="{{ ros_caps_man_access_list_ssid_regexp }}"
+      vlan-id="{{ ros_caps_man_access_list_vlan_id }}"
+  register: roscapsmanaccesslist
+  delegate_to: localhost

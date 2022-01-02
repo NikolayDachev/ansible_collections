@@ -1,0 +1,15 @@
+---
+# defaults file for ros_ip_cloud
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_ip_cloud_path: "ip cloud"
+
+ros_ip_cloud_ddns_enabled: ""
+ros_ip_cloud_ddns_update_interval: ""
+ros_ip_cloud_update_time: ""
+
+ros_ip_cloud_advanced_path: "{{ ros_ip_cloud_path }} advanced"
+ros_ip_cloud_advanced_use_local_address: "no"

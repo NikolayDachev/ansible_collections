@@ -1,0 +1,30 @@
+---
+# tasks file for ros_int_sstp
+- name: configure sstp server interface
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros_int_sstp_server_server_path }}"
+    cmd:
+      set
+      authentication="{{ ros_int_sstp_server_server_authentication }}"
+      certificate="{{ ros_int_sstp_server_server_certificate }}"
+      default-profile="{{ ros_int_sstp_server_server_default_profile }}"
+      enabled="{{ ros_int_sstp_server_server_enabled }}"
+      keepalive_timeout="{{ ros_int_sstp_server_server_keepalive_timeout }}"
+      max-mru="{{ ros_int_sstp_server_server_max_mru }}"
+      max-mtu="{{ ros_int_sstp_server_server_max_mtu }}"
+      mrru="{{ ros_int_sstp_server_server_mrru }}"
+      pfs="{{ ros_int_sstp_server_server_pfs }}"
+      port="{{ ros_int_sstp_server_server_port }}"
+      tls-version="{{ ros_int_sstp_server_server_tls_version }}"
+      verify-client_certificate="{{ ros_int_sstp_server_server_verify_client_certificate }}"
+      #force-aes="{{ ros_int_sstp_server_server_force_aes }}"
+  register: intsstpserverout
+  delegate_to: localhost
+
+- name: result sstp server interface config
+  debug:
+    msg: '{{ intsstpserverout }}'

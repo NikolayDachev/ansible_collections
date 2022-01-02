@@ -1,0 +1,14 @@
+- name: ros7 routing filter
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  roles:
+  - role: nikolaydachev.routeros_api.ros7_routing_filter
+    ros7_routing_filter_config:
+      - rule
+      #- select-rule
+      #- num-set
+      #- community-set
+      #- community-ext-set
+      #- community-large-set

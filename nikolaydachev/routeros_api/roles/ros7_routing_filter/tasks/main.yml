@@ -1,0 +1,19 @@
+---
+# tasks file for ros7_routing_filter
+- include: rule.yml
+  when: '"rule" in ros7_routing_filter_config'
+
+- include: select-rule.yml
+  when: '"select-rule" in ros7_routing_filter_config'
+
+- include: num-set.yml
+  when: '"num-set" in ros7_routing_filter_config'
+
+- include: community-set.yml
+  when: '"community-set" in ros7_routing_filter_config'
+
+- include: community-ext-set.yml
+  when: '"community-ext-set" in ros7_routing_filter_config'
+
+- include: community-large-set.yml
+  when: '"community-large-set" in ros7_routing_filter_config'

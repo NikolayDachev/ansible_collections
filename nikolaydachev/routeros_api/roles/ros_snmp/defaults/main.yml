@@ -1,0 +1,35 @@
+---
+# defaults file for ros_snmp
+ros_hostname: "{{ inventory_hostname }}"
+ros_username: "admin"
+ros_password: ""
+ros_ssl: "true"
+
+ros_snmp_path: "snmp"
+ros_snmp_config: []
+
+# set
+ros_snmp_contact: ""
+ros_snmp_engine_id: ""
+ros_snmp_src_address: ""
+ros_snmp_trap_generators: ""
+ros_snmp_trap_target: ""
+ros_snmp_enabled: ""
+ros_snmp_location: ""
+ros_snmp_trap_community: ""
+ros_snmp_trap_interfaces: ""
+ros_snmp_trap_version: ""
+
+ros_snmp_community_path: "{{ ros_snmp_path }} community"
+ros_snmp_community_addresses: ""
+ros_snmp_community_authentication_protocol: ""
+ros_snmp_community_copy_from: ""
+ros_snmp_community_encryption_password: ""
+ros_snmp_community_name: ""
+ros_snmp_community_security: ""
+ros_snmp_community_authentication_password: ""
+ros_snmp_community_comment: ""
+ros_snmp_community_disabled: ""
+ros_snmp_community_encryption_protocol: ""
+ros_snmp_community_read_access: ""
+ros_snmp_community_write_access: ""

@@ -1,0 +1,22 @@
+---
+# tasks file for ros7_routing_ospf
+- name: add routing ospf area
+  community.routeros.api:
+    hostname: "{{ ros_hostname }}"
+    ssl: "{{ ros_ssl }}"
+    password: "{{ ros_password }}"
+    username: "{{ ros_username }}"
+    path: "{{ ros7_routing_ospf_area_path }}"
+    add:
+      area-id="{{ ros7_routing_ospf_area_area_id }}"
+      comment="{{ ros7_routing_ospf_area_comment }}"
+      copy-from="{{ ros7_routing_ospf_area_copy_from }}"
+      default-cost="{{ ros7_routing_ospf_area_default_cost }}"
+      disabled="{{ ros7_routing_ospf_area_disabled }}"
+      instance="{{ ros7_routing_ospf_area_instance }}"
+      name="{{ ros7_routing_ospf_area_name }}"
+      no-summaries="{{ ros7_routing_ospf_area_no_summaries }}"
+      nssa-translator="{{ ros7_routing_ospf_area_nssa_translator }}"
+      type="{{ ros7_routing_ospf_area_type }}"
+  register: routingospfareaout
+  delegate_to: localhost
