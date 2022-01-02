@@ -1,38 +1,92 @@
-Role Name
+ros_ppp
 =========
 
-A brief description of the role goes here.
+This general role will configure ppp atributes via RouterOS API.  
+  - aaa  
+  - l2tp-secret  
+  - profile  
+  - secret  
+
+https://help.mikrotik.com/docs/display/ROS
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+With general configuration variable this role can configure only selected RouterOS sub configurations.  
+
+Role var prefix: **ros_ppp**  
+General configuration variable: **ros_ppp_config** type list  
+Sub configuations:  
+  - aaa  
+  - l2tp-secret  
+  - profile  
+  - secret  
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "change-tcp-mss" is "change_tcp_mss", if profile is use the full var name is "ros_ppp_profile_change_tcp_mss"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros ppp
+  hosts: all
+  gather_facts: no
+  connection: local
+  ignore_errors: yes
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  tasks:
+    - name: Add PPP profile
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_ppp
+      vars:
+        ros_ppp_config:
+          - profile
+        ros_ppp_profile_comment: "added by ansible"
+        ros_ppp_profile_name: "test_profile"
+        ros_ppp_profile_local_address: "192.168.1.1"
+        ros_ppp_profile_remote_address: "192.168.1.2"
+        ros_ppp_profile_dns_server: "8.8.8.8"
+        ros_ppp_profile_use_encryption: "yes"
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+    - name: Add PPP secrets
+      include_role: 
+        name: nikolaydachev.routeros_api.ros_ppp
+      vars:
+       ros_ppp_config:
+         - secret
+       ros_ppp_secret_name: "test_secret"
+       ros_ppp_secret_password: "SUPER_PASS"
+       ros_ppp_secret_profile: "test_profile"
+       ros_ppp_secret_service: "any"
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)

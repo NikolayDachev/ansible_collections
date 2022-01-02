@@ -1,38 +1,83 @@
-Role Name
+ros_ip_dns
 =========
 
-A brief description of the role goes here.
+This general role will configure DNS via RouterOS API.  
+https://help.mikrotik.com/docs/display/ROS/DNS
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the the actual RouterOS property.  
+With general configuration variable this role can configure only selected RouterOS sub configurations.  
+note: _server_ is excluded for server vars(check defaults)!  
+
+Role var prefix: **ros_ip_dns**  
+General configuration variable: **ros_ip_dns_config** type list  
+Sub configuations:  
+- server  
+  RouterOS reference: https://help.mikrotik.com/docs/display/ROS/DNS  
+- static  
+  RouterOS reference: https://help.mikrotik.com/docs/display/ROS/DNS#DNS-DNSStatic  
+
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "max-udp-packet-size" is "max_udp_packet_size", if server is use, the full var name is "ros_ip_dns_max_udp_packet_size"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros ip dns
+  hosts: ros
+  gather_facts: no
+  connection: local
+  ignore_errors: yes
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+  tasks:
+  - name: Configure DNS
+    include_role: 
+      name: nikolaydachev.routeros_api.ros_ip_dns
+    vars:
+      ros_ip_dns_config:
+        - server
+      ros_ip_dns_allow_remote_requests: "yes"
+      ros_ip_dns_max_concurrent_queries: ""
+      ros_ip_dns_query_server_timeout: ""
+      ros_ip_dns_use_doh_server: "https://1.1.1.1/dns-query"
+      ros_ip_dns_cache_max_ttl: ""
+      ros_ip_dns_max_concurrent_tcp_sessions: ""
+      ros_ip_dns_query_total_timeout: ""
+      ros_ip_dns_verify_doh_cert: "yes"
+      ros_ip_dns_cache_size: ""
+      ros_ip_dns_max_udp_packet_size: ""
+      ros_ip_dns_servers: ""
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)
