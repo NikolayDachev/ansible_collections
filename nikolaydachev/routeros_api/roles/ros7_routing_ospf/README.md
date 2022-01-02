@@ -1,38 +1,146 @@
-Role Name
+ros7_routing_ospf
 =========
 
-A brief description of the role goes here.
+This general role will configure routing ospf via RouterOS API.  
+https://help.mikrotik.com/docs/pages/viewpage.action?pageId=328218  
+
+galaxy: https://galaxy.ansible.com/nikolaydachev/routeros_api  
+github: https://github.com/NikolayDachev/ansible_collections  
+
+NOTE: Work only for RouterOS 7 !  
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+module: [community.routeros.api](https://galaxy.ansible.com/community/routeros)  
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+https://docs.ansible.com/ansible/latest/collections/community/routeros/api_module.html  
+
+ros_hostname: "community.routeros.api hostname"  
+ros_username: "community.routeros.api username"  
+ros_password: "community.routeros.api password"  
+ros_ssl: "community.routeros.api ssl", default for this role is set to "true"  
+
+All role variables are combination from role name as prefix, general configuration variable and the actual RouterOS property.  
+With general configuration variable this role can configure only selected RouterOS sub configurations.  
+
+Role var prefix: **ros7_routing_ospf**  
+General configuration variable: **ros7_routing_ospf_config** type list  
+Sub configuations:  
+  - instance
+  - area
+  - area_range
+  - interface-template
+  - static-neighbor
+
+    RouterOS reference: https://help.mikrotik.com/docs/pages/viewpage.action?pageId=328218  
+
+
+NOTE: Any "-" from RouterOS property is replaced with "_" for example, "area-id" is "area_id", if area is use, the full var name is "ros7_routing_ospf_area_area_id"  
+
+Full variable list can be found under role defaults.  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
 
 Example Playbook
 ----------------
+```
+- name: ros7 routing ospf 
+  hosts: ros
+  gather_facts: no
+  connection: local
+  ignore_errors: yes
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  tasks:
+    - name: (ros7) Add routing ospf instance
+      include_role: 
+        name: nikolaydachev.routeros_api.ros7_routing_ospf
+      vars:
+        ros7_routing_ospf_config:
+          - instance
+        ros7_routing_ospf_instance_comment: ""
+        ros7_routing_ospf_instance_disabled: "no"
+        ros7_routing_ospf_instance_domain_tag: ""
+        ros7_routing_ospf_instance_mpls_te_address: ""
+        ros7_routing_ospf_instance_name: "default-v2"
+        ros7_routing_ospf_instance_out_filter_chain: "ospf-out"
+        ros7_routing_ospf_instance_redistribute: "connected"
+        ros7_routing_ospf_instance_routing_table: ""
+        ros7_routing_ospf_instance_version: ""
+        ros7_routing_ospf_instance_copy_from: ""
+        ros7_routing_ospf_instance_domain_id: ""
+        ros7_routing_ospf_instance_in_filter_chain: "ospf-in"
+        ros7_routing_ospf_instance_mpls_te_area: ""
+        ros7_routing_ospf_instance_originate_default: ""
+        ros7_routing_ospf_instance_out_filter_select: ""
+        ros7_routing_ospf_instance_router_id: ""
+        ros7_routing_ospf_instance_use_dn: ""
+        ros7_routing_ospf_instance_vrf: ""
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    - name: (ros7) Add routing ospf area
+      include_role: 
+        name: nikolaydachev.routeros_api.ros7_routing_ospf
+      vars:
+        ros7_routing_ospf_config:
+          - area
+        ros7_routing_ospf_area_area_id: "0.0.0.0"
+        ros7_routing_ospf_area_comment: ""
+        ros7_routing_ospf_area_copy_from: ""
+        ros7_routing_ospf_area_default_cost: ""
+        ros7_routing_ospf_area_disabled: "no"
+        ros7_routing_ospf_area_instance: "default-v2"
+        ros7_routing_ospf_area_name: "backbone"
+        ros7_routing_ospf_area_no_summaries: ""
 
+    # This task will flush all routing ospf interface-templates before next task !
+    #- name: ros flush routing ospf interface-template
+    #  import_role:
+    #    name: nikolaydachev.routeros_api.ros_flush
+    #  vars:
+    #    ros_flush_path: "routing ospf interface-template"
+    #    ros_flush_query: ".id"
+
+    - name: (ros7) Add routing ospf interface-template
+      include_role: 
+        name: nikolaydachev.routeros_api.ros7_routing_ospf
+      vars:
+        ros7_routing_ospf_config:
+          - interface-template
+         ros7_routing_ospf_interface_template_area: "backbone"
+         ros7_routing_ospf_interface_template_auth_key: ""
+         ros7_routing_ospf_interface_template_cost: ""
+         ros7_routing_ospf_interface_template_hello_interval: ""
+         ros7_routing_ospf_interface_template_networks: "10.0.0.1/32"
+         ros7_routing_ospf_interface_template_prefix_list: ""
+         ros7_routing_ospf_interface_template_transmit_delay: ""
+         ros7_routing_ospf_interface_template_vlink_transit_area: ""
+         ros7_routing_ospf_interface_template_auth: ""
+         ros7_routing_ospf_interface_template_comment: "loopback interface"
+         ros7_routing_ospf_interface_template_dead_interval: ""
+         ros7_routing_ospf_interface_template_instance_id: ""
+         ros7_routing_ospf_interface_template_passive: ""
+         ros7_routing_ospf_interface_template_priority: ""
+         ros7_routing_ospf_interface_template_type: ""
+         ros7_routing_ospf_interface_template_auth_id: ""
+         ros7_routing_ospf_interface_template_copy_from: ""
+         ros7_routing_ospf_interface_template_disabled: "no"
+         ros7_routing_ospf_interface_template_interfaces: "loopback"
+         ros7_routing_ospf_interface_template_place_before: ""
+         ros7_routing_ospf_interface_template_retransmit_interval: ""
+         ros7_routing_ospf_interface_template_vlink_neighbor_id: ""
+```
 License
 -------
 
-BSD
+GNU General Public License v3.0 or later.
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Nikolay Dachev (@NikolayDachev)
